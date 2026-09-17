@@ -15116,6 +15116,179 @@ html[data-font-theme="arcade"] .encyclopedia-page *{border-radius:2px!important}
   }
 }
 
+
+/* ============================================================
+   V5.0 MOBILE — MEGA FIX
+   Corrige cards oficiais cortados e botão inacessível.
+   ============================================================ */
+@media(max-width:1100px){
+  #megaGimmickModal .mega-modern-body{
+    display:flex!important;
+    flex-direction:column!important;
+    gap:10px!important;
+    width:100%!important;
+    min-width:0!important;
+    height:auto!important;
+    min-height:0!important;
+    max-height:none!important;
+    overflow-x:hidden!important;
+    overflow-y:auto!important;
+    padding-bottom:calc(26px + env(safe-area-inset-bottom,0px))!important;
+    -webkit-overflow-scrolling:touch;
+    overscroll-behavior-y:contain;
+  }
+
+  #megaGimmickModal .mega-library-section{
+    display:block!important;
+    flex:0 0 auto!important;
+    width:100%!important;
+    min-width:0!important;
+    height:auto!important;
+    min-height:0!important;
+    max-height:none!important;
+    overflow:visible!important;
+    contain:none!important;
+  }
+
+  #megaGimmickModal .mega-modern-list,
+  #megaGimmickModal .mega-options-list{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    grid-auto-rows:auto!important;
+    align-items:stretch!important;
+    width:100%!important;
+    min-width:0!important;
+    height:auto!important;
+    min-height:0!important;
+    max-height:none!important;
+    margin:0!important;
+    padding:9px!important;
+    gap:9px!important;
+    overflow:visible!important;
+  }
+
+  #megaGimmickModal .mega-option-card{
+    display:grid!important;
+    grid-template-columns:72px minmax(0,1fr)!important;
+    grid-template-rows:auto auto!important;
+    grid-template-areas:
+      "megaimage megainfo"
+      "megaaction megaaction"!important;
+    align-items:center!important;
+    align-content:start!important;
+    width:100%!important;
+    min-width:0!important;
+    height:auto!important;
+    min-height:0!important;
+    max-height:none!important;
+    padding:9px!important;
+    gap:8px!important;
+    overflow:visible!important;
+    position:relative!important;
+    box-sizing:border-box!important;
+  }
+
+  #megaGimmickModal .mega-option-card>img{
+    grid-area:megaimage!important;
+    grid-row:auto!important;
+    grid-column:auto!important;
+    width:70px!important;
+    height:70px!important;
+    max-width:70px!important;
+    object-fit:contain!important;
+  }
+
+  #megaGimmickModal .mega-option-card>div:not(.custom-mega-card-actions){
+    grid-area:megainfo!important;
+    grid-row:auto!important;
+    grid-column:auto!important;
+    min-width:0!important;
+    overflow:visible!important;
+  }
+
+  #megaGimmickModal .mega-option-name{
+    white-space:normal!important;
+    overflow:visible!important;
+    text-overflow:clip!important;
+    line-height:1.25!important;
+  }
+
+  #megaGimmickModal .mega-option-meta{
+    overflow:visible!important;
+    line-height:1.5!important;
+  }
+
+  #megaGimmickModal .mega-option-card>.mega-activate-btn{
+    grid-area:megaaction!important;
+    grid-row:auto!important;
+    grid-column:1/-1!important;
+    position:static!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    width:100%!important;
+    min-width:0!important;
+    min-height:50px!important;
+    height:auto!important;
+    margin:2px 0 0!important;
+    padding:11px 12px!important;
+    border-radius:8px!important;
+    opacity:1!important;
+    visibility:visible!important;
+    pointer-events:auto!important;
+    touch-action:manipulation!important;
+    cursor:pointer!important;
+    z-index:4!important;
+  }
+
+  #megaGimmickModal .mega-option-card>.mega-activate-btn::before{
+    content:"M";
+    display:grid;
+    place-items:center;
+    width:25px;
+    height:25px;
+    margin-right:8px;
+    border:1px solid rgba(255,255,255,.35);
+    border-radius:50%;
+    font-family:var(--font-display);
+    font-size:8px;
+  }
+
+  #megaGimmickModal .mega-modern-toolbar{
+    grid-template-columns:1fr!important;
+    width:100%!important;
+  }
+
+  #megaGimmickModal .mega-modern-toolbar-actions{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    width:100%!important;
+    gap:7px!important;
+  }
+
+  #megaGimmickModal .mega-modern-toolbar-actions .btn{
+    width:100%!important;
+    min-height:44px!important;
+  }
+
+  #megaGimmickModal .mega-library-section.saved,
+  #megaGimmickModal .mega-modern-builder{
+    flex:0 0 auto!important;
+  }
+}
+
+@media(max-width:430px){
+  #megaGimmickModal .mega-option-card{
+    grid-template-columns:62px minmax(0,1fr)!important;
+  }
+
+  #megaGimmickModal .mega-option-card>img{
+    width:60px!important;
+    height:60px!important;
+    max-width:60px!important;
+  }
+}
+
 </style>
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -22130,9 +22303,16 @@ async function loadMegaOptions(){
             BST ${option.bst}${option.abilityName?`<br>Ability: ${esc(option.abilityName)}`:""}
           </div>
         </div>
-        <button class="btn primary">Mega Evoluir</button>
+        <button type="button" class="btn primary mega-activate-btn" data-mega-api="${escAttr(option.apiName)}">MEGA EVOLUIR</button>
       `;
-      card.querySelector("button").onclick=()=>activateMegaEvolution(option.apiName);
+      const activateButton=card.querySelector(".mega-activate-btn");
+      if(activateButton){
+        activateButton.addEventListener("click",event=>{
+          event.preventDefault();
+          event.stopPropagation();
+          activateMegaEvolution(option.apiName);
+        });
+      }
       box.appendChild(card);
     });
   }catch(err){
@@ -28518,6 +28698,13 @@ document.getElementById("prepareZMoveBtn").onclick=prepareZMove;
 document.getElementById("usePreparedZMoveBtn").onclick=()=>consumeZMove();
 document.getElementById("resetZMoveBtn").onclick=resetZMove;
 document.getElementById("refreshMegaOptionsBtn").onclick=loadMegaOptions;
+document.getElementById("megaOptionsList")?.addEventListener("click",event=>{
+  const button=event.target.closest(".mega-activate-btn[data-mega-api]");
+  if(!button || event.defaultPrevented)return;
+  event.preventDefault();
+  event.stopPropagation();
+  activateMegaEvolution(button.dataset.megaApi);
+});
 document.getElementById("revertMegaBtn").onclick=()=>revertMegaEvolution();
 document.getElementById("saveCustomMegaBtn").onclick=createCustomMegaEvolution;
 document.getElementById("fillCustomMegaFromCurrentBtn").onclick=fillCustomMegaFromCurrent;
