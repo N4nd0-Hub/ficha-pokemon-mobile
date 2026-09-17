@@ -4,6 +4,8 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <title>Ficha Interativa - V5.0 • Jogador</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2064%2064%27%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%27g%27%20x1%3D%270%27%20x2%3D%270%27%20y1%3D%270%27%20y2%3D%271%27%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%270%27%20stop-color%3D%27%23ff4b4b%27/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%271%27%20stop-color%3D%27%23d91f26%27/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%3C/defs%3E%0A%20%20%3Ccircle%20cx%3D%2732%27%20cy%3D%2732%27%20r%3D%2729%27%20fill%3D%27%2311161d%27%20stroke%3D%27%230b0f14%27%20stroke-width%3D%272%27/%3E%0A%20%20%3Cpath%20d%3D%27M3%2032a29%2029%200%200%201%2058%200H3z%27%20fill%3D%27url%28%23g%29%27/%3E%0A%20%20%3Cpath%20d%3D%27M3%2032h58%27%20stroke%3D%27%23f3f4f6%27%20stroke-width%3D%276%27/%3E%0A%20%20%3Ccircle%20cx%3D%2732%27%20cy%3D%2732%27%20r%3D%2710.5%27%20fill%3D%27%23f3f4f6%27%20stroke%3D%27%2311161d%27%20stroke-width%3D%274%27/%3E%0A%20%20%3Ccircle%20cx%3D%2732%27%20cy%3D%2732%27%20r%3D%275.5%27%20fill%3D%27%237ec8ff%27/%3E%0A%3C/svg%3E" />
+<link rel="shortcut icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2064%2064%27%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%27g%27%20x1%3D%270%27%20x2%3D%270%27%20y1%3D%270%27%20y2%3D%271%27%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%270%27%20stop-color%3D%27%23ff4b4b%27/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%271%27%20stop-color%3D%27%23d91f26%27/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%3C/defs%3E%0A%20%20%3Ccircle%20cx%3D%2732%27%20cy%3D%2732%27%20r%3D%2729%27%20fill%3D%27%2311161d%27%20stroke%3D%27%230b0f14%27%20stroke-width%3D%272%27/%3E%0A%20%20%3Cpath%20d%3D%27M3%2032a29%2029%200%200%201%2058%200H3z%27%20fill%3D%27url%28%23g%29%27/%3E%0A%20%20%3Cpath%20d%3D%27M3%2032h58%27%20stroke%3D%27%23f3f4f6%27%20stroke-width%3D%276%27/%3E%0A%20%20%3Ccircle%20cx%3D%2732%27%20cy%3D%2732%27%20r%3D%2710.5%27%20fill%3D%27%23f3f4f6%27%20stroke%3D%27%2311161d%27%20stroke-width%3D%274%27/%3E%0A%20%20%3Ccircle%20cx%3D%2732%27%20cy%3D%2732%27%20r%3D%275.5%27%20fill%3D%27%237ec8ff%27/%3E%0A%3C/svg%3E" />
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen:wght@400;700&display=swap');
 
@@ -15289,6 +15291,562 @@ html[data-font-theme="arcade"] .encyclopedia-page *{border-radius:2px!important}
   }
 }
 
+
+/* ============================================================
+   V5.0 — MOBILE • Atualização consolidada da ficha
+   ============================================================ */
+@media(max-width:1100px){
+  /* Página Geral mais limpa */
+  #page1 .page-intro-general{
+    margin-top:7px!important;
+  }
+  #page1 .page-intro-general .page-intro-copy h3{
+    font-size:13px!important;
+  }
+  #page1 .page-intro-general .page-intro-copy p{
+    display:none!important;
+  }
+
+  #page1 .general-page-grid{
+    display:block!important;
+  }
+  #page1 .general-page-grid>.column{
+    display:block!important;
+    width:100%!important;
+  }
+  #page1 .general-page-grid>.column[hidden]{
+    display:none!important;
+  }
+
+  #page1 .mobile-general-identity{
+    margin-bottom:8px!important;
+  }
+  #page1 .mobile-general-identity #portrait{
+    min-height:230px!important;
+    height:230px!important;
+    margin:8px!important;
+  }
+  #page1 .mobile-general-identity #portrait img{
+    max-height:215px!important;
+  }
+  #page1 .mobile-general-identity>.panel-body{
+    padding:0 8px 8px!important;
+  }
+
+  #page1 .mobile-general-vitals-hidden{
+    display:none!important;
+  }
+
+  #page1 .mobile-general-type-strip{
+    display:flex!important;
+    align-items:center!important;
+    justify-content:space-between!important;
+    gap:6px!important;
+    min-height:44px!important;
+    margin:0 8px 6px!important;
+    padding:7px 8px!important;
+    border:1px solid color-mix(in srgb,#569ddc 42%,var(--line))!important;
+    border-left:4px solid #569ddc!important;
+    border-radius:8px!important;
+    background:var(--bg2)!important;
+  }
+  #page1 .mobile-general-type-strip .current-type-display-label{
+    margin:0!important;
+    font-size:4.5px!important;
+  }
+
+  #page1 .mobile-general-held-strip{
+    display:grid!important;
+    grid-template-columns:30px minmax(0,1fr)!important;
+    gap:7px!important;
+    align-items:center!important;
+    margin:0 8px 7px!important;
+    padding:7px 8px!important;
+    border:1px solid var(--line)!important;
+    border-left:4px solid #c9a23d!important;
+    border-radius:8px!important;
+    background:var(--bg2)!important;
+  }
+  #page1 .mobile-general-held-strip .field{
+    min-width:0!important;
+  }
+  #page1 .mobile-general-held-strip .field>label{
+    font-size:4.5px!important;
+  }
+
+  #page1 .mobile-general-drawer{
+    margin:0 0 6px!important;
+    overflow:hidden!important;
+    border:1px solid var(--line)!important;
+    border-left:4px solid #517b9a!important;
+    border-radius:8px!important;
+    background:var(--bg2)!important;
+  }
+  #page1 .mobile-general-drawer.search{
+    border-left-color:#dc4d58!important;
+  }
+  #page1 .mobile-general-drawer>summary{
+    display:grid!important;
+    grid-template-columns:30px minmax(0,1fr) 18px!important;
+    gap:7px!important;
+    align-items:center!important;
+    min-height:48px!important;
+    padding:7px 8px!important;
+    list-style:none!important;
+    cursor:pointer!important;
+  }
+  #page1 .mobile-general-drawer>summary::-webkit-details-marker{
+    display:none!important;
+  }
+  #page1 .mobile-general-drawer-icon{
+    display:grid!important;
+    place-items:center!important;
+    width:28px!important;
+    height:28px!important;
+    border:1px solid var(--line)!important;
+    border-radius:6px!important;
+    color:var(--accent)!important;
+    font-family:var(--pixel-font)!important;
+    font-size:5px!important;
+  }
+  #page1 .mobile-general-drawer>summary b{
+    display:block!important;
+    font-size:7px!important;
+  }
+  #page1 .mobile-general-drawer>summary small{
+    display:block!important;
+    margin-top:2px!important;
+    color:var(--muted)!important;
+    font-size:5px!important;
+  }
+  #page1 .mobile-general-drawer>summary i{
+    color:var(--muted)!important;
+    font-style:normal!important;
+    transition:transform .16s ease!important;
+  }
+  #page1 .mobile-general-drawer[open]>summary i{
+    transform:rotate(180deg)!important;
+  }
+  #page1 .mobile-general-drawer .pokemon-registry-console,
+  #page1 .mobile-general-drawer .pokemon-data-console{
+    margin:0!important;
+    border:0!important;
+    border-top:1px solid var(--line)!important;
+    border-radius:0!important;
+  }
+
+  /* Felicidade sob Radar */
+  #page1 .mobile-general-happiness-strip{
+    display:grid!important;
+    grid-template-columns:105px minmax(0,1fr)!important;
+    gap:8px!important;
+    align-items:center!important;
+    margin:8px 0!important;
+    padding:8px!important;
+    border-left:4px solid #e866c5!important;
+    background:
+      radial-gradient(circle at 0 50%,rgba(232,102,197,.10),transparent 34%),
+      var(--panel)!important;
+  }
+  #page1 .mobile-happiness-title{
+    display:flex!important;
+    align-items:center!important;
+    gap:7px!important;
+  }
+  #page1 .mobile-happiness-title>span{
+    display:grid!important;
+    place-items:center!important;
+    width:32px!important;
+    height:32px!important;
+    border:1px solid rgba(232,102,197,.45)!important;
+    border-radius:50%!important;
+    color:#f17acb!important;
+    font-size:13px!important;
+  }
+  #page1 .mobile-happiness-title small{
+    display:block!important;
+    color:#e866c5!important;
+    font-family:var(--pixel-font)!important;
+    font-size:3.8px!important;
+  }
+  #page1 .mobile-happiness-title b{
+    display:block!important;
+    margin-top:2px!important;
+    font-size:8px!important;
+  }
+  #page1 .mobile-happiness-content{
+    min-width:0!important;
+  }
+  #page1 .mobile-rainbow-happiness{
+    margin:0!important;
+    padding:0!important;
+    border:0!important;
+    background:transparent!important;
+  }
+
+  #page1 .mobile-rainbow-happiness .happiness-head{
+    display:flex!important;
+    align-items:center!important;
+    justify-content:flex-end!important;
+    gap:5px!important;
+    margin-bottom:5px!important;
+  }
+  #page1 .mobile-rainbow-happiness .happiness-head>label{
+    display:none!important;
+  }
+  #page1 .mobile-rainbow-happiness .happiness-number-wrap{
+    display:flex!important;
+    align-items:center!important;
+    gap:4px!important;
+  }
+  #page1 .mobile-rainbow-happiness .happiness-number{
+    width:64px!important;
+    min-width:64px!important;
+    height:34px!important;
+    min-height:34px!important;
+    padding:4px 6px!important;
+    border:1px solid color-mix(in srgb,#e866c5 45%,var(--line))!important;
+    border-radius:6px!important;
+    background:var(--bg)!important;
+    color:#fff!important;
+    font-family:var(--font-display)!important;
+    font-size:8px!important;
+    text-align:center!important;
+    appearance:textfield!important;
+  }
+  #page1 .mobile-rainbow-happiness .happiness-number::-webkit-inner-spin-button,
+  #page1 .mobile-rainbow-happiness .happiness-number::-webkit-outer-spin-button{
+    -webkit-appearance:none!important;
+  }
+  #page1 .mobile-rainbow-happiness .happiness-number-max{
+    color:var(--muted)!important;
+    font-family:var(--pixel-font)!important;
+    font-size:4px!important;
+  }
+  #page1 .mobile-rainbow-happiness .happiness-bar{
+    position:relative!important;
+    height:12px!important;
+    overflow:hidden!important;
+    border:1px solid rgba(255,255,255,.13)!important;
+    border-radius:999px!important;
+    background:linear-gradient(180deg,#60676d,#383e44)!important;
+    box-shadow:inset 0 2px 4px rgba(0,0,0,.32)!important;
+    animation:none!important;
+  }
+  #page1 .mobile-rainbow-happiness .happiness-fill{
+    position:absolute!important;
+    inset:0 auto 0 0!important;
+    height:100%!important;
+    width:0%;
+    border-radius:999px 4px 4px 999px!important;
+    background:
+      repeating-linear-gradient(
+        115deg,
+        #ff4f79 0 18px,#ff974e 18px 36px,#ffe05a 36px 54px,
+        #64df91 54px 72px,#55c7ff 72px 90px,#9275ff 90px 108px,
+        #ef68cf 108px 126px
+      )!important;
+    background-size:252px 100%!important;
+    box-shadow:0 0 9px rgba(85,199,255,.22),0 0 11px rgba(239,104,207,.16)!important;
+    transition:width .2s ease!important;
+    animation:mobileHappinessFlow 3.6s linear infinite!important;
+  }
+  @keyframes mobileHappinessFlow{
+    from{background-position:0 0}
+    to{background-position:252px 0}
+  }
+
+  /* Stack geral em ordem limpa */
+  #page1 .mobile-general-stack{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    gap:7px!important;
+    width:100%!important;
+    margin-top:7px!important;
+  }
+  #page1 .mobile-general-stack>.panel{
+    width:100%!important;
+    min-width:0!important;
+    margin:0!important;
+    overflow:hidden!important;
+  }
+  #page1 .mobile-general-collapsible>.panel-head{
+    position:relative!important;
+    min-height:45px!important;
+    padding-right:48px!important;
+  }
+  #page1 .mobile-general-collapse-btn{
+    position:absolute!important;
+    right:7px!important;
+    top:50%!important;
+    transform:translateY(-50%)!important;
+    display:grid!important;
+    place-items:center!important;
+    width:34px!important;
+    height:34px!important;
+    min-width:34px!important;
+    padding:0!important;
+    border:1px solid var(--line)!important;
+    border-radius:7px!important;
+    background:var(--bg2)!important;
+    color:var(--text)!important;
+    font-size:16px!important;
+  }
+  #page1 .mobile-general-collapsible.collapsed>.panel-head{
+    border-bottom:0!important;
+  }
+
+  /* Ability sem scroll interno */
+  #page1 .mobile-general-ability>.panel-body{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    gap:6px!important;
+  }
+  #page1 .mobile-general-ability #abilityName{
+    width:100%!important;
+    min-height:42px!important;
+  }
+  #page1 .mobile-general-ability #abilityText{
+    width:100%!important;
+    min-height:72px!important;
+    max-height:none!important;
+    overflow:hidden!important;
+    resize:none!important;
+    line-height:1.5!important;
+  }
+
+  /* Moves compactos */
+  #page1 .mobile-general-moves #moveMemoryBody{
+    max-height:470px!important;
+    overflow-y:auto!important;
+    overflow-x:hidden!important;
+    padding:7px!important;
+  }
+  #page1 .mobile-general-moves #memoryMoves{
+    display:grid!important;
+    gap:6px!important;
+  }
+  #page1 .mobile-general-moves #memoryMoves .move-card{
+    min-height:0!important;
+    height:auto!important;
+    padding:7px!important;
+    border-radius:7px!important;
+  }
+  #page1 .mobile-general-moves #memoryMoves .move-card-top{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    gap:5px!important;
+  }
+  #page1 .mobile-general-moves #memoryMoves .move-name{
+    margin-bottom:4px!important;
+    font-size:9px!important;
+  }
+  #page1 .mobile-general-moves #memoryMoves .move-meta{
+    gap:3px!important;
+  }
+  #page1 .mobile-general-moves #memoryMoves .move-meta .tag{
+    min-height:19px!important;
+    padding:3px 5px!important;
+    font-size:4.5px!important;
+  }
+  #page1 .mobile-general-moves #memoryMoves .move-description{
+    display:-webkit-box!important;
+    margin-top:5px!important;
+    max-height:31px!important;
+    overflow:hidden!important;
+    font-size:5.5px!important;
+    line-height:1.45!important;
+    -webkit-box-orient:vertical!important;
+    -webkit-line-clamp:2!important;
+  }
+  #page1 .mobile-general-moves #memoryMoves .move-actions{
+    display:flex!important;
+    flex-wrap:wrap!important;
+    gap:4px!important;
+    justify-content:flex-start!important;
+  }
+  #page1 .mobile-general-moves #memoryMoves .move-actions .btn{
+    min-height:32px!important;
+    height:32px!important;
+    padding:4px 7px!important;
+    font-size:4.5px!important;
+  }
+
+  /* Nature / adicionar move */
+  #page1 .mobile-general-nature .nature-grid,
+  #page1 .mobile-general-addmove .move-form,
+  #page1 .mobile-general-addmove .move-extra-form,
+  #page1 .mobile-general-addmove .move-auto-tools{
+    grid-template-columns:1fr!important;
+  }
+
+  /* Status */
+  .combat-hud-level-stack{
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:flex-end!important;
+    gap:3px!important;
+  }
+  .combat-status-badge{
+    display:inline-flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    min-width:46px!important;
+    height:17px!important;
+    margin:0!important;
+    padding:2px 6px!important;
+    border:1px solid rgba(15,20,24,.75)!important;
+    border-radius:3px!important;
+    background:var(--status-badge-bg,#777)!important;
+    color:var(--status-badge-text,#fff)!important;
+    font-family:var(--pixel-font)!important;
+    font-size:6px!important;
+    font-weight:700!important;
+    letter-spacing:.03em!important;
+    line-height:1!important;
+    text-shadow:0 1px 0 rgba(0,0,0,.3)!important;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.3),inset 0 -1px 0 rgba(0,0,0,.2)!important;
+  }
+  .combat-status-badge[hidden]{display:none!important}
+  .combat-status-badge.status-burn{--status-badge-bg:linear-gradient(180deg,#ff9a49,#df5c21);--status-badge-text:#fff7e8}
+  .combat-status-badge.status-poisoned{--status-badge-bg:linear-gradient(180deg,#c27be6,#8f42b8);--status-badge-text:#fff5ff}
+  .combat-status-badge.status-toxic{--status-badge-bg:linear-gradient(180deg,#7a41a9,#451b6f);--status-badge-text:#f5e9ff}
+  .combat-status-badge.status-paralyzed{--status-badge-bg:linear-gradient(180deg,#ffe86a,#d7b91c);--status-badge-text:#3b3200;text-shadow:none!important}
+  .combat-status-badge.status-asleep{--status-badge-bg:linear-gradient(180deg,#9aa9e8,#6477c4);--status-badge-text:#f7f8ff}
+  .combat-status-badge.status-frozen{--status-badge-bg:linear-gradient(180deg,#91f1ff,#4dbed9);--status-badge-text:#083746;text-shadow:none!important}
+  .combat-status-badge.status-confused{--status-badge-bg:linear-gradient(180deg,#f096cb,#c9509c);--status-badge-text:#fff4fb}
+  .combat-status-badge.status-deep-burn{--status-badge-bg:linear-gradient(180deg,#e85b4e,#9f251f);--status-badge-text:#fff2ef}
+  .combat-status-badge.status-exhausted{--status-badge-bg:linear-gradient(180deg,#adb5bb,#747d84);--status-badge-text:#101519;text-shadow:none!important}
+
+  .combat-conditions-grid{
+    grid-template-columns:1fr 1fr!important;
+    gap:5px!important;
+  }
+  .status-condition-button{
+    position:relative!important;
+    display:grid!important;
+    grid-template-columns:32px minmax(0,1fr)!important;
+    min-height:58px!important;
+    padding:6px!important;
+    border-color:color-mix(in srgb,var(--status-color,var(--line)) 30%,var(--line))!important;
+  }
+  .status-condition-button.active{
+    background:color-mix(in srgb,var(--status-color,var(--accent)) 12%,var(--bg2))!important;
+    border-color:var(--status-color,var(--accent))!important;
+    box-shadow:inset 3px 0 0 var(--status-color,var(--accent))!important;
+  }
+  .status-condition-button .condition-state{
+    grid-column:1/-1!important;
+    justify-self:start!important;
+    margin-left:39px!important;
+    font-size:3.8px!important;
+  }
+  .status-condition-button .condition-name{
+    font-size:5px!important;
+  }
+  .status-condition-button .condition-copy small{
+    font-size:3.2px!important;
+  }
+
+  :root{
+    --status-burn:#f07b2f;
+    --status-poisoned:#a65bd7;
+    --status-toxic:#54207e;
+    --status-paralyzed:#f0d438;
+    --status-asleep:#748bd4;
+    --status-frozen:#62d8ef;
+    --status-confused:#e46db8;
+    --status-deep-burn:#c63e31;
+    --status-exhausted:#9ca6ad;
+  }
+  .status-burn{--status-color:var(--status-burn);color:var(--status-burn)!important}
+  .status-poisoned{--status-color:var(--status-poisoned);color:var(--status-poisoned)!important}
+  .status-toxic{--status-color:var(--status-toxic);color:#b982e4!important}
+  .status-paralyzed{--status-color:var(--status-paralyzed);color:var(--status-paralyzed)!important}
+  .status-asleep{--status-color:var(--status-asleep);color:var(--status-asleep)!important}
+  .status-frozen{--status-color:var(--status-frozen);color:var(--status-frozen)!important}
+  .status-confused{--status-color:var(--status-confused);color:var(--status-confused)!important}
+  .status-deep-burn{--status-color:var(--status-deep-burn);color:#ef7368!important}
+  .status-exhausted{--status-color:var(--status-exhausted);color:var(--status-exhausted)!important}
+
+  .status-css-icon{
+    position:relative!important;
+    display:grid!important;
+    place-items:center!important;
+    width:30px!important;
+    height:30px!important;
+    overflow:hidden!important;
+    border:1px solid color-mix(in srgb,var(--status-color,#7a8790) 48%,var(--line))!important;
+    border-radius:6px!important;
+    background:color-mix(in srgb,var(--status-color,#7a8790) 9%,var(--panel2))!important;
+  }
+  .status-css-icon>i,.status-css-icon::before,.status-css-icon::after{
+    content:"";
+    position:absolute;
+    display:block;
+    box-sizing:border-box;
+  }
+  .status-icon-burn>i{width:13px;height:18px;bottom:5px;background:var(--status-burn);border-radius:70% 20% 65% 45%;transform:rotate(45deg)}
+  .status-icon-burn::after{width:7px;height:10px;bottom:7px;background:#ffd45f;border-radius:70% 20% 65% 45%;transform:rotate(45deg)}
+  .status-icon-poison>i{width:7px;height:7px;border-radius:50%;background:var(--status-poisoned);box-shadow:9px -5px 0 -1px var(--status-poisoned),-7px -6px 0 -2px #d29af2,6px 8px 0 -2px #7132a1}
+  .status-icon-paralyzed>i{width:16px;height:21px;background:var(--status-paralyzed);clip-path:polygon(44% 0,90% 0,62% 38%,94% 38%,28% 100%,42% 55%,8% 55%)}
+  .status-icon-sleep>i{width:17px;height:17px;border-radius:50%;background:var(--status-asleep);transform:translate(-3px,-1px)}
+  .status-icon-sleep::after{width:16px;height:16px;border-radius:50%;background:var(--panel2);transform:translate(5px,-5px)}
+  .status-icon-frozen>i{width:4px;height:21px;background:var(--status-frozen);border-radius:99px}
+  .status-icon-frozen::before{width:21px;height:4px;background:var(--status-frozen);border-radius:99px}
+  .status-icon-frozen::after{width:21px;height:4px;background:var(--status-frozen);border-radius:99px;transform:rotate(45deg)}
+  .status-icon-confused>i{width:18px;height:18px;border:3px solid var(--status-confused);border-left-color:transparent;border-radius:50%}
+  .status-icon-confused::after{width:8px;height:8px;border:2px solid var(--status-confused);border-bottom-color:transparent;border-radius:50%}
+  .status-icon-deep-burn>i{width:14px;height:19px;bottom:5px;background:var(--status-deep-burn);border-radius:70% 20% 65% 45%;transform:rotate(45deg)}
+  .status-icon-deep-burn::after{width:7px;height:11px;bottom:7px;background:#ff8a42;border-radius:70% 20% 65% 45%;transform:rotate(45deg)}
+  .status-icon-exhausted>i{width:18px;height:3px;background:var(--status-exhausted);border-radius:99px;box-shadow:0 7px 0 -1px var(--status-exhausted),-5px -7px 0 -1px var(--status-exhausted)}
+
+  .status-condition-button.status-toxic{
+    border-color:color-mix(in srgb,var(--status-toxic) 48%,var(--line))!important;
+  }
+  .status-condition-button.status-toxic.active{
+    background:color-mix(in srgb,var(--status-toxic) 18%,var(--bg2))!important;
+    border-color:#7540a6!important;
+    box-shadow:inset 3px 0 0 #54207e!important;
+  }
+  .status-condition-button.status-toxic .status-css-icon{
+    background:linear-gradient(145deg,#3b145d,#6e3193)!important;
+    border-color:#7540a6!important;
+  }
+
+  /* Pixel art de itens */
+  .item-pixel-shell{
+    display:grid!important;
+    place-items:center!important;
+  }
+  .item-pixel-shell img,
+  .bag-pixel-icon img,
+  .held-pixel-icon img,
+  .pokeapi-item-orb img,
+  .trainer-bag-icon img,
+  .combat-bag-smart-icon img,
+  .bag-smart-icon img,
+  .capture-ball-pixel img{
+    display:block!important;
+    width:100%!important;
+    height:100%!important;
+    object-fit:contain!important;
+    image-rendering:pixelated!important;
+    image-rendering:crisp-edges!important;
+  }
+  .bag-pixel-icon{width:30px!important;height:30px!important}
+  .held-pixel-icon{width:27px!important;height:27px!important}
+  .pokeapi-item-orb{width:34px!important;height:34px!important;padding:2px!important}
+  .item-pixel-fallback{display:grid!important;place-items:center!important;width:100%!important;height:100%!important;color:var(--muted)!important}
+  .capture-ball-visual{padding:4px!important}
+  .capture-ball-visual img{image-rendering:pixelated!important}
+}
+
+@media(max-width:360px){
+  .combat-conditions-grid{grid-template-columns:1fr!important}
+  #page1 .mobile-general-happiness-strip{grid-template-columns:1fr!important}
+}
+
 </style>
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -15612,16 +16170,31 @@ html[data-font-theme="arcade"] .encyclopedia-page *{border-radius:2px!important}
 
                   <div class="happiness-box pokemon-happiness-box">
                     <div class="happiness-head">
-                      <label>Felicidade</label>
-                      <span class="happiness-value"><span id="happinessValue">0</span> / 255</span>
+                      <label for="happiness">Felicidade</label>
+                      <div class="happiness-number-wrap">
+                        <input
+                          class="input happiness-number"
+                          id="happiness"
+                          type="number"
+                          min="0"
+                          max="255"
+                          step="1"
+                          inputmode="numeric"
+                          value="0"
+                          aria-label="Felicidade do Pokémon de 0 a 255"
+                        />
+                        <span class="happiness-number-max">/ 255</span>
+                        <span id="happinessValue" hidden>0</span>
+                      </div>
                     </div>
-                    <input class="happiness-range" id="happiness" type="range" min="0" max="255" step="1" value="0" />
-                    <div class="happiness-bar"><div class="happiness-fill" id="happinessFill"></div></div>
+                    <div class="happiness-bar" aria-hidden="true">
+                      <div class="happiness-fill" id="happinessFill"></div>
+                    </div>
                   </div>
                 </div>
 
                 <div class="pokemon-held-item-console">
-                  <span class="pokemon-held-item-icon">◆</span>
+                  <span class="pokemon-held-item-icon" id="generalHeldItemPixelIcon">◆</span>
                   <div class="field">
                     <label>Item Segurado</label>
                     <div class="held-item-api-row">
@@ -23146,6 +23719,8 @@ function renderCombatPage(){
     ? `${heldDescription}${heldAutomation?`\n\n⚙ ${itemAutomationMode(heldRecord)} — ${heldAutomation}`:""}`
     : "Este Pokémon não está segurando um item.";
 
+  renderCombatStatusAndItemUi();
+
   applyCombatItemUi();
   applyCombatExtraPanelsUi();
   renderCombatParty();
@@ -23676,7 +24251,9 @@ function useBagItem(slug){
   if(spec.kind==="cureCondition"){
     const removable=spec.condition==="Queimado"
       ?["Queimado","Deep Burn"]
-      :[spec.condition];
+      :spec.condition==="Envenenado"
+        ?["Envenenado","Toxic"]
+        :[spec.condition];
 
     const before=(current.conditions||[]).length;
     current.conditions=(current.conditions||[]).filter(condition=>!removable.includes(condition));
@@ -24077,7 +24654,9 @@ function updateCaptureModal(){
 
   document.getElementById("captureBallName").textContent=ballName;
   document.getElementById("captureBallQuantity").textContent=`${quantity} na Bolsa`;
-  document.getElementById("captureBallVisual").textContent="◓";
+  document.getElementById("captureBallVisual").innerHTML=item
+    ?itemPixelIconHtml({...item,custom:false},"capture-ball-pixel")
+    :'<span class="item-pixel-fallback">◓</span>';
   document.getElementById("captureBallBonus").textContent=rule.auto?"AUTO":`${rule.bonus>=0?"+":""}${rule.bonus} NAC`;
 
   document.getElementById("captureThrowTarget").textContent=String(throwData.total);
@@ -26684,7 +27263,7 @@ function renderItemMemory(){
     const meta=[item.categoryPt||"",item.pokeApi?"PokéAPI":"Original",item.cost?`₽ ${Number(item.cost).toLocaleString("pt-BR")}`:"",item.flingPower!=null?`Fling ${item.flingPower}`:""].filter(Boolean);
     card.innerHTML=`
       <div class="memory-card-top"><div class="pokeapi-item-main">
-        <div class="pokeapi-item-title-row"><span class="pokeapi-item-orb">${item.pokeApi?"API":"◆"}</span><div><div class="move-name">${esc(item.name)}</div><div class="pokeapi-item-meta">${meta.map(v=>`<span>${esc(v)}</span>`).join("")}</div></div></div>
+        <div class="pokeapi-item-title-row">${itemPixelIconHtml(item,"pokeapi-item-orb")}<div><div class="move-name">${esc(item.name)}</div><div class="pokeapi-item-meta">${meta.map(v=>`<span>${esc(v)}</span>`).join("")}</div></div></div>
         ${current.heldItem===item.name?'<div class="equipped-badge">Item equipado</div>':""}
         ${automation?`<div class="item-automation-badge"><b>⚙ ${esc(itemAutomationMode(item))}</b><span>${esc(automation)}</span></div>`:'<div class="item-automation-badge manual"><b>MANUAL</b><span>O efeito depende de um evento que a ficha não consegue detectar automaticamente.</span></div>'}
         <div class="item-description">${esc(item.description||"Sem descrição.")}</div>
@@ -27264,13 +27843,25 @@ function updateHp(){
   updateCombatHp();
 }
 function updateHappiness(){
-  current.happiness=Math.max(0,Math.min(255,Number(current.happiness||0)));
+  current.happiness=Math.max(0,Math.min(255,Math.round(Number(current.happiness||0))));
   const input=document.getElementById("happiness");
   const value=document.getElementById("happinessValue");
   const fill=document.getElementById("happinessFill");
+  const bar=fill?.parentElement;
+
   if(input) input.value=current.happiness;
   if(value) value.textContent=current.happiness;
-  if(fill) fill.style.width=`${(current.happiness/255)*100}%`;
+
+  const pct=(current.happiness/255)*100;
+  if(fill) fill.style.width=`${pct}%`;
+
+  if(bar){
+    bar.setAttribute("role","progressbar");
+    bar.setAttribute("aria-label","Felicidade");
+    bar.setAttribute("aria-valuemin","0");
+    bar.setAttribute("aria-valuemax","255");
+    bar.setAttribute("aria-valuenow",String(current.happiness));
+  }
 }
 const CONDITION_ICONS={
   "Paralisado":"⚡","Dormindo":"💤","Envenenado":"☠️","Queimado":"🔥",
@@ -27317,6 +27908,767 @@ function renderConditions(){
     box.appendChild(b);
   });
 }
+
+/* ============================================================
+   V5.0 — Status de Combate + Sprites de Itens PokéAPI
+   ============================================================ */
+const STATUS_CONDITION_META={
+  "Queimado":{
+    label:"Burn",css:"burn",icon:"burn",
+    description:"Perde 1d3 de HP ao fim de cada rodada. Moves Physical sofrem −1d6 no dano final."
+  },
+  "Envenenado":{
+    label:"Poisoned",css:"poisoned",icon:"poison",
+    description:"Perde 1d6 de HP ao fim de cada rodada. Clique novamente enquanto Poisoned estiver ativo para evoluir para Toxic."
+  },
+  "Toxic":{
+    label:"Toxic",css:"toxic",icon:"poison",
+    description:"Veneno severo progressivo. Começa causando 1d6 ao fim da rodada e aumenta +1d6 a cada rodada seguinte."
+  },
+  "Paralisado":{
+    label:"Paralyzed",css:"paralyzed",icon:"paralyzed",
+    description:"Speed −50%. Ao iniciar uma nova rodada, role 1d4; em 1, o Pokémon perde a próxima ação."
+  },
+  "Dormindo":{
+    label:"Asleep",css:"asleep",icon:"sleep",
+    description:"Não pode agir durante 1d3 rodadas. Ataques físicos ainda podem exigir a checagem de despertar descrita pela regra."
+  },
+  "Congelado":{
+    label:"Frozen",css:"frozen",icon:"frozen",
+    description:"Não age nem usa Evasiva. Ao iniciar uma nova rodada, role 1d6; em 5–6, descongela."
+  },
+  "Confuso":{
+    label:"Confused",css:"confused",icon:"confused",
+    description:"Dura 1d3 rodadas. Em cada nova rodada role 1d6; em 1–3 sofre 1d6 de dano e perde a próxima ação; em 4–6 age normalmente."
+  },
+  "Deep Burn":{
+    label:"Deep Burn",css:"deep-burn",icon:"deep-burn",
+    description:"Perde 1d6 de HP ao fim de cada rodada. Dano Physical é reduzido à metade após bônus e STAB."
+  },
+  "Exaustão":{
+    label:"Exhausted",css:"exhausted",icon:"exhausted",
+    description:"Ao usar Evasiva, perde 1d6 de Vida. O dano depende do momento em que a Evasiva é usada."
+  }
+};
+
+const STATUS_BUTTON_ORDER=[
+  "Queimado","Envenenado","Toxic","Paralisado","Dormindo",
+  "Congelado","Confuso","Deep Burn","Exaustão"
+];
+
+const STATUS_ENGLISH_TO_INTERNAL={
+  "burn":"Queimado",
+  "poisoned":"Envenenado",
+  "poison":"Envenenado",
+  "toxic":"Toxic",
+  "paralyzed":"Paralisado",
+  "paralysed":"Paralisado",
+  "asleep":"Dormindo",
+  "sleep":"Dormindo",
+  "frozen":"Congelado",
+  "confused":"Confuso",
+  "deep burn":"Deep Burn",
+  "exhausted":"Exaustão"
+};
+
+if(typeof ITEM_CURABLE_CONDITIONS!=="undefined"&&!ITEM_CURABLE_CONDITIONS.includes("Toxic")){
+  ITEM_CURABLE_CONDITIONS.push("Toxic");
+}
+
+function normalizeStatusInternalName(value){
+  const raw=String(value||"").trim();
+  if(STATUS_CONDITION_META[raw])return raw;
+  return STATUS_ENGLISH_TO_INTERNAL[raw.toLowerCase()]||"";
+}
+
+function ensureStatusRuntime(p){
+  if(!p.statusRuntime||typeof p.statusRuntime!=="object")p.statusRuntime={};
+  const runtime=p.statusRuntime;
+
+  runtime.toxicStage=Math.max(1,Math.trunc(Number(runtime.toxicStage||1)));
+  runtime.sleepRemaining=Math.max(0,Math.trunc(Number(runtime.sleepRemaining||0)));
+  runtime.confusionRemaining=Math.max(0,Math.trunc(Number(runtime.confusionRemaining||0)));
+  runtime.actionBlocked=!!runtime.actionBlocked;
+  runtime.lastRoll=String(runtime.lastRoll||"");
+  runtime.lastRoundMessage=String(runtime.lastRoundMessage||"");
+
+  return runtime;
+}
+
+function normalizePokemonStatusCondition(p){
+  if(!Array.isArray(p.conditions))p.conditions=[];
+
+  const known=p.conditions
+    .map(normalizeStatusInternalName)
+    .filter(Boolean);
+
+  /* Regra desta interface: uma condição principal por vez. */
+  p.conditions=known.length?[known[0]]:[];
+
+  const runtime=ensureStatusRuntime(p);
+  const status=p.conditions[0]||"";
+
+  if(status!=="Toxic")runtime.toxicStage=1;
+  if(status!=="Dormindo")runtime.sleepRemaining=0;
+  if(status!=="Confuso")runtime.confusionRemaining=0;
+  if(!status){
+    runtime.actionBlocked=false;
+    runtime.lastRoll="";
+    runtime.lastRoundMessage="";
+  }
+
+  return status;
+}
+
+function activeStatusCondition(p=current){
+  return normalizePokemonStatusCondition(p);
+}
+
+function statusConditionMeta(status){
+  return STATUS_CONDITION_META[normalizeStatusInternalName(status)]||null;
+}
+
+function statusConditionLabel(status){
+  return statusConditionMeta(status)?.label||"";
+}
+
+function rollStatusDice(count=1,sides=6){
+  const rolls=[];
+  for(let i=0;i<count;i++)rolls.push(Math.floor(Math.random()*sides)+1);
+  return rolls;
+}
+
+function statusDiceTotal(count=1,sides=6){
+  const rolls=rollStatusDice(count,sides);
+  return {rolls,total:rolls.reduce((sum,value)=>sum+value,0)};
+}
+
+function resetStatusRuntimeFor(p,status){
+  const runtime=ensureStatusRuntime(p);
+  runtime.toxicStage=1;
+  runtime.sleepRemaining=status==="Dormindo"?statusDiceTotal(1,3).total:0;
+  runtime.confusionRemaining=status==="Confuso"?statusDiceTotal(1,3).total:0;
+  runtime.actionBlocked=false;
+  runtime.lastRoll="";
+  runtime.lastRoundMessage="";
+}
+
+function setPokemonStatusCondition(p,status,{allowToxicEvolution=false}={}){
+  const next=normalizeStatusInternalName(status);
+  const currentStatus=activeStatusCondition(p);
+
+  if(!next){
+    p.conditions=[];
+    resetStatusRuntimeFor(p,"");
+    return "";
+  }
+
+  if(allowToxicEvolution&&next==="Envenenado"&&currentStatus==="Envenenado"){
+    p.conditions=["Toxic"];
+    resetStatusRuntimeFor(p,"Toxic");
+    return "Toxic";
+  }
+
+  if(currentStatus===next){
+    p.conditions=[];
+    resetStatusRuntimeFor(p,"");
+    return "";
+  }
+
+  if(currentStatus==="Toxic"&&next==="Envenenado"){
+    p.conditions=[];
+    resetStatusRuntimeFor(p,"");
+    return "";
+  }
+
+  p.conditions=[next];
+  resetStatusRuntimeFor(p,next);
+  return next;
+}
+
+function statusFamilyMatches(actual,wanted){
+  actual=normalizeStatusInternalName(actual);
+  wanted=normalizeStatusInternalName(wanted);
+
+  if(wanted==="Envenenado")return actual==="Envenenado"||actual==="Toxic";
+  if(wanted==="Queimado")return actual==="Queimado"||actual==="Deep Burn";
+  return actual===wanted;
+}
+
+function statusSidebarButtonState(baseStatus){
+  const active=activeStatusCondition(current);
+
+  return {
+    active:active===baseStatus,
+    actual:baseStatus,
+    meta:STATUS_CONDITION_META[baseStatus]
+  };
+}
+
+function statusLiveDetail(p,status){
+  const runtime=ensureStatusRuntime(p);
+
+  if(status==="Toxic"){
+    return `Próximo dano: ${runtime.toxicStage}d6 • após a rodada passa para ${runtime.toxicStage+1}d6.`;
+  }
+
+  if(status==="Dormindo"&&runtime.sleepRemaining>0){
+    return `Duração restante: ${runtime.sleepRemaining} rodada${runtime.sleepRemaining===1?"":"s"}.`;
+  }
+
+  if(status==="Confuso"&&runtime.confusionRemaining>0){
+    return `Duração restante: ${runtime.confusionRemaining} rodada${runtime.confusionRemaining===1?"":"s"}.`;
+  }
+
+  if(runtime.actionBlocked){
+    return "⚠ Próxima ação bloqueada pela condição.";
+  }
+
+  return runtime.lastRoundMessage||"";
+}
+
+function ensureCombatStatusBadgeUi(){
+  const hud=document.querySelector(".combat-hud");
+  const types=document.getElementById("combatTypeBadges");
+  if(!hud||!types)return null;
+
+  let badge=document.getElementById("combatStatusBadge");
+  if(!badge){
+    badge=document.createElement("div");
+    badge.id="combatStatusBadge";
+    badge.className="combat-status-badge";
+    types.insertAdjacentElement("afterend",badge);
+  }
+
+  return badge;
+}
+
+function renderCombatStatusBadge(){
+  const badge=ensureCombatStatusBadgeUi();
+  if(!badge)return;
+
+  const status=activeStatusCondition(current);
+  const meta=statusConditionMeta(status);
+
+  if(!status||!meta){
+    badge.hidden=true;
+    badge.className="combat-status-badge";
+    badge.textContent="";
+    badge.removeAttribute("title");
+    return;
+  }
+
+  badge.hidden=false;
+  badge.className=`combat-status-badge status-${meta.css}`;
+  badge.textContent=`[${meta.label.toUpperCase()}]`;
+
+  const live=statusLiveDetail(current,status);
+  badge.title=[meta.description,live].filter(Boolean).join(" • ");
+}
+
+function renderConditions(){
+  normalizePokemonStatusCondition(current);
+
+  const box=document.getElementById("conditions");
+  const count=document.getElementById("conditionActiveCount");
+  const title=document.getElementById("conditionInfoTitle");
+  const text=document.getElementById("conditionInfoText");
+  if(!box||!count||!title||!text)return;
+
+  const active=activeStatusCondition(current);
+  count.textContent=active?"1":"0";
+  box.innerHTML="";
+
+  const selected=normalizeStatusInternalName(renderConditions.selectedName)||active;
+
+  if(selected&&STATUS_CONDITION_META[selected]){
+    const meta=STATUS_CONDITION_META[selected];
+    title.innerHTML=`<span class="condition-info-badge status-${meta.css}">[${esc(meta.label.toUpperCase())}]</span>`;
+    const live=statusLiveDetail(current,selected);
+    text.textContent=[meta.description,live].filter(Boolean).join(" ");
+  }else{
+    title.textContent="Nenhuma condição ativa";
+    text.textContent="Escolha uma condição. Apenas uma condição principal pode permanecer ativa por vez.";
+  }
+
+  STATUS_BUTTON_ORDER.forEach(baseStatus=>{
+    const state=statusSidebarButtonState(baseStatus);
+    const meta=state.meta;
+    const button=document.createElement("button");
+
+    button.type="button";
+    button.className=`condition status-condition-button status-${meta.css}${state.active?" active":""}`;
+    button.dataset.condition=baseStatus;
+
+    const poisonHint=baseStatus==="Envenenado"&&state.active&&state.actual==="Envenenado"
+      ?'<small>CLIQUE NOVAMENTE → TOXIC</small>'
+      :"";
+
+    button.innerHTML=`
+      <span class="condition-icon status-css-icon status-icon-${meta.icon}" aria-hidden="true"><i></i></span>
+      <span class="condition-copy">
+        <span class="condition-name">[${esc(meta.label)}]</span>
+        ${poisonHint}
+      </span>
+      <span class="condition-state">${state.active?"ATIVA":"INATIVA"}</span>
+    `;
+
+    button.addEventListener("click",()=>{
+      const before=activeStatusCondition(current);
+      const after=setPokemonStatusCondition(
+        current,
+        baseStatus,
+        {allowToxicEvolution:true}
+      );
+
+      renderConditions.selectedName=after||baseStatus;
+
+      let itemMessages=[];
+      if(after&&after!==before){
+        itemMessages=processHeldItemConditionTrigger(current);
+      }
+
+      renderConditions();
+      renderMoves();
+      renderItemMemory();
+      renderCombatPage();
+      renderPageOverview();
+      debouncedSave();
+
+      if(itemMessages.length)refreshAfterItemAutomation(itemMessages);
+
+      const afterMeta=statusConditionMeta(after);
+      if(afterMeta){
+        showToast(`${afterMeta.label} aplicado em ${current.name}.`);
+      }else if(before){
+        showToast(`${statusConditionLabel(before)} removido de ${current.name}.`);
+      }
+    });
+
+    box.appendChild(button);
+  });
+
+  renderCombatStatusBadge();
+}
+
+function processStatusConditionRound(p){
+  const status=activeStatusCondition(p);
+  if(!status)return [];
+
+  const meta=statusConditionMeta(status);
+  const runtime=ensureStatusRuntime(p);
+  const messages=[];
+
+  runtime.actionBlocked=false;
+  runtime.lastRoll="";
+  runtime.lastRoundMessage="";
+
+  const damage=(amount,label)=>{
+    const before=Math.max(0,Number(p.currentHp||0));
+    const lost=-applyItemHpDelta(p,-Math.max(0,Number(amount||0)));
+    if(lost>0){
+      messages.push(`${p.name}: ${label} causou ${lost} de dano.`);
+      runtime.lastRoundMessage=`Última rodada: ${lost} de dano por ${label}.`;
+    }else if(before<=0){
+      runtime.lastRoundMessage=`${p.name} já estava com 0 HP.`;
+    }
+  };
+
+  if(status==="Queimado"){
+    const roll=statusDiceTotal(1,3);
+    runtime.lastRoll=`1d3 = ${roll.total}`;
+    damage(roll.total,"Burn");
+  }
+
+  if(status==="Deep Burn"){
+    const roll=statusDiceTotal(1,6);
+    runtime.lastRoll=`1d6 = ${roll.total}`;
+    damage(roll.total,"Deep Burn");
+  }
+
+  if(status==="Envenenado"){
+    const roll=statusDiceTotal(1,6);
+    runtime.lastRoll=`1d6 = ${roll.total}`;
+    damage(roll.total,"Poisoned");
+  }
+
+  if(status==="Toxic"){
+    const stage=Math.max(1,Math.trunc(Number(runtime.toxicStage||1)));
+    const roll=statusDiceTotal(stage,6);
+    runtime.lastRoll=`${stage}d6 = ${roll.rolls.join("+")} = ${roll.total}`;
+    damage(roll.total,`Toxic ${stage}d6`);
+    runtime.toxicStage=stage+1;
+  }
+
+  if(status==="Paralisado"){
+    const roll=statusDiceTotal(1,4);
+    runtime.lastRoll=`1d4 = ${roll.total}`;
+    runtime.actionBlocked=roll.total===1;
+    runtime.lastRoundMessage=runtime.actionBlocked
+      ?"Paralyzed: resultado 1 no d4 • perde a próxima ação."
+      :`Paralyzed: d4 = ${roll.total} • pode agir normalmente.`;
+    messages.push(`${p.name}: ${runtime.lastRoundMessage}`);
+  }
+
+  if(status==="Dormindo"){
+    if(runtime.sleepRemaining<=0)runtime.sleepRemaining=statusDiceTotal(1,3).total;
+    runtime.sleepRemaining=Math.max(0,runtime.sleepRemaining-1);
+
+    if(runtime.sleepRemaining<=0){
+      p.conditions=[];
+      runtime.lastRoundMessage="Asleep terminou • Pokémon acordou.";
+      messages.push(`${p.name} acordou.`);
+    }else{
+      runtime.actionBlocked=true;
+      runtime.lastRoundMessage=`Asleep • ${runtime.sleepRemaining} rodada${runtime.sleepRemaining===1?"":"s"} restante${runtime.sleepRemaining===1?"":"s"}.`;
+      messages.push(`${p.name}: ${runtime.lastRoundMessage}`);
+    }
+  }
+
+  if(status==="Confuso"){
+    if(runtime.confusionRemaining<=0)runtime.confusionRemaining=statusDiceTotal(1,3).total;
+
+    const check=statusDiceTotal(1,6);
+    runtime.lastRoll=`1d6 = ${check.total}`;
+
+    if(check.total<=3){
+      const hit=statusDiceTotal(1,6);
+      runtime.actionBlocked=true;
+      damage(hit.total,"Confused");
+      messages.push(`${p.name}: Confused ${check.total} • perde a próxima ação.`);
+    }else{
+      runtime.lastRoundMessage=`Confused: d6 = ${check.total} • age normalmente.`;
+      messages.push(`${p.name}: ${runtime.lastRoundMessage}`);
+    }
+
+    runtime.confusionRemaining=Math.max(0,runtime.confusionRemaining-1);
+    if(runtime.confusionRemaining<=0){
+      p.conditions=[];
+      messages.push(`${p.name} não está mais Confused.`);
+    }
+  }
+
+  if(status==="Congelado"){
+    const roll=statusDiceTotal(1,6);
+    runtime.lastRoll=`1d6 = ${roll.total}`;
+
+    if(roll.total>=5){
+      p.conditions=[];
+      runtime.lastRoundMessage=`Frozen: d6 = ${roll.total} • descongelou.`;
+      messages.push(`${p.name}: ${runtime.lastRoundMessage}`);
+    }else{
+      runtime.actionBlocked=true;
+      runtime.lastRoundMessage=`Frozen: d6 = ${roll.total} • continua congelado.`;
+      messages.push(`${p.name}: ${runtime.lastRoundMessage}`);
+    }
+  }
+
+  if(status==="Exaustão"){
+    runtime.lastRoundMessage="Exhausted só causa 1d6 quando Evasiva é usada.";
+  }
+
+  return messages;
+}
+
+function combatEffectiveStat(p,stat){
+  ensureCombatStageData(p);
+
+  if(stat==="hp")return Math.max(0,Math.floor(Number(p.stats?.hp||0)));
+
+  const stage=combatStageTotal(p,stat);
+  const base=(stat==="accuracy"||stat==="evasion")
+    ?100
+    :Math.max(0,Number(p.stats?.[stat]||0));
+
+  let effective=Math.floor(base*combatStageMultiplier(stat,stage));
+
+  if(stat==="spe"&&activeStatusCondition(p)==="Paralisado"){
+    effective=Math.floor(effective*.5);
+  }
+
+  return effective;
+}
+
+function moveOffensiveBonus(move){
+  const category=String(move?.category||"").toLowerCase();
+  const status=activeStatusCondition(current);
+
+  if(category==="physical"){
+    const effective=combatEffectiveStat(current,"atk");
+    const stage=combatStageTotal(current,"atk");
+    const bonus=statDice(effective);
+
+    const baseText=stage
+      ?`ATK ${effective} (${combatStageSigned(stage)}) • +${bonus.dice}d6${bonus.fixed?` +${bonus.fixed}`:""}`
+      :`ATK +${bonus.dice}d6${bonus.fixed?` +${bonus.fixed}`:""}`;
+
+    if(status==="Queimado")return `${baseText} • Burn −1d6 final`;
+    if(status==="Deep Burn")return `${baseText} • Deep Burn ×0,5 físico`;
+    return baseText;
+  }
+
+  if(category==="special"){
+    const effective=combatEffectiveStat(current,"spa");
+    const stage=combatStageTotal(current,"spa");
+    const bonus=statDice(effective);
+    return stage
+      ?`SP.ATK ${effective} (${combatStageSigned(stage)}) • +${bonus.dice}d6${bonus.fixed?` +${bonus.fixed}`:""}`
+      :`SP.ATK +${bonus.dice}d6${bonus.fixed?` +${bonus.fixed}`:""}`;
+  }
+
+  return "";
+}
+
+function processHeldItemConditionTrigger(p){
+  const record=pokemonHeldItemRecord(p);
+  const rule=record?.automation;
+  if(!rule||rule.trigger!=="condition")return [];
+
+  normalizePokemonStatusCondition(p);
+  const status=activeStatusCondition(p);
+  const messages=[];
+
+  if(rule.kind==="cureCondition"&&statusFamilyMatches(status,rule.condition)){
+    p.conditions=[];
+    resetStatusRuntimeFor(p,"");
+    messages.push(`${record.name} removeu ${statusConditionLabel(status)}.`);
+  }
+
+  if(rule.kind==="cureAnyCondition"&&status){
+    p.conditions=[];
+    resetStatusRuntimeFor(p,"");
+    messages.push(`${record.name} removeu ${statusConditionLabel(status)}.`);
+  }
+
+  if(messages.length&&rule.consume){
+    messages.push(consumeHeldItem(p,record));
+  }
+
+  return messages.filter(Boolean);
+}
+
+function processHeldItemEndRound(p){
+  const record=pokemonHeldItemRecord(p);
+  const rule=record?.automation;
+  if(!rule||rule.trigger!=="endRound")return [];
+
+  const messages=[];
+  const max=Math.max(1,Number(p.maxHp||1));
+
+  if(rule.kind==="healFraction"){
+    const healed=applyItemHpDelta(p,itemFractionAmount(max,rule.num,rule.den));
+    if(healed>0)messages.push(`${record.name} recuperou ${healed} HP.`);
+  }
+
+  if(rule.kind==="damageFraction"){
+    const lost=-applyItemHpDelta(p,-itemFractionAmount(max,rule.num,rule.den));
+    if(lost>0)messages.push(`${record.name} causou ${lost} de dano ao usuário.`);
+  }
+
+  if(rule.kind==="blackSludge"){
+    const poison=[p.type1,p.type2].some(type=>String(type||"").toLowerCase()==="poison");
+    if(poison){
+      const healed=applyItemHpDelta(p,itemFractionAmount(max,1,16));
+      if(healed>0)messages.push(`Black Sludge recuperou ${healed} HP.`);
+    }else{
+      const lost=-applyItemHpDelta(p,-itemFractionAmount(max,1,8));
+      if(lost>0)messages.push(`Black Sludge causou ${lost} de dano.`);
+    }
+  }
+
+  if(rule.kind==="condition"){
+    const active=activeStatusCondition(p);
+    if(!active){
+      const applied=setPokemonStatusCondition(p,rule.condition);
+      if(applied)messages.push(`${record.name} aplicou ${statusConditionLabel(applied)}.`);
+    }
+  }
+
+  return messages;
+}
+
+function endGlobalCombatRound(){
+  state.combatRound=Math.max(1,Math.trunc(Number(state.combatRound||1)));
+
+  let expiredEffects=0;
+  let affectedPokemon=0;
+  const statusMessages=[];
+
+  (state.pokemon||[]).forEach(pokemon=>{
+    ensureCombatStageData(pokemon);
+    normalizePokemonStatusCondition(pokemon);
+
+    let changed=false;
+    pokemon.stageEffects.forEach(effect=>{
+      if(effect.roundsRemaining==null)return;
+      effect.roundsRemaining=Math.max(0,Number(effect.roundsRemaining||0)-1);
+      changed=true;
+    });
+
+    const before=pokemon.stageEffects.length;
+    pokemon.stageEffects=pokemon.stageEffects.filter(
+      effect=>effect.roundsRemaining==null||effect.roundsRemaining>0
+    );
+
+    expiredEffects+=before-pokemon.stageEffects.length;
+    if(changed)affectedPokemon+=1;
+
+    const messages=processStatusConditionRound(pokemon);
+    statusMessages.push(...messages);
+  });
+
+  const heldItemMessages=processHeldItemEndRound(current);
+
+  state.combatRound+=1;
+  current=getCurrent();
+
+  renderAll();
+  saveState();
+
+  const details=[
+    expiredEffects
+      ?`${expiredEffects} efeito${expiredEffects===1?" expirou":"s expiraram"}`
+      :"nenhum estágio expirou",
+    statusMessages.length
+      ?`Status: ${statusMessages.slice(0,4).join(" • ")}${statusMessages.length>4?" • …":""}`
+      :"Status sem efeito nesta rodada",
+    heldItemMessages.length
+      ?`Item: ${heldItemMessages.join(" • ")}`
+      :""
+  ].filter(Boolean);
+
+  showToast(`Rodada ${state.combatRound-1} encerrada • ${details.join(" • ")}.`);
+}
+
+/* ---------- Sprites de Itens PokéAPI ---------- */
+function pokeApiItemSpriteUrl(itemOrSlug){
+  const slug=normalizeItemSearch(
+    typeof itemOrSlug==="string"
+      ?itemOrSlug
+      :(itemOrSlug?.apiName||itemOrSlug?.name||"")
+  );
+
+  if(!slug)return "";
+  return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${encodeURIComponent(slug)}.png`;
+}
+
+function itemPixelIconHtml(item,className="pokeapi-pixel-item"){
+  const official=item&&item.custom!==true;
+  const slug=normalizeItemSearch(item?.apiName||item?.name||"");
+
+  if(!official||!slug){
+    return `<span class="${escAttr(className)} item-pixel-fallback">◆</span>`;
+  }
+
+  const src=pokeApiItemSpriteUrl(slug);
+  return `<span class="${escAttr(className)} item-pixel-shell">
+    <img src="${escAttr(src)}" alt="" loading="lazy" decoding="async"
+      onerror="this.hidden=true;this.nextElementSibling.hidden=false">
+    <span class="item-pixel-fallback" hidden>▣</span>
+  </span>`;
+}
+
+function bagItemIcon(item){
+  return itemPixelIconHtml(item,"bag-pixel-icon");
+}
+
+function renderHeldItemPixelIcon(){
+  const holder=document.getElementById("generalHeldItemPixelIcon");
+  if(!holder)return;
+
+  const query=current.heldItem||document.getElementById("heldItem")?.value||"";
+  const record=(current.itemMemory||[]).find(item=>
+    normalizeItemSearch(item.name)===normalizeItemSearch(query)
+    ||normalizeItemSearch(item.apiName)===normalizeItemSearch(query)
+  );
+  const catalog=officialItemByQuery(query);
+
+  const item=record||catalog;
+  holder.innerHTML=item
+    ?itemPixelIconHtml({...item,custom:record?.custom===true},"held-pixel-icon")
+    :'<span class="item-pixel-fallback">◆</span>';
+}
+
+function renderCombatStatusAndItemUi(){
+  renderCombatStatusBadge();
+  renderHeldItemPixelIcon();
+}
+
+
+
+/* V5.0 — siglas exibidas no HUD de batalha */
+const COMBAT_STATUS_HUD_LABELS={
+  "Queimado":"BURN",
+  "Envenenado":"PSN",
+  "Toxic":"TOXIC",
+  "Paralisado":"PAR",
+  "Dormindo":"SLP",
+  "Congelado":"FRZ",
+  "Confuso":"CNF",
+  "Deep Burn":"DBRN",
+  "Exaustão":"EXH"
+};
+
+function combatStatusHudLabel(status){
+  const internal=normalizeStatusInternalName(status);
+  return COMBAT_STATUS_HUD_LABELS[internal]
+    ||statusConditionMeta(internal)?.label?.toUpperCase()
+    ||"";
+}
+
+function ensureCombatStatusBadgeUi(){
+  const level=document.getElementById("combatLevel");
+  if(!level)return null;
+
+  let stack=level.closest(".combat-hud-level-stack");
+  if(!stack){
+    stack=document.createElement("div");
+    stack.className="combat-hud-level-stack";
+    level.parentNode.insertBefore(stack,level);
+    stack.appendChild(level);
+  }
+
+  let badge=document.getElementById("combatStatusBadge");
+  if(!badge){
+    badge=document.createElement("div");
+    badge.id="combatStatusBadge";
+    badge.className="combat-status-badge";
+    badge.hidden=true;
+    stack.appendChild(badge);
+  }else if(badge.parentElement!==stack){
+    stack.appendChild(badge);
+  }
+
+  return badge;
+}
+
+function renderCombatStatusBadge(){
+  const badge=ensureCombatStatusBadgeUi();
+  if(!badge)return;
+
+  const status=activeStatusCondition(current);
+  const meta=statusConditionMeta(status);
+
+  if(!status||!meta){
+    badge.hidden=true;
+    badge.className="combat-status-badge";
+    badge.textContent="";
+    badge.removeAttribute("title");
+    return;
+  }
+
+  badge.hidden=false;
+  badge.className=`combat-status-badge status-${meta.css}`;
+  badge.textContent=`[${combatStatusHudLabel(status)}]`;
+
+  const live=statusLiveDetail(current,status);
+  badge.title=[meta.description,live].filter(Boolean).join(" • ");
+}
+
+
+
+
+
 function powerToDice(power){
   power=Number(power||0);
   if(power<=0)return "—";
@@ -28386,8 +29738,12 @@ document.getElementById("type1").addEventListener("input",renderTypeMatchups);
 document.getElementById("type2").addEventListener("input",renderTypeMatchups);
 bindValue("currentHp","currentHp",v=>Number(v||0));
 document.getElementById("happiness").addEventListener("input",e=>{
-  current.happiness=Math.max(0,Math.min(255,Number(e.target.value||0)));
-  updateHappiness();debouncedSave();
+  const typed=Number(e.target.value);
+  current.happiness=Number.isFinite(typed)
+    ?Math.max(0,Math.min(255,Math.round(typed)))
+    :0;
+  updateHappiness();
+  debouncedSave();
 });
 bindValue("maxHp","maxHp",v=>Number(v||0));
 bindValue("heldItem","heldItem");
@@ -28867,6 +30223,215 @@ document.getElementById("sheetPokedexModeToggle")?.addEventListener("change",eve
   setSheetPokedexMode(event.target.checked);
 });
 
+
+/* ============================================================
+   V5.0 — Mobile • Reorganização visual da página Geral
+   ============================================================ */
+const MOBILE_GENERAL_UI_KEY="pokemon_hh_v5_mobile_general_panels";
+
+function readMobileGeneralUi(){
+  try{
+    const data=JSON.parse(localStorage.getItem(MOBILE_GENERAL_UI_KEY)||"{}");
+    return data&&typeof data==="object"?data:{};
+  }catch(error){
+    return {};
+  }
+}
+
+function writeMobileGeneralUi(data){
+  try{localStorage.setItem(MOBILE_GENERAL_UI_KEY,JSON.stringify(data||{}))}catch(error){}
+}
+
+function mobileGeneralPanelKey(panel){
+  if(!panel)return "";
+  if(panel.id==="moveMemoryPanel")return "moves";
+  if(panel.querySelector("#abilityName"))return "ability";
+  if(panel.querySelector("#superEffectiveTypes"))return "weakness";
+  if(panel.querySelector("#pokemonNature"))return "nature";
+  if(panel.querySelector("#moveName")&&panel.querySelector("#addMoveBtn"))return "addmove";
+  if(panel.querySelector("#incomingDamageTotal"))return "damage";
+  return "";
+}
+
+function makeMobileGeneralCollapsible(panel,label){
+  if(!panel||panel.dataset.mobileCollapseBound==="true")return;
+  const head=panel.querySelector(":scope > .panel-head");
+  const body=panel.querySelector(":scope > .panel-body");
+  const key=mobileGeneralPanelKey(panel);
+  if(!head||!body||!key)return;
+
+  panel.dataset.mobileCollapseBound="true";
+  panel.classList.add("mobile-general-collapsible");
+  panel.dataset.mobilePanelKey=key;
+
+  const button=document.createElement("button");
+  button.type="button";
+  button.className="mobile-general-collapse-btn";
+  button.setAttribute("aria-label",`Minimizar ou expandir ${label}`);
+  head.appendChild(button);
+
+  const apply=collapsed=>{
+    panel.classList.toggle("collapsed",collapsed);
+    body.hidden=collapsed;
+    button.setAttribute("aria-expanded",String(!collapsed));
+    button.textContent=collapsed?"＋":"−";
+  };
+
+  const saved=readMobileGeneralUi();
+  apply(!!saved[key]);
+
+  button.addEventListener("click",event=>{
+    event.preventDefault();
+    event.stopPropagation();
+    const next=!panel.classList.contains("collapsed");
+    const state=readMobileGeneralUi();
+    state[key]=next;
+    writeMobileGeneralUi(state);
+    apply(next);
+  });
+}
+
+function mobileGeneralAutoGrowAbility(){
+  const textarea=document.getElementById("abilityText");
+  if(!textarea)return;
+  textarea.style.height="auto";
+  textarea.style.height=`${Math.max(72,textarea.scrollHeight+4)}px`;
+}
+
+function initializeMobileGeneralRework(){
+  const page=document.getElementById("page1");
+  const grid=page?.querySelector(".general-page-grid");
+  if(!page||!grid||page.dataset.mobileGeneralRework==="true")return;
+  page.dataset.mobileGeneralRework="true";
+
+  const columns=[...grid.querySelectorAll(":scope > .column")];
+  const left=columns[0];
+  const right=columns[1];
+  if(!left||!right)return;
+
+  const findPanel=title=>[...grid.querySelectorAll(".panel")].find(panel=>
+    panel.querySelector(":scope > .panel-head h2")?.textContent.trim()===title
+  );
+
+  const identity=findPanel("Identidade");
+  const ability=findPanel("Ability");
+  const nature=findPanel("Nature & Progressão");
+  const status=findPanel("Status Atuais");
+  const weakness=findPanel("Fraquezas & Resistências");
+  const memory=document.getElementById("moveMemoryPanel");
+  const addMove=findPanel("Adicionar Move à Memória");
+  const damage=[...grid.querySelectorAll(".panel")].find(panel=>
+    panel.querySelector(":scope > .panel-head h2")?.textContent.trim()==="Calculadora de Dano Recebido"
+  );
+
+  if(identity){
+    identity.classList.add("mobile-general-identity");
+    const body=identity.querySelector(":scope > .panel-body");
+    const portrait=identity.querySelector("#portrait");
+    const registry=identity.querySelector(".pokemon-registry-console");
+    const data=identity.querySelector(".pokemon-data-console");
+    const vitals=identity.querySelector(".pokemon-vitals-console");
+    const happiness=identity.querySelector(".pokemon-happiness-box");
+    const types=identity.querySelector(".pokemon-current-type");
+    const held=identity.querySelector(".pokemon-held-item-console");
+
+    const makeDrawer=(node,title,subtitle,kind)=>{
+      if(!node||node.closest(".mobile-general-drawer"))return;
+      const details=document.createElement("details");
+      details.className=`mobile-general-drawer ${kind}`;
+      const summary=document.createElement("summary");
+      summary.innerHTML=`
+        <span class="mobile-general-drawer-icon">${kind==="search"?"⌕":"ID"}</span>
+        <span><b>${title}</b><small>${subtitle}</small></span>
+        <i>⌄</i>
+      `;
+      node.parentNode.insertBefore(details,node);
+      details.appendChild(summary);
+      details.appendChild(node);
+    };
+
+    makeDrawer(registry,"Buscar ou trocar Pokémon","PokéAPI, Fakemon e evolução","search");
+    makeDrawer(data,"Identificação & imagem","Nível, Dex, tipos e arte","data");
+
+    if(types){
+      types.classList.add("mobile-general-type-strip");
+      portrait?.insertAdjacentElement("afterend",types);
+    }
+    if(held){
+      held.classList.add("mobile-general-held-strip");
+      types?.insertAdjacentElement("afterend",held);
+    }
+    if(vitals)vitals.classList.add("mobile-general-vitals-hidden");
+
+    /* Felicidade é retirada do bloco de HP e inserida sob o Radar. */
+    if(happiness&&status){
+      let strip=document.getElementById("mobileGeneralHappinessStrip");
+      if(!strip){
+        strip=document.createElement("section");
+        strip.id="mobileGeneralHappinessStrip";
+        strip.className="panel mobile-general-happiness-strip";
+        strip.innerHTML=`
+          <div class="mobile-happiness-title">
+            <span>♥</span>
+            <div><small>VÍNCULO</small><b>Felicidade</b></div>
+          </div>
+          <div class="mobile-happiness-content"></div>
+        `;
+      }
+      status.insertAdjacentElement("afterend",strip);
+      strip.querySelector(".mobile-happiness-content").appendChild(happiness);
+      happiness.classList.add("mobile-rainbow-happiness");
+    }
+  }
+
+  let stack=document.getElementById("mobileGeneralStack");
+  if(!stack){
+    stack=document.createElement("div");
+    stack.id="mobileGeneralStack";
+    stack.className="mobile-general-stack";
+    grid.appendChild(stack);
+  }
+
+  [
+    [ability,"Ability","ability"],
+    [weakness,"Fraquezas & Resistências","weakness"],
+    [memory,"Memória de Moves","moves"],
+    [nature,"Nature & Progressão","nature"],
+    [addMove,"Adicionar Move à Memória","addmove"],
+    [damage,"Calculadora de Dano Recebido","damage"]
+  ].forEach(([panel,label,key])=>{
+    if(!panel)return;
+    panel.classList.add(`mobile-general-${key}`);
+    stack.appendChild(panel);
+    makeMobileGeneralCollapsible(panel,label);
+  });
+
+  columns.forEach(column=>{
+    if(!column.children.length)column.hidden=true;
+  });
+
+  /* Description of Ability grows with text instead of internal scrolling. */
+  const abilityText=document.getElementById("abilityText");
+  if(abilityText){
+    abilityText.style.resize="none";
+    abilityText.style.overflow="hidden";
+    abilityText.addEventListener("input",mobileGeneralAutoGrowAbility);
+    abilityText.addEventListener("change",mobileGeneralAutoGrowAbility);
+    setTimeout(mobileGeneralAutoGrowAbility,0);
+
+    let previous=abilityText.value;
+    setInterval(()=>{
+      if(abilityText.value!==previous){
+        previous=abilityText.value;
+        mobileGeneralAutoGrowAbility();
+      }
+    },500);
+  }
+
+  drawRadar();
+}
+
+
 document.getElementById("combatArenaSelect")?.addEventListener("change",event=>{
   current.combatArena=normalizeCombatArena(event.target.value);
   applyCombatArena();
@@ -28932,6 +30497,7 @@ initializeMobileInterface();
 initializeMobilePopupSystem();
 initializeMobileNativeApp();
 decoratePagePanels();
+initializeMobileGeneralRework();
 applyCombatItemUi();
 applyCombatExtraPanelsUi();
 updatePageContext("page1");
