@@ -16368,6 +16368,130 @@ html[data-font-theme="arcade"] .bag-smart-copy b,
 html[data-font-theme="arcade"] .combat-bag-smart-main b{font-size:12px!important;}
 html[data-font-theme="arcade"] .combat-item-description{font-size:11px!important;}
 
+
+
+/* =========================================================
+   V5.0 MOBILE — CABEÇALHOS GERAIS COMPACTOS + COLLAPSE FIX
+   Corrige títulos enormes/quebrados e garante que Ability
+   realmente esconda o corpo mesmo com display:grid!important.
+   ========================================================= */
+@media(max-width:760px){
+
+  /* Todos os cards recolhíveis da aba Geral */
+  #page1 .mobile-general-collapsible>.panel-head{
+    min-height:52px!important;
+    padding:7px 48px 7px 48px!important;
+    gap:2px!important;
+    align-content:center!important;
+    overflow:hidden!important;
+  }
+
+  /* Ícone lateral continua presente, mas um pouco menor */
+  #page1 .mobile-general-collapsible.section-panel>.panel-head::before{
+    left:10px!important;
+    width:27px!important;
+    height:27px!important;
+    font-size:6px!important;
+  }
+
+  /* Títulos: pequenos o bastante para caber em uma linha */
+  #page1 .mobile-general-collapsible>.panel-head>h2,
+  #page1 .mobile-general-collapsible>.panel-head>div>h2{
+    min-width:0!important;
+    margin:0!important;
+    font-size:8px!important;
+    line-height:1.18!important;
+    letter-spacing:.035em!important;
+    white-space:nowrap!important;
+    overflow:hidden!important;
+    text-overflow:ellipsis!important;
+    font-weight:700!important;
+  }
+
+  /* Subtítulos do cabeçalho */
+  #page1 .mobile-general-collapsible>.panel-head>.eyebrow,
+  #page1 .mobile-general-collapsible>.panel-head>div>.eyebrow,
+  #page1 .mobile-general-collapsible .ability-primary-source{
+    display:block!important;
+    margin-top:3px!important;
+    max-width:100%!important;
+    font-size:4.5px!important;
+    line-height:1.15!important;
+    letter-spacing:.10em!important;
+    white-space:nowrap!important;
+    overflow:hidden!important;
+    text-overflow:ellipsis!important;
+  }
+
+  /* No tema Arcade não deixa o override global voltar os títulos para 12–16px */
+  html[data-font-theme="arcade"] #page1 .mobile-general-collapsible>.panel-head>h2,
+  html[data-font-theme="arcade"] #page1 .mobile-general-collapsible>.panel-head>div>h2{
+    font-size:8px!important;
+    line-height:1.18!important;
+    letter-spacing:.025em!important;
+    font-weight:400!important;
+  }
+
+  /* Botão + / − menor e alinhado */
+  #page1 .mobile-general-collapse-btn{
+    right:8px!important;
+    width:32px!important;
+    height:32px!important;
+    min-width:32px!important;
+    min-height:32px!important;
+    font-size:14px!important;
+    line-height:1!important;
+  }
+
+  /* CORREÇÃO PRINCIPAL: hidden estava perdendo para display:grid!important da Ability */
+  #page1 .mobile-general-collapsible.collapsed>.panel-body,
+  #page1 .mobile-general-collapsible>.panel-body[hidden]{
+    display:none!important;
+  }
+
+  /* Ability tem também o botão EDITAR: reserva espaço para os dois */
+  #page1 .mobile-general-ability>.panel-head{
+    padding-right:96px!important;
+  }
+  #page1 .mobile-general-ability>.panel-head>div{
+    min-width:0!important;
+    overflow:hidden!important;
+  }
+  #page1 .mobile-general-ability>#toggleAbilityEdit,
+  #page1 .mobile-general-ability>.panel-head>#toggleAbilityEdit{
+    position:absolute!important;
+    right:47px!important;
+    top:50%!important;
+    transform:translateY(-50%)!important;
+    min-width:40px!important;
+    height:28px!important;
+    padding:3px 5px!important;
+    font-size:5px!important;
+    z-index:2!important;
+  }
+
+  /* Quando recolhido, cabeçalho não ganha altura extra */
+  #page1 .mobile-general-collapsible.collapsed>.panel-head{
+    min-height:50px!important;
+    border-bottom:0!important;
+  }
+}
+
+/* Telefones bem estreitos */
+@media(max-width:390px){
+  #page1 .mobile-general-collapsible>.panel-head>h2,
+  #page1 .mobile-general-collapsible>.panel-head>div>h2,
+  html[data-font-theme="arcade"] #page1 .mobile-general-collapsible>.panel-head>h2,
+  html[data-font-theme="arcade"] #page1 .mobile-general-collapsible>.panel-head>div>h2{
+    font-size:7px!important;
+  }
+
+  #page1 .mobile-general-collapsible>.panel-head>.eyebrow,
+  #page1 .mobile-general-collapsible>.panel-head>div>.eyebrow,
+  #page1 .mobile-general-collapsible .ability-primary-source{
+    font-size:4px!important;
+  }
+}
 </style>
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -31221,6 +31345,11 @@ function makeMobileGeneralCollapsible(panel,label){
   const apply=collapsed=>{
     panel.classList.toggle("collapsed",collapsed);
     body.hidden=collapsed;
+    if(collapsed){
+      body.style.setProperty("display","none","important");
+    }else{
+      body.style.removeProperty("display");
+    }
     button.setAttribute("aria-expanded",String(!collapsed));
     button.textContent=collapsed?"＋":"−";
   };
