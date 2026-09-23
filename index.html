@@ -15847,6 +15847,527 @@ html[data-font-theme="arcade"] .encyclopedia-page *{border-radius:2px!important}
   #page1 .mobile-general-happiness-strip{grid-template-columns:1fr!important}
 }
 
+
+
+/* ============================================================
+   V5.0 — Enciclopédia de Regras • PC e celular
+   ============================================================ */
+
+  .encyclopedia-hero-side{
+    align-content:start!important;
+  }
+
+  .encyclopedia-rules-launch{
+    display:grid;
+    grid-template-columns:34px minmax(0,1fr) 18px;
+    gap:8px;
+    align-items:center;
+    width:100%;
+    min-height:48px;
+    margin-top:8px;
+    padding:6px 8px;
+    border:2px solid #273a45;
+    border-bottom-color:#0b151b;
+    background:
+      linear-gradient(180deg,#15262d,#0b171d);
+    color:#f1f4f5;
+    cursor:pointer;
+    text-align:left;
+    box-shadow:2px 2px 0 rgba(0,0,0,.28);
+  }
+
+  .encyclopedia-rules-launch:hover,
+  .encyclopedia-rules-launch.active{
+    border-color:#41c3ef;
+    background:
+      linear-gradient(180deg,#15465a,#0c2b39);
+    box-shadow:
+      0 0 0 1px rgba(65,195,239,.16),
+      2px 2px 0 rgba(0,0,0,.28);
+  }
+
+  .encyclopedia-rules-icon{
+    display:grid;
+    place-items:center;
+    width:32px;
+    height:32px;
+    border:1px solid #4d7487;
+    background:#09161d;
+    color:#4fd7ff;
+    font-family:var(--pixel-font);
+    font-size:12px;
+  }
+
+  .encyclopedia-rules-launch b{
+    display:block;
+    font-family:var(--font-display);
+    font-size:12px;
+    line-height:1.15;
+  }
+
+  .encyclopedia-rules-launch small{
+    display:block;
+    margin-top:3px;
+    color:#8fa9b5;
+    font-size:12px;
+  }
+
+  .encyclopedia-rules-launch i{
+    color:#58d7ff;
+    font-size:18px;
+    font-style:normal;
+  }
+
+  .encyclopedia-console.rules-mode .encyclopedia-mode-switch{
+    opacity:.65;
+  }
+
+  .encyclopedia-alphabet.rules-mode{
+    display:grid;
+    grid-template-columns:repeat(5,minmax(0,1fr));
+    gap:5px;
+    padding:7px 12px;
+  }
+
+  .encyclopedia-rule-group-shortcut{
+    display:grid;
+    grid-template-columns:28px minmax(0,1fr);
+    gap:6px;
+    align-items:center;
+    min-height:36px;
+    padding:5px 7px;
+    border:1px solid #1b4f64;
+    background:linear-gradient(180deg,#1598ce,#0876a4);
+    color:#fff;
+    font-family:var(--pixel-font);
+    font-size:12px;
+    text-align:left;
+    cursor:pointer;
+  }
+
+  .encyclopedia-rule-group-shortcut span{
+    display:grid;
+    place-items:center;
+    width:25px;
+    height:24px;
+    border:1px solid rgba(255,255,255,.34);
+    background:rgba(0,0,0,.17);
+    font-size:12px;
+  }
+
+  .encyclopedia-rule-group-shortcut:hover,
+  .encyclopedia-rule-group-shortcut.active{
+    background:linear-gradient(180deg,#50d2ff,#1296c9);
+    color:#061119;
+  }
+
+  .encyclopedia-rule-group-label{
+    position:sticky;
+    top:0;
+    z-index:4;
+    padding:7px 8px;
+    border-bottom:1px solid #2b5666;
+    background:#10262f;
+    color:#4bd4ff;
+    font-family:var(--pixel-font);
+    font-size:12px;
+    letter-spacing:.08em;
+  }
+
+  .encyclopedia-rule-entry .encyclopedia-entry-code{
+    border-color:#55d7ff!important;
+    color:#55d7ff!important;
+  }
+
+  .encyclopedia-rule-entry.active .encyclopedia-entry-code{
+    background:#4bd4ff!important;
+    color:#07151b!important;
+  }
+
+  .encyclopedia-rules-book{
+    align-items:stretch!important;
+  }
+
+  .encyclopedia-rule-cover{
+    position:sticky!important;
+    top:0!important;
+    align-self:start!important;
+  }
+
+  .encyclopedia-rule-order{
+    display:inline-flex;
+    margin-bottom:12px;
+    padding:4px 7px;
+    border:1px solid #6f8c98;
+    background:#edf1f2;
+    color:#233640;
+    font-family:var(--pixel-font);
+    font-size:12px;
+  }
+
+  .encyclopedia-emblem.rules{
+    color:#0d88b6!important;
+  }
+
+  .encyclopedia-rule-summary{
+    line-height:1.55!important;
+  }
+
+  .encyclopedia-rule-navigation{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:6px;
+    margin-top:12px;
+  }
+
+  .encyclopedia-rule-navigation button{
+    min-height:36px;
+    padding:6px 8px;
+    border:1px solid #395765;
+    background:#10262f;
+    color:#dff7ff;
+    font-family:var(--pixel-font);
+    font-size:12px;
+    cursor:pointer;
+  }
+
+  .encyclopedia-rule-navigation button:hover{
+    border-color:#25b8ee;
+    background:#174356;
+  }
+
+  .encyclopedia-rule-paper{
+    overflow-y:auto!important;
+  }
+
+  /* V5.0 — Correção de contraste da leitura das Regras.
+     A página direita da Enciclopédia usa fundo escuro; por isso o texto
+     principal precisa ser claro. Blocos claros (citações/código) recebem
+     texto escuro explicitamente para não herdarem a cor da tela. */
+  .encyclopedia-rule-prose{
+    color:#d5e3e7;
+    font-size:12px;
+    line-height:1.72;
+  }
+
+  .encyclopedia-rule-prose h1,
+  .encyclopedia-rule-prose h2,
+  .encyclopedia-rule-prose h3{
+    margin:15px 0 7px;
+    color:#72d9f6;
+    font-family:var(--font-display);
+    line-height:1.3;
+  }
+
+  .encyclopedia-rule-prose h1{font-size:13px}
+  .encyclopedia-rule-prose h2{font-size:12px}
+  .encyclopedia-rule-prose h3{font-size:12px}
+
+  .encyclopedia-rule-prose p{
+    margin:7px 0;
+    color:#d5e3e7;
+    white-space:normal;
+  }
+
+  .encyclopedia-rule-prose ul,
+  .encyclopedia-rule-prose ol{
+    margin:7px 0 10px;
+    padding-left:20px;
+    color:#d5e3e7;
+  }
+
+  .encyclopedia-rule-prose li{
+    margin:5px 0;
+    color:#d5e3e7;
+  }
+
+  .encyclopedia-rule-prose li::marker{
+    color:#58d7ff;
+  }
+
+  .encyclopedia-rule-prose strong{
+    color:#66d9ff;
+  }
+
+  .encyclopedia-rule-prose blockquote{
+    margin:10px 0;
+    padding:9px 11px;
+    border-left:4px solid #19a9df;
+    background:#dce9ed;
+    color:#17333f;
+  }
+
+  .encyclopedia-rule-prose blockquote p,
+  .encyclopedia-rule-prose blockquote li{
+    color:#17333f;
+  }
+
+  .encyclopedia-rule-prose blockquote strong{
+    color:#0b6e94;
+  }
+
+  .encyclopedia-rule-prose blockquote li::marker{
+    color:#0b6e94;
+  }
+
+  .encyclopedia-rule-prose hr{
+    margin:14px 0;
+    border:0;
+    border-top:1px dashed #82949b;
+  }
+
+  .encyclopedia-rule-prose code{
+    padding:2px 4px;
+    background:#dbe3e5;
+    color:#173847;
+    font-family:var(--font-mono);
+  }
+
+  .encyclopedia-console.rules-mode .encyclopedia-content{
+    min-height:610px;
+  }
+
+@media(min-width:901px) and (max-width:1180px){
+  .encyclopedia-alphabet.rules-mode{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+  }
+}
+
+
+
+/* ============================================================
+   V5.0 MOBILE — ATUALIZAÇÃO DAS MELHORIAS DO PC
+   Tipografia por contexto: Bolsa maior, restante equilibrado.
+   ============================================================ */
+
+/* O antigo modal nativo continua sendo usado. Os filtros do manual,
+   porém, cabem na largura do celular. */
+.encyclopedia-alphabet.rules-mode{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:6px;
+  padding:9px;
+  overflow:visible;
+}
+.encyclopedia-rule-group-shortcut{
+  grid-template-columns:25px minmax(0,1fr);
+  min-height:45px;
+  font-size:10px;
+  overflow-wrap:anywhere;
+}
+.encyclopedia-rule-group-shortcut span{font-size:10px;}
+.encyclopedia-rule-cover{position:static!important;}
+.encyclopedia-rule-paper{overflow:visible!important;min-width:0;}
+.encyclopedia-rule-prose{font-family:var(--font-ui);font-size:12px;line-height:1.7;overflow-wrap:anywhere;}
+.encyclopedia-rule-prose h2{font-size:13px;}
+.encyclopedia-rule-prose h3{font-size:12px;}
+.encyclopedia-rule-prose ul{padding-left:20px;}
+.encyclopedia-rule-entry .encyclopedia-entry-title{font-size:11px;line-height:1.35;}
+.encyclopedia-rule-entry .encyclopedia-entry-meta{font-size:9px;line-height:1.35;}
+.encyclopedia-rules-book .encyclopedia-rule-order,
+.encyclopedia-rules-book .encyclopedia-chip{font-size:9px;}
+.encyclopedia-rule-cover .encyclopedia-rule-summary{
+  color:#d5e3e7;
+  background:#1d313a;
+  border:1px solid #31566a;
+  font-size:11px;
+  line-height:1.6;
+}
+.encyclopedia-rule-summary b{display:block;color:#5ed5fb;margin-bottom:6px;}
+.encyclopedia-rule-navigation button{min-height:43px;font-size:10px;}
+.encyclopedia-mode-switch{grid-template-columns:repeat(3,minmax(0,1fr))!important;}
+.encyclopedia-mode-btn{min-width:0!important;grid-template-columns:25px minmax(0,1fr)!important;gap:4px!important;padding:7px 5px!important;}
+.encyclopedia-mode-btn>b:first-child,
+.encyclopedia-mode-btn>span:first-child{min-width:25px;}
+.encyclopedia-mode-btn b{font-size:8px;overflow-wrap:anywhere;}
+.encyclopedia-mode-btn small{font-size:7px;overflow-wrap:anywhere;}
+
+.mobile-rules-back{display:none;}
+@media(max-width:900px){
+  .encyclopedia-console.rules-mode .encyclopedia-content{
+    display:flex!important;
+    flex-direction:column!important;
+    min-height:0!important;
+  }
+  .encyclopedia-console.rules-mode .encyclopedia-list{
+    height:auto!important;
+    max-height:none!important;
+    overflow:visible!important;
+  }
+  .encyclopedia-console.rules-mode:not(.rules-reading) .encyclopedia-reader{display:none!important;}
+  .encyclopedia-console.rules-mode.rules-reading .encyclopedia-index{display:none!important;}
+  .encyclopedia-console.rules-mode.rules-reading .encyclopedia-alphabet{display:none!important;}
+  .encyclopedia-console.rules-mode.rules-reading .encyclopedia-reader{
+    display:block!important;
+    min-height:0!important;
+    padding:10px 7px!important;
+  }
+  .encyclopedia-console.rules-mode.rules-reading .mobile-rules-back{
+    display:block;
+    width:calc(100% - 16px);
+    min-height:42px;
+    margin:10px 8px 0;
+    border:1px solid #36bce8;
+    border-radius:6px;
+    background:#143a4b;
+    color:#dff6ff;
+    font-size:11px;
+    font-weight:700;
+    text-align:left;
+    cursor:pointer;
+  }
+  .encyclopedia-console.rules-mode .encyclopedia-rule-cover{
+    width:100%!important;
+    min-height:0!important;
+  }
+  .encyclopedia-console.rules-mode .encyclopedia-rule-paper{
+    width:100%!important;
+    max-height:none!important;
+    overflow:visible!important;
+  }
+  .encyclopedia-rule-prose{font-size:12px;line-height:1.65;}
+}
+@media(max-width:380px){
+  .encyclopedia-mode-btn{gap:4px!important;padding-inline:4px!important;}
+  .encyclopedia-mode-btn b{font-size:8px;}
+  .encyclopedia-mode-btn small{font-size:7px;}
+  .encyclopedia-rule-group-shortcut{font-size:9px;}
+}
+
+/* Cabeçalho minúsculo da Pokédex aprovado anteriormente (mantido no mobile). */
+.sheet-navigation .pokedex-hardware-key .hardware-code{font-size:5.5px!important;line-height:1!important;}
+.sheet-navigation .pokedex-hardware-key>small{font-size:5px!important;line-height:1!important;}
+.sheet-navigation .pokedex-dex-key>small{font-size:5px!important;}
+
+/* Nomes longos dos Pokémon na equipe, sem cortar o texto. */
+.trainer-party-copy{padding-left:11px!important;padding-right:2px!important;min-width:0;}
+.trainer-party-copy b{font-size:9px!important;line-height:1.25!important;letter-spacing:0!important;overflow-wrap:anywhere;}
+.trainer-party-copy small{font-size:8px!important;line-height:1.2!important;}
+.trainer-party-slot-number{font-size:8px!important;}
+
+/* Tipagens ficam lado a lado, mesmo com o nome do tipo mais comprido. */
+#page1 .mobile-general-type-strip,
+#page1 .current-type-display{
+  min-width:0;
+}
+#page1 .mobile-general-type-strip .type-icon-row,
+#page1 .current-type-display .type-icon-row{
+  display:flex!important;
+  flex-wrap:nowrap!important;
+  gap:4px!important;
+  align-items:center!important;
+  justify-content:flex-end!important;
+  min-width:0!important;
+}
+#page1 .mobile-general-type-strip .type-icon-badge,
+#page1 .current-type-display .type-icon-badge{
+  flex:0 0 auto!important;
+  font-size:8px!important;
+  line-height:1!important;
+  min-height:17px!important;
+  padding:2px 4px!important;
+  letter-spacing:0!important;
+}
+#page1 .mobile-general-type-strip .type-icon-label,
+#page1 .current-type-display .type-icon-label{font-size:8px!important;white-space:nowrap;}
+#page1 .mobile-general-type-strip .current-type-display-label{
+  font-size:7px!important;
+  line-height:1.25!important;
+  min-width:0!important;
+  letter-spacing:0!important;
+}
+@media(max-width:365px){
+  #page1 .mobile-general-type-strip .type-icon-badge,
+  #page1 .mobile-general-type-strip .type-icon-label{font-size:7px!important;padding:2px 3px!important;}
+  #page1 .mobile-general-type-strip .current-type-display-label{font-size:6px!important;}
+}
+
+/* Estados ATIVA/INATIVA não invadem o nome do Status. */
+.status-condition-button{
+  position:relative!important;
+  grid-template-columns:30px minmax(0,1fr)!important;
+  min-height:56px!important;
+  padding:7px 37px 7px 6px!important;
+  gap:5px!important;
+}
+.status-condition-button .condition-copy{min-width:0!important;}
+.status-condition-button .condition-name{
+  display:block;
+  font-size:8px!important;
+  line-height:1.3!important;
+  overflow-wrap:anywhere;
+}
+.status-condition-button .condition-state{
+  position:absolute!important;
+  top:7px!important;
+  right:5px!important;
+  display:block!important;
+  grid-column:auto!important;
+  justify-self:auto!important;
+  margin:0!important;
+  width:31px!important;
+  max-width:31px!important;
+  color:var(--muted);
+  font-size:5px!important;
+  line-height:1!important;
+  letter-spacing:0!important;
+  white-space:nowrap!important;
+  text-align:right!important;
+  opacity:.65;
+  pointer-events:none;
+}
+.status-condition-button.active .condition-state{opacity:1;color:var(--text);}
+.status-condition-button .condition-copy small{font-size:6px!important;line-height:1.3!important;}
+
+/* A Bolsa é a exceção: o texto aprovado continua confortável em celular. */
+.bag-toolbar .input{font-size:12px!important;min-height:40px!important;}
+.bag-filter-strip{display:flex!important;gap:6px!important;flex-wrap:wrap!important;}
+.bag-filter-strip button{font-size:10px!important;min-height:34px!important;padding:7px 8px!important;}
+.bag-result-note,.bag-catalog-count{font-size:11px!important;line-height:1.4!important;}
+.bag-smart-copy b,.combat-bag-smart-main b{font-size:13px!important;line-height:1.35!important;}
+.bag-smart-copy small,.combat-bag-smart-main small{font-size:10px!important;line-height:1.35!important;}
+.bag-smart-copy em,.combat-bag-smart-main em{font-size:10px!important;line-height:1.5!important;}
+.combat-item-head .combat-bag-smart-main b{font-size:14px!important;}
+.combat-item-head .combat-bag-smart-main small{font-size:10px!important;}
+.combat-item-description{font-size:11px!important;line-height:1.55!important;padding:9px 10px!important;}
+.combat-item-effect{font-size:10px!important;line-height:1.4!important;}
+.combat-bag-qty{font-size:10px!important;min-height:32px!important;}
+.combat-item-footer .combat-bag-use,.combat-bag-use,
+.bag-smart-row .bag-smart-action{font-size:10px!important;min-height:38px!important;}
+@media(max-width:600px){
+ .combat-item-footer{grid-template-columns:minmax(0,1fr) minmax(100px,120px)!important;gap:7px!important;}
+ .combat-item-head .combat-bag-smart-main{min-width:0;}
+ .combat-item-description{overflow-wrap:anywhere;}
+}
+@media(max-width:355px){
+ .combat-item-footer{grid-template-columns:1fr!important;}
+ .combat-item-footer .combat-bag-use{width:100%!important;}
+}
+
+/* Fonte Arcade: 12% menor e menos pesada, sem diminuir controles de toque.
+   Não interfere nas legendas minúsculas das teclas ou no tamanho legível da Bolsa. */
+html[data-font-theme="arcade"] body{font-weight:400!important;}
+html[data-font-theme="arcade"] .panel-head h2,
+html[data-font-theme="arcade"] .page-intro-copy h3,
+html[data-font-theme="arcade"] .mobile-native-hero h2{font-size:clamp(12px,3.25vw,16px)!important;font-weight:400!important;letter-spacing:0!important;}
+html[data-font-theme="arcade"] .btn,
+html[data-font-theme="arcade"] .input,
+html[data-font-theme="arcade"] select,
+html[data-font-theme="arcade"] textarea{font-weight:400!important;letter-spacing:0!important;}
+html[data-font-theme="arcade"] .panel-head h2,
+html[data-font-theme="arcade"] .mobile-menu-card b,
+html[data-font-theme="arcade"] .sheet-head .eyebrow{font-weight:400!important;}
+html[data-font-theme="arcade"] .font-theme-option b{font-size:9px!important;font-weight:400!important;}
+html[data-font-theme="arcade"] .font-theme-option small{font-size:8px!important;}
+html[data-font-theme="arcade"] .font-theme-sample{font-size:7px!important;}
+html[data-font-theme="arcade"] .mobile-menu-card b{font-size:10px!important;line-height:1.45!important;}
+html[data-font-theme="arcade"] .mobile-menu-card small{font-size:9px!important;line-height:1.6!important;}
+html[data-font-theme="arcade"] .encyclopedia-rule-prose{font-size:11px!important;}
+html[data-font-theme="arcade"] .encyclopedia-rule-prose h2{font-size:12px!important;}
+html[data-font-theme="arcade"] .bag-smart-copy b,
+html[data-font-theme="arcade"] .combat-bag-smart-main b{font-size:12px!important;}
+html[data-font-theme="arcade"] .combat-item-description{font-size:11px!important;}
+
 </style>
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -16415,8 +16936,6 @@ html[data-font-theme="arcade"] .encyclopedia-page *{border-radius:2px!important}
                 <h2>Memória de Moves</h2>
                 <div class="panel-head-tools">
                   <span class="eyebrow" id="learnsetSummary">Golpes Aprendidos</span>
-                  <button class="btn small panel-icon-btn" id="collapseMemoryBtn" title="Minimizar Memória de Moves" aria-label="Minimizar Memória de Moves">−</button>
-                  <button class="btn small panel-icon-btn" id="expandMemoryBtn" title="Ampliar Memória de Moves" aria-label="Ampliar Memória de Moves">⤢</button>
                 </div>
               </div>
               <div class="panel-body" id="moveMemoryBody">
@@ -17253,7 +17772,7 @@ html[data-font-theme="arcade"] .encyclopedia-page *{border-radius:2px!important}
       <div class="encyclopedia-crest" aria-hidden="true"><span></span></div>
       <div>
         <div class="pokedex-led-row" aria-hidden="true"><i class="red"></i><i class="yellow"></i><i class="green"></i></div>
-        <span class="encyclopedia-hero-kicker">H&amp;H POKÉDEX • BANCO DE BATALHA</span>
+        <span class="encyclopedia-hero-kicker">POKÉDEX • BANCO DE DADOS</span>
         <h3>Enciclopédia Pokédex</h3>
         
       </div>
@@ -17280,6 +17799,9 @@ html[data-font-theme="arcade"] .encyclopedia-page *{border-radius:2px!important}
           <button class="encyclopedia-mode-btn" type="button" data-ency-mode="moves" role="tab" aria-selected="false">
             <span>MV</span><span><b>Moves</b><small id="encyclopediaMoveTabCount">Biblioteca</small></span>
           </button>
+          <button class="encyclopedia-mode-btn" type="button" data-ency-mode="rules" role="tab" aria-selected="false" id="encyclopediaRulesBtn">
+            <span>RG</span><span><b>Regras</b><small>28 capítulos</small></span>
+          </button>
         </div>
 
         <div class="encyclopedia-field">
@@ -17299,7 +17821,8 @@ html[data-font-theme="arcade"] .encyclopedia-page *{border-radius:2px!important}
 
       <div class="encyclopedia-alphabet" id="encyclopediaAlphabet" aria-label="Filtro alfabético"></div>
 
-      <div class="encyclopedia-content">
+      <div class="encyclopedia-content" id="encyclopediaContent">
+        <button class="mobile-rules-back" id="mobileRulesBackBtn" type="button" aria-label="Voltar ao índice de regras">‹ VOLTAR AO ÍNDICE</button>
         <aside class="encyclopedia-index">
           <div class="encyclopedia-index-head">
             <b id="encyclopediaIndexTitle">ÍNDICE DE ABILITIES</b>
@@ -17319,9 +17842,9 @@ html[data-font-theme="arcade"] .encyclopedia-page *{border-radius:2px!important}
               <div class="encyclopedia-page-number">AGUARDANDO</div>
             </section>
             <section class="encyclopedia-paper">
-              <h3>Banco de Combate</h3>
+              <h3>Banco de Dados</h3>
               <p>Escolha uma Ability ou um Move no visor ao lado para abrir os dados completos.</p>
-              <div class="encyclopedia-page-number">SISTEMA H&amp;H</div>
+              <div class="encyclopedia-page-number">ARQUIVO</div>
             </section>
           </div>
         </article>
@@ -17512,6 +18035,12 @@ html[data-font-theme="arcade"] .encyclopedia-page *{border-radius:2px!important}
             <span class="mobile-menu-icon">▤</span>
             <b>Arquivo</b>
             <small>Treinamentos, itens, anotações e progressão.</small>
+          </button>
+
+          <button class="mobile-menu-card" type="button" id="mobileAppRules" data-mobile-route="page4">
+            <span class="mobile-menu-icon">RG</span>
+            <b>Manual de Regras</b>
+            <small>28 capítulos para consulta durante a sessão.</small>
           </button>
 
           <button class="mobile-menu-card" type="button" data-mobile-route="page5">
@@ -25488,6 +26017,416 @@ function initializeEncyclopedia(){
   renderEncyclopedia();
 }
 
+/* ============================================================
+   V5.0 — Enciclopédia • Regras do RPG
+   ============================================================ */
+const HHRPG_RULES=[{"id":"rule-01","sourceNumber":1,"displayOrder":1,"group":"Criação & Progressão","title":"Estrutura geral do sistema","summary":"Treinadores, Pokémon, testes em d100, dano em d6 e a regra de que o específico passa por cima do geral.","searchText":"Treinadores, Pokémon, testes em d100, dano em d6 e a regra de que o específico passa por cima do geral. Existem duas camadas principais: 👤 Personagem do Player Resolve testes principalmente com 1d100 . Tem atributos, Perícias, habilidades especiais, Comandos e recursos próprios. E ele participa de verdade das batalhas, não sendo só alguém que escolhe o Move do Pokémon e fica na parte chata de assistir igual nos jogos. 🐾 Pokémon Usa seus Base Stats reais ou alterados como base, com a maior parte das contas já convertida automaticamente pela ficha. Recebe pontos adicionais em Stats conforme sobe de nível. Os Moves causam dano em d6 , usando a regra de conversão que também já aparece na ficha. Attack, Defense, Sp.Atk e Sp.Def mexem diretamente na quantidade de dados rolados. Tipagem, Ability, Nature, Item, Clima, Terreno e outras condições também podem mudar a luta. Tem uma regra que vale para praticamente tudo: Regra específica prevalece sobre regra geral. Então se uma Ability, Move, forma, item ou alguma característica exclusiva disser que funciona diferente, ela pode quebrar a regra normal.","content":"<p>Existem duas camadas principais:</p>\n\n<h2>👤 Personagem do Player</h2>\n<p>Resolve testes principalmente com <strong>1d100</strong>. Tem atributos, Perícias, habilidades especiais, Comandos e recursos próprios.</p>\n<p>E ele participa de verdade das batalhas, não sendo só alguém que escolhe o Move do Pokémon e fica na parte chata de assistir igual nos jogos.</p>\n\n<h2>🐾 Pokémon</h2>\n<ul>\n<li>Usa seus <strong>Base Stats reais ou alterados</strong> como base, com a maior parte das contas já convertida automaticamente pela ficha.</li>\n<li>Recebe pontos adicionais em <strong>Stats</strong> conforme sobe de nível.</li>\n<li>Os <strong>Moves causam dano em d6</strong>, usando a regra de conversão que também já aparece na ficha.</li>\n<li><strong>Attack, Defense, Sp.Atk e Sp.Def</strong> mexem diretamente na quantidade de dados rolados.</li>\n<li>Tipagem, Ability, Nature, Item, Clima, Terreno e outras condições também podem mudar a luta.</li>\n</ul>\n\n<p>Tem uma regra que vale para praticamente tudo:</p>\n<blockquote>\n<p><strong>Regra específica prevalece sobre regra geral.</strong></p>\n</blockquote>\n<p>Então se uma Ability, Move, forma, item ou alguma característica exclusiva disser que funciona diferente, ela pode quebrar a regra normal.</p>\n<hr />"},{"id":"rule-02","sourceNumber":2,"displayOrder":2,"group":"Criação & Progressão","title":"Treinadores","summary":"Os 5 atributos do Treinador, testes em d100, Perícias por grau e usos especiais de Espírito.","searchText":"Os 5 atributos do Treinador, testes em d100, Perícias por grau e usos especiais de Espírito. Todo Treinador tem 5 atributos . Quando uma ação depende deles, normalmente o teste usa 1d100 e a própria pontuação do atributo vira a sua chance de sucesso. ❤️ Vida — resistência, vitalidade e custo de Esforço. 💪 Corpo — força, atletismo, luta, arremesso e ações físicas. 🧠 Mente — conhecimento, análise, medicina, Sanidade e estratégia. 🗣️ Presença — carisma, lábia, concursos, confiança e social. ✨ Espírito — conexão sobrenatural com Pokémon, fantasmas, poderes psíquicos etc. Na criação são distribuídos entre os 5: [50 / 40 / 30 / 20 / 10] 🎲 Testes Nos testes usando d100, para ter sucesso o resultado precisa ficar igual ou abaixo do atributo usado. 1d100 ≤ atributo = Sucesso. “Quanto menor o resultado, melhor. E se tirar o extremo de 5 a 1 é considerado um crítico, quase como o 20 no d20.” — Nando 🎓 Perícias Cada 10 pontos de um atributo gera 1 ponto para comprar Perícias/Habilidades ligadas a ele. Graus das Perícias: S: 5 dados, pega o melhor. A: 4 dados. B: 3 dados. C: 2 dados. D: 1 dado. E: 3 dados e pega o pior. “O sistema não obriga uma lista fixa de Perícias. Elas podem ser criadas de acordo com o personagem e aprovadas pelo Mestre, é claro. Por exemplo, jogar uma Pokébola poderia usar a Perícia de Arremesso com Corpo , ou até algo pensado com Mente como atributo base, dependendo de como o personagem faz aquilo.” — Nando Espírito também pode permitir habilidades incomuns como: Comunicação com Pokémon; Poderes psíquicos; Ligação espiritual com o Pokémon, tipo o Lucario do filme; Interação com fantasmas, tipo as Hex Maniac; Outros fenômenos sobrenaturais aprovados pelo Mestre.","content":"<p>Todo Treinador tem <strong>5 atributos</strong>. Quando uma ação depende deles, normalmente o teste usa <strong>1d100</strong> e a própria pontuação do atributo vira a sua chance de sucesso.</p>\n\n<p>❤️ <strong>Vida</strong> — resistência, vitalidade e custo de Esforço.<br>\n💪 <strong>Corpo</strong> — força, atletismo, luta, arremesso e ações físicas.<br>\n🧠 <strong>Mente</strong> — conhecimento, análise, medicina, Sanidade e estratégia.<br>\n🗣️ <strong>Presença</strong> — carisma, lábia, concursos, confiança e social.<br>\n✨ <strong>Espírito</strong> — conexão sobrenatural com Pokémon, fantasmas, poderes psíquicos etc.</p>\n\n<p><strong>Na criação são distribuídos entre os 5:</strong></p>\n<p><strong>[50 / 40 / 30 / 20 / 10]</strong></p>\n\n<h2>🎲 Testes</h2>\n<p>Nos testes usando d100, para ter sucesso o resultado precisa ficar <strong>igual ou abaixo</strong> do atributo usado.</p>\n<ul>\n<li><strong>1d100 ≤ atributo = Sucesso.</strong></li>\n</ul>\n\n<blockquote>\n<p><em>“Quanto menor o resultado, melhor. E se tirar o extremo de 5 a 1 é considerado um crítico, quase como o 20 no d20.” — Nando</em></p>\n</blockquote>\n\n<hr />\n\n<h2>🎓 Perícias</h2>\n<p><strong>Cada 10 pontos de um atributo gera 1 ponto para comprar Perícias/Habilidades ligadas a ele.</strong></p>\n\n<p><strong>Graus das Perícias:</strong></p>\n<ul>\n<li><strong>S:</strong> 5 dados, pega o melhor.</li>\n<li><strong>A:</strong> 4 dados.</li>\n<li><strong>B:</strong> 3 dados.</li>\n<li><strong>C:</strong> 2 dados.</li>\n<li><strong>D:</strong> 1 dado.</li>\n<li><strong>E:</strong> 3 dados e pega o pior.</li>\n</ul>\n\n<blockquote>\n<p><em>“O sistema não obriga uma lista fixa de Perícias. Elas podem ser criadas de acordo com o personagem e aprovadas pelo Mestre, é claro. Por exemplo, jogar uma Pokébola poderia usar a Perícia de Arremesso com <strong>Corpo</strong>, ou até algo pensado com <strong>Mente</strong> como atributo base, dependendo de como o personagem faz aquilo.” — Nando</em></p>\n</blockquote>\n\n<p><strong>Espírito também pode permitir habilidades incomuns como:</strong></p>\n<ul>\n<li>Comunicação com Pokémon;</li>\n<li>Poderes psíquicos;</li>\n<li>Ligação espiritual com o Pokémon, tipo o Lucario do filme;</li>\n<li>Interação com fantasmas, tipo as Hex Maniac;</li>\n<li>Outros fenômenos sobrenaturais aprovados pelo Mestre.</li>\n</ul>\n<hr />"},{"id":"rule-28","sourceNumber":28,"displayOrder":3,"group":"Criação & Progressão","title":"Estrutura atual das fichas","summary":"Como montar a ficha: espécie, BST, nível, Nature, pontos, Stats Totais, Ability e Moves.","searchText":"Como montar a ficha: espécie, BST, nível, Nature, pontos, Stats Totais, Ability e Moves. O processo consolidado para criar uma ficha é: determinar espécie/forma; confirmar rework/BST; definir nível; determinar Nature; calcular: (Lv - 1) × 6 ; distribuir os pontos; aplicar Nature; calcular Status Totais; converter Attack/Defense etc. para d6; selecionar Ability vigente; selecionar Moves adequados; converter cada Move; conferir sinergias, itens, status e regras especiais. O guia do Sceptile registra exatamente esse processo como referência operacional.","content":"<p>O processo consolidado para criar uma ficha é:</p>\n<ol>\n<li>determinar espécie/forma;</li>\n<li>confirmar rework/BST;</li>\n<li>definir nível;</li>\n<li>determinar Nature;</li>\n<li>calcular:\n<strong>(Lv - 1) × 6</strong>;</li>\n<li>distribuir os pontos;</li>\n<li>aplicar Nature;</li>\n<li>calcular Status Totais;</li>\n<li>converter Attack/Defense etc. para d6;</li>\n<li>selecionar Ability vigente;</li>\n<li>selecionar Moves adequados;</li>\n<li>converter cada Move;</li>\n<li>conferir sinergias, itens, status e regras especiais.</li>\n</ol>\n<p>O guia do Sceptile registra exatamente esse processo como referência operacional.</p>\n<hr />\n"},{"id":"rule-17","sourceNumber":17,"displayOrder":4,"group":"Criação & Progressão","title":"Progressão Pokémon","summary":"PPg, quanto custa subir de nível e como a linha evolutiva pode mudar esse custo.","searchText":"PPg, quanto custa subir de nível e como a linha evolutiva pode mudar esse custo. Não existe EXP tradicional. O sistema usa: PPg — Pontos de Progresso Exemplos: Selvagem relevante → +1 PPg Exploração → +1 Treinador → +2 Líder/Chefe → +3 Inimigos muito abaixo do nível não dão PPg. Custo para subir nível Lv.1–15 → 5 PPg Lv.16–25 → 6 Lv.26–40 → 7 Lv.41–60 → 8 Lv.61–80 → 9 Lv.81–100 → 10 Linhas evolutivas podem alterar o custo. Pokémon que evoluem cedo são mais baratos antes da forma final. Pokémon que evoluem muito tarde/pseudo-lendários são mais caros. Forma final normalmente recebe: +2 PPg no custo.","content":"<p>Não existe EXP tradicional.</p>\n<p>O sistema usa:</p>\n<h1><strong>PPg — Pontos de Progresso</strong></h1>\n<p>Exemplos:</p>\n<ul>\n<li>Selvagem relevante → +1 PPg</li>\n<li>Exploração → +1</li>\n<li>Treinador → +2</li>\n<li>Líder/Chefe → +3</li>\n</ul>\n<p>Inimigos muito abaixo do nível não dão PPg.</p>\n<hr />\n<h2>Custo para subir nível</h2>\n<ul>\n<li>Lv.1–15 → 5 PPg</li>\n<li>Lv.16–25 → 6</li>\n<li>Lv.26–40 → 7</li>\n<li>Lv.41–60 → 8</li>\n<li>Lv.61–80 → 9</li>\n<li>Lv.81–100 → 10</li>\n</ul>\n<p>Linhas evolutivas podem alterar o custo.</p>\n<p>Pokémon que evoluem cedo são mais baratos antes da forma final.</p>\n<p>Pokémon que evoluem muito tarde/pseudo-lendários são mais caros.</p>\n<p>Forma final normalmente recebe:</p>\n<p><strong>+2 PPg no custo.</strong></p>\n<hr />\n"},{"id":"rule-18","sourceNumber":18,"displayOrder":5,"group":"Criação & Progressão","title":"Crescimento dos Stats","summary":"+6 pontos por nível, distribuição dos Stats, limites e ajustes quando o Pokémon evolui.","searchText":"+6 pontos por nível, distribuição dos Stats, limites e ajustes quando o Pokémon evolui. Os Stats crescem junto com o nível do Pokémon. A cada nível: +6 pontos de atributos Logo: Pontos totais = (Nível - 1) × 6 Exemplos: Lv.10: 9 × 6 = 54 pontos Lv.36: 35 × 6 = 210 pontos Eles são distribuídos entre: HP Attack Defense Sp.Atk Sp.Def Speed Essa mesma conta é usada automaticamente na criação e progressão das fichas. Limites Normalmente: Máximo +3 no mesmo atributo por nível , antes da Nature. E: máximo +20 provenientes de level-up no mesmo atributo dentro de um bloco de 10 níveis. Ao evoluir: nenhum atributo pode ficar abaixo do Base Stat da nova evolução.","content":"<p>Os Stats crescem junto com o nível do Pokémon.</p>\n<p>A cada nível:</p>\n<h1><strong>+6 pontos de atributos</strong></h1>\n<p>Logo:</p>\n<p><strong>Pontos totais = (Nível - 1) × 6</strong></p>\n<p>Exemplos:</p>\n<p>Lv.10:</p>\n<p><strong>9 × 6 = 54 pontos</strong></p>\n<p>Lv.36:</p>\n<p><strong>35 × 6 = 210 pontos</strong></p>\n<p>Eles são distribuídos entre:</p>\n<ul>\n<li>HP</li>\n<li>Attack</li>\n<li>Defense</li>\n<li>Sp.Atk</li>\n<li>Sp.Def</li>\n<li>Speed</li>\n</ul>\n<p>Essa mesma conta é usada automaticamente na criação e progressão das fichas.</p>\n<hr />\n<h2>Limites</h2>\n<p>Normalmente:</p>\n<p><strong>Máximo +3 no mesmo atributo por nível</strong>, antes da Nature.</p>\n<p>E:</p>\n<p><strong>máximo +20 provenientes de level-up no mesmo atributo dentro de um bloco de 10 níveis.</strong></p>\n<p>Ao evoluir:</p>\n<blockquote>\n<p>nenhum atributo pode ficar abaixo do Base Stat da nova evolução.</p>\n</blockquote>\n<hr />\n"},{"id":"rule-19","sourceNumber":19,"displayOrder":6,"group":"Criação & Progressão","title":"Nature","summary":"Como a Nature mexe nos pontos ganhos durante a progressão.","searchText":"Como a Nature mexe nos pontos ganhos durante a progressão. Nature não simplesmente multiplica o Base Stat. Ela atua sobre a distribuição realizada durante a progressão . Se nenhum ponto for investido naquele atributo, ela não altera esse atributo. Exemplo: Jolly +Speed -Sp.Atk Isso permite que a Nature afete a construção sem destruir os Base Stats naturais da espécie.","content":"<p>Nature não simplesmente multiplica o Base Stat.</p>\n<p>Ela atua sobre a <strong>distribuição realizada durante a progressão</strong>.</p>\n<p>Se nenhum ponto for investido naquele atributo, ela não altera esse atributo.</p>\n<p>Exemplo:</p>\n<p><strong>Jolly</strong></p>\n<ul>\n<li>+Speed</li>\n<li>-Sp.Atk</li>\n</ul>\n<p>Isso permite que a Nature afete a construção sem destruir os Base Stats naturais da espécie.</p>\n<hr />\n"},{"id":"rule-20","sourceNumber":20,"displayOrder":7,"group":"Criação & Progressão","title":"Treinamento","summary":"Treino de Moves e Stats, sucessos necessários, críticos e limites durante o descanso.","searchText":"Treino de Moves e Stats, sucessos necessários, críticos e limites durante o descanso. Durante descanso podem existir diferentes treinos. Treino de Move Move natural: 5 sucessos Move incomum/ilegal/Egg/TM raro: 10 sucessos Crítico vale 2 sucessos. Treino de Stats Pode: treinar 2 atributos → cada um ganha +1 no próximo nível; ou: focar 1 atributo → +2. Existe ainda progressão de EVs própria. Treino de PPg Um teste pode gerar: falha → 0 PPg; sucesso → +1; sucesso forte → +2; crítico → +3 PPg e Felicidade.","content":"<p>Durante descanso podem existir diferentes treinos.</p>\n<h3>Treino de Move</h3>\n<p>Move natural:\n<strong>5 sucessos</strong></p>\n<p>Move incomum/ilegal/Egg/TM raro:\n<strong>10 sucessos</strong></p>\n<p>Crítico vale 2 sucessos.</p>\n<hr />\n<h3>Treino de Stats</h3>\n<p>Pode:</p>\n<ul>\n<li>treinar 2 atributos → cada um ganha +1 no próximo nível;</li>\n</ul>\n<p>ou:</p>\n<ul>\n<li>focar 1 atributo → +2.</li>\n</ul>\n<p>Existe ainda progressão de EVs própria.</p>\n<hr />\n<h3>Treino de PPg</h3>\n<p>Um teste pode gerar:</p>\n<ul>\n<li>falha → 0 PPg;</li>\n<li>sucesso → +1;</li>\n<li>sucesso forte → +2;</li>\n<li>crítico → +3 PPg e Felicidade.</li>\n</ul>\n<hr />\n"},{"id":"rule-21","sourceNumber":21,"displayOrder":8,"group":"Criação & Progressão","title":"Felicidade","summary":"Felicidade em treino, evolução, Abilities, descanso, produção e vínculo com o Treinador.","searchText":"Felicidade em treino, evolução, Abilities, descanso, produção e vínculo com o Treinador. Felicidade existe como atributo real dos Pokémon. Ela interage com: treinamento; evolução; Abilities; produção; descanso; relações treinador/Pokémon. Várias Abilities reworkadas também possuem efeitos dependentes de Felicidade.","content":"<p>Felicidade existe como atributo real dos Pokémon.</p>\n<p>Ela interage com:</p>\n<ul>\n<li>treinamento;</li>\n<li>evolução;</li>\n<li>Abilities;</li>\n<li>produção;</li>\n<li>descanso;</li>\n<li>relações treinador/Pokémon.</li>\n</ul>\n<p>Várias Abilities reworkadas também possuem efeitos dependentes de Felicidade.</p>\n<hr />\n"},{"id":"rule-22","sourceNumber":22,"displayOrder":9,"group":"Criação & Progressão","title":"Pontos de Destaque","summary":"Como ganhar e gastar Pontos de Destaque em Perícias, atributos e habilidades permanentes.","searchText":"Como ganhar e gastar Pontos de Destaque em Perícias, atributos e habilidades permanentes. Treinadores possuem ainda: PD — Pontos de Destaque Eles compram melhorias permanentes. Exemplos: Nova Perícia D → 5 PD +10 em atributo → 10 PD habilidades de treinador → normalmente 10–20 PD O atributo de treinador normalmente possui limite de 50 .","content":"<p>Treinadores possuem ainda:</p>\n<h1><strong>PD — Pontos de Destaque</strong></h1>\n<p>Eles compram melhorias permanentes.</p>\n<p>Exemplos:</p>\n<ul>\n<li>Nova Perícia D → 5 PD</li>\n<li>+10 em atributo → 10 PD</li>\n<li>habilidades de treinador → normalmente 10–20 PD</li>\n</ul>\n<p>O atributo de treinador normalmente possui limite de <strong>50</strong>.</p>\n<hr />\n"},{"id":"rule-23","sourceNumber":23,"displayOrder":10,"group":"Criação & Progressão","title":"Comandos do Treinador","summary":"Comandos do Treinador em combate, custo de Esforço e aumento do custo quando usados em sequência.","searchText":"Comandos do Treinador em combate, custo de Esforço e aumento do custo quando usados em sequência. O treinador participa diretamente da batalha. Comandos gastam Vida/Esforço . O primeiro custa: -2 Vida Comandos consecutivos: -2 -5 -10 -15 -20... Passar um turno sem comandar reseta o custo. Exemplos: Incentivar! +1 Felicidade e +1d6 no próximo ataque. Foque na Defesa! -1d6 no dano recebido. Esquivar! Uma esquiva automática por batalha. Segure Firme! Ao cair a 0 HP, permanece com 1 HP. Existem também comandos compráveis como: ⚡ Ataque Agora! 🤝 Ataquem Juntos, Agora! ❤️ Confie em Mim! 🔥 Não Desista Agora!","content":"<p>O treinador participa diretamente da batalha.</p>\n<p>Comandos gastam <strong>Vida/Esforço</strong>.</p>\n<p>O primeiro custa:</p>\n<p><strong>-2 Vida</strong></p>\n<p>Comandos consecutivos:</p>\n<ul>\n<li>-2</li>\n<li>-5</li>\n<li>-10</li>\n<li>-15</li>\n<li>-20...</li>\n</ul>\n<p>Passar um turno sem comandar reseta o custo.</p>\n<p>Exemplos:</p>\n<h3>Incentivar!</h3>\n<p>+1 Felicidade e +1d6 no próximo ataque.</p>\n<h3>Foque na Defesa!</h3>\n<p>-1d6 no dano recebido.</p>\n<h3>Esquivar!</h3>\n<p>Uma esquiva automática por batalha.</p>\n<h3>Segure Firme!</h3>\n<p>Ao cair a 0 HP, permanece com 1 HP.</p>\n<p>Existem também comandos compráveis como:</p>\n<p>⚡ <strong>Ataque Agora!</strong>\n🤝 <strong>Ataquem Juntos, Agora!</strong>\n❤️ <strong>Confie em Mim!</strong>\n🔥 <strong>Não Desista Agora!</strong></p>\n<hr />\n"},{"id":"rule-03","sourceNumber":3,"displayOrder":11,"group":"Combate","title":"Precisão e Evasiva","summary":"Accuracy em d100, teto normal de 90%, Evasiva Reativa/Ativa e Exaustão.","searchText":"Accuracy em d100, teto normal de 90%, Evasiva Reativa/Ativa e Exaustão. Sobre a precisão: como o sistema já usa 1d100 , fica bem simples trabalhar diretamente com porcentagem de chance para um ataque acertar. “Sobre a precisão, bem, como o sistema já é em 1d100 isso auxilia bastante a parte da % de chance de algo acontecer e já adapta uma parte mais fácil do combate.” — Nando 🎯 Accuracy Um detalhe fundamental de balanceamento: A base de Accuracy normalmente para em 90% . Assim ainda existe aquela margem de erro para escapar de um ataque e o combate não vira só um lado acertando todos os Moves o tempo inteiro. Então um Move de 100% Accuracy normalmente vira 90% . Exemplo: Ember — Accuracy 90 01–90 → acerta. 91–100 → erra. 💨 Evasiva Há duas formas principais de um Pokémon tentar escapar de um ataque. Evasiva Reativa É utilizada como reação a um ataque; Reduz a Accuracy inimiga em -25% . Evasiva Ativa Gasta a ação do Pokémon naquela rodada; Reduz a Accuracy inimiga em -50% . Exaustão Usar Evasiva 3 vezes consecutivas causa Exaustão . Depois disso, cada nova Evasiva causa 1d6 de dano . Abilities podem mudar essa regra. Pressure , por exemplo, faz o inimigo entrar em Exaustão depois de apenas 2 Evasivas consecutivas e aumenta o dano para 2d6 .","content":"<p>Sobre a precisão: como o sistema já usa <strong>1d100</strong>, fica bem simples trabalhar diretamente com porcentagem de chance para um ataque acertar.</p>\n\n<blockquote>\n<p><em>“Sobre a precisão, bem, como o sistema já é em 1d100 isso auxilia bastante a parte da % de chance de algo acontecer e já adapta uma parte mais fácil do combate.” — Nando</em></p>\n</blockquote>\n\n<h2>🎯 Accuracy</h2>\n<p><strong>Um detalhe fundamental de balanceamento:</strong></p>\n<p>A base de Accuracy normalmente para em <strong>90%</strong>. Assim ainda existe aquela margem de erro para escapar de um ataque e o combate não vira só um lado acertando todos os Moves o tempo inteiro.</p>\n\n<p>Então um <strong>Move de 100% Accuracy</strong> normalmente vira <strong>90%</strong>.</p>\n\n<p><strong>Exemplo:</strong></p>\n<p><strong>Ember — Accuracy 90</strong></p>\n<ul>\n<li><strong>01–90 → acerta.</strong></li>\n<li><strong>91–100 → erra.</strong></li>\n</ul>\n\n<hr />\n\n<h2>💨 Evasiva</h2>\n<p>Há duas formas principais de um Pokémon tentar escapar de um ataque.</p>\n\n<h3>Evasiva Reativa</h3>\n<ul>\n<li>É utilizada como reação a um ataque;</li>\n<li>Reduz a Accuracy inimiga em <strong>-25%</strong>.</li>\n</ul>\n\n<h3>Evasiva Ativa</h3>\n<ul>\n<li>Gasta a ação do Pokémon naquela rodada;</li>\n<li>Reduz a Accuracy inimiga em <strong>-50%</strong>.</li>\n</ul>\n\n<h3>Exaustão</h3>\n<p>Usar <strong>Evasiva 3 vezes consecutivas</strong> causa <strong>Exaustão</strong>. Depois disso, cada nova Evasiva causa <strong>1d6 de dano</strong>.</p>\n\n<p>Abilities podem mudar essa regra. <strong>Pressure</strong>, por exemplo, faz o inimigo entrar em Exaustão depois de apenas <strong>2 Evasivas consecutivas</strong> e aumenta o dano para <strong>2d6</strong>.</p>\n<hr />"},{"id":"rule-04","sourceNumber":4,"displayOrder":12,"group":"Combate","title":"Conversão dos Moves para dano","summary":"Como o Power original de um Move vira dados de dano em d6.","searchText":"Como o Power original de um Move vira dados de dano em d6. O Power original do Move vira dados: 1–20 BP → 1d6 21–40 → 2d6 41–60 → 3d6 61–80 → 4d6 81–100 → 5d6 101–120 → 6d6 121+ → 6d6 + regra especial Exemplo: Leaf Blade — 90 BP → 5d6 base","content":"<p>O Power original do Move vira dados:</p>\n<ul>\n<li><strong>1–20 BP → 1d6</strong></li>\n<li><strong>21–40 → 2d6</strong></li>\n<li><strong>41–60 → 3d6</strong></li>\n<li><strong>61–80 → 4d6</strong></li>\n<li><strong>81–100 → 5d6</strong></li>\n<li><strong>101–120 → 6d6</strong></li>\n<li><strong>121+ → 6d6 + regra especial</strong></li>\n</ul>\n<p>Exemplo:</p>\n<p><strong>Leaf Blade — 90 BP</strong>\n→ <strong>5d6 base</strong></p>\n<hr />\n"},{"id":"rule-05","sourceNumber":5,"displayOrder":13,"group":"Combate","title":"Attack e Sp.Atk","summary":"Quantos dados extras Attack ou Sp.Atk colocam no dano.","searchText":"Quantos dados extras Attack ou Sp.Atk colocam no dano. Depois do Power, entra o atributo ofensivo. 1–49 → +0d6 50–75 → +1d6 76–100 → +2d6 101–125 → +3d6 126–150 → +4d6 151–175 → +5d6 176+ → +6d6 Depois de 176: cada 5 pontos completos adicionais = +1 de dano fixo. Então um Pokémon com Attack extremamente alto pode causar: Power + 6d6 + dano fixo.","content":"<p>Depois do Power, entra o atributo ofensivo.</p>\n<ul>\n<li>1–49 → +0d6</li>\n<li>50–75 → +1d6</li>\n<li>76–100 → +2d6</li>\n<li>101–125 → +3d6</li>\n<li>126–150 → +4d6</li>\n<li>151–175 → +5d6</li>\n<li>176+ → +6d6</li>\n</ul>\n<p>Depois de 176:</p>\n<p><strong>cada 5 pontos completos adicionais = +1 de dano fixo.</strong></p>\n<p>Então um Pokémon com Attack extremamente alto pode causar:</p>\n<p><strong>Power + 6d6 + dano fixo.</strong></p>\n<hr />\n"},{"id":"rule-06","sourceNumber":6,"displayOrder":14,"group":"Combate","title":"Defense e Sp.Def","summary":"Quantos dados Defense ou Sp.Def retiram do dano recebido.","searchText":"Quantos dados Defense ou Sp.Def retiram do dano recebido. A mesma escala existe defensivamente: 1–49 → 0 50–75 → -1d6 76–100 → -2d6 101–125 → -3d6 126–150 → -4d6 151–175 → -5d6 176+ → -6d6 Depois de 176: cada 5 pontos = -1 de dano fixo. Physical compara: Attack × Defense Special: Sp.Atk × Sp.Def","content":"<p>A mesma escala existe defensivamente:</p>\n<ul>\n<li>1–49 → 0</li>\n<li>50–75 → -1d6</li>\n<li>76–100 → -2d6</li>\n<li>101–125 → -3d6</li>\n<li>126–150 → -4d6</li>\n<li>151–175 → -5d6</li>\n<li>176+ → -6d6</li>\n</ul>\n<p>Depois de 176:</p>\n<p><strong>cada 5 pontos = -1 de dano fixo.</strong></p>\n<p>Physical compara:</p>\n<p><strong>Attack × Defense</strong></p>\n<p>Special:</p>\n<p><strong>Sp.Atk × Sp.Def</strong></p>\n<hr />\n"},{"id":"rule-07","sourceNumber":7,"displayOrder":15,"group":"Combate","title":"STAB, fraqueza e resistência","summary":"STAB, super efetivo, resistido, imunidade e como cada um mexe no dano.","searchText":"STAB, super efetivo, resistido, imunidade e como cada um mexe no dano. STAB Mesmo tipo do usuário: +1d6 Abilities podem alterar isso. Super efetivo Recebe: +1d6 e, mais importante: ignora a redução em dados da Defense/Sp.Def do alvo. Resistido Recebe: -1d6 e o atacante não utiliza seus dados extras de Attack/Sp.Atk . Imunidade 0 de dano , exceto quando Ability/Move/etc. quebrar a imunidade. O dano normalmente nunca cai abaixo de 1d6 , salvo imunidade ou anulação específica.","content":"<h3>STAB</h3>\n<p>Mesmo tipo do usuário:</p>\n<p><strong>+1d6</strong></p>\n<p>Abilities podem alterar isso.</p>\n<h3>Super efetivo</h3>\n<p>Recebe:</p>\n<p><strong>+1d6</strong></p>\n<p>e, mais importante:</p>\n<p><strong>ignora a redução em dados da Defense/Sp.Def do alvo.</strong></p>\n<h3>Resistido</h3>\n<p>Recebe:</p>\n<p><strong>-1d6</strong></p>\n<p>e o atacante <strong>não utiliza seus dados extras de Attack/Sp.Atk</strong>.</p>\n<h3>Imunidade</h3>\n<p><strong>0 de dano</strong>, exceto quando Ability/Move/etc. quebrar a imunidade.</p>\n<p>O dano normalmente nunca cai abaixo de <strong>1d6</strong>, salvo imunidade ou anulação específica.</p>\n<hr />\n"},{"id":"rule-08","sourceNumber":8,"displayOrder":16,"group":"Combate","title":"Críticos","summary":"Crítico natural, crítico aumentado e o que acontece com os dados de Power.","searchText":"Crítico natural, crítico aumentado e o que acontece com os dados de Power. Crítico Natural Resultado: 01–05 O ataque: acerta automaticamente; ignora Evasiva; maximiza os dados provenientes do Power Base ; mantém bônus extras rolados normalmente; ignora -1d6 adicional da defesa . Exemplo: 6d6 de Power vira: 36 fixo e depois Attack, STAB, Ability etc. continuam sendo aplicados. Crítico aumentado/artificial Quando Focus Energy, Super Luck ou outro efeito aumenta a margem crítica, o crítico adicional é menos explosivo. Cada dado de Power Base vira: 4 de dano fixo. Assim existe uma diferença entre Crítico Natural e crítico provocado por aumento artificial da margem.","content":"<h3>Crítico Natural</h3>\n<p>Resultado:</p>\n<p><strong>01–05</strong></p>\n<p>O ataque:</p>\n<ul>\n<li>acerta automaticamente;</li>\n<li>ignora Evasiva;</li>\n<li>maximiza os dados provenientes do <strong>Power Base</strong>;</li>\n<li>mantém bônus extras rolados normalmente;</li>\n<li>ignora <strong>-1d6 adicional da defesa</strong>.</li>\n</ul>\n<p>Exemplo:</p>\n<p>6d6 de Power vira:</p>\n<p><strong>36 fixo</strong></p>\n<p>e depois Attack, STAB, Ability etc. continuam sendo aplicados.</p>\n<hr />\n<h3>Crítico aumentado/artificial</h3>\n<p>Quando Focus Energy, Super Luck ou outro efeito aumenta a margem crítica, o crítico adicional é menos explosivo.</p>\n<p>Cada dado de Power Base vira:</p>\n<p><strong>4 de dano fixo.</strong></p>\n<p>Assim existe uma diferença entre <strong>Crítico Natural</strong> e crítico provocado por aumento artificial da margem.</p>\n<hr />\n"},{"id":"rule-09","sourceNumber":9,"displayOrder":17,"group":"Combate","title":"Estágios de atributos","summary":"Estágios de atributos de -6 a +6, duração e formas de remover.","searchText":"Estágios de atributos de -6 a +6, duração e formas de remover. O Compêndio Completo padronizou os estágios entre: -6 e +6 e atualizou como eles funcionam. Em regra geral: +1 estágio: permanece até ser removido. +2 ou mais: dura normalmente 2 rodadas. reduções: duram normalmente 3 rodadas. reduções podem ser removidas gastando 1 ação completa . cada aplicação pode ter duração independente. Abilities específicas podem substituir essas durações.","content":"<p>O Compêndio Completo padronizou os estágios entre:</p>\n<p><strong>-6 e +6</strong></p>\n<p>e atualizou como eles funcionam.</p>\n<p>Em regra geral:</p>\n<ul>\n<li><strong>+1 estágio:</strong> permanece até ser removido.</li>\n<li><strong>+2 ou mais:</strong> dura normalmente 2 rodadas.</li>\n<li><strong>reduções:</strong> duram normalmente 3 rodadas.</li>\n<li>reduções podem ser removidas gastando <strong>1 ação completa</strong>.</li>\n<li>cada aplicação pode ter duração independente.</li>\n</ul>\n<p>Abilities específicas podem substituir essas durações.</p>\n<hr />\n"},{"id":"rule-10","sourceNumber":10,"displayOrder":18,"group":"Combate","title":"Multi-Hit e Hits Extras","summary":"Como funcionam Moves Multi-Hit e como os bônus são divididos entre os acertos.","searchText":"Como funcionam Moves Multi-Hit e como os bônus são divididos entre os acertos. O sistema evita rolar ataque várias vezes. Normalmente existe: 1 teste de Accuracy para o Move inteiro. O bônus de Attack/Sp.Atk geralmente entra apenas no primeiro hit. STAB e efeitos explicitamente definidos por hit podem continuar funcionando nos hits seguintes. Moves de 2–5 hits normalmente usam: 3 hits fixos. Em Crítico Natural: 5 hits. Skill Link, Abilities exclusivas e outros efeitos podem substituir essa regra.","content":"<p>O sistema evita rolar ataque várias vezes.</p>\n<p>Normalmente existe:</p>\n<p><strong>1 teste de Accuracy para o Move inteiro.</strong></p>\n<p>O bônus de Attack/Sp.Atk geralmente entra apenas no primeiro hit.</p>\n<p>STAB e efeitos explicitamente definidos <strong>por hit</strong> podem continuar funcionando nos hits seguintes.</p>\n<p>Moves de <strong>2–5 hits</strong> normalmente usam:</p>\n<p><strong>3 hits fixos.</strong></p>\n<p>Em Crítico Natural:</p>\n<p><strong>5 hits.</strong></p>\n<p>Skill Link, Abilities exclusivas e outros efeitos podem substituir essa regra.</p>\n<hr />\n"},{"id":"rule-11","sourceNumber":11,"displayOrder":19,"group":"Combate","title":"Status","summary":"Os principais Status, seus efeitos e quanto tempo costumam durar.","searchText":"Os principais Status, seus efeitos e quanto tempo costumam durar. Os principais incluem: Paralysis Speed -50%. 1d4 no começo do turno. Em 1, perde a ação. Sleep não age; normalmente dura 1d3 turnos. Poison perde 1d6 HP/turno . Toxic começa em 1d6 ; aumenta +1d6 por rodada. Burn perde 1d3 HP/turno ; ataques Physical perdem -1d6. Confusion 1d6: 1–3 → causa 1d6 em si e perde ação. 4–6 → age normalmente. Freeze não age; não usa Evasiva; 5–6 em 1d6 → descongela. 🔥 Deep Burn Forma grave de Burn. perde 1d6/turno ; dano Physical é reduzido pela metade; exige efeitos fortes de cura para ser removido. Algumas Abilities e Moves podem aplicar Deep Burn diretamente.","content":"<p>Os principais incluem:</p>\n<h3>Paralysis</h3>\n<ul>\n<li>Speed -50%.</li>\n<li>1d4 no começo do turno.</li>\n<li>Em 1, perde a ação.</li>\n</ul>\n<h3>Sleep</h3>\n<ul>\n<li>não age;</li>\n<li>normalmente dura 1d3 turnos.</li>\n</ul>\n<h3>Poison</h3>\n<ul>\n<li>perde <strong>1d6 HP/turno</strong>.</li>\n</ul>\n<h3>Toxic</h3>\n<ul>\n<li>começa em <strong>1d6</strong>;</li>\n<li>aumenta +1d6 por rodada.</li>\n</ul>\n<h3>Burn</h3>\n<ul>\n<li>perde <strong>1d3 HP/turno</strong>;</li>\n<li>ataques Physical perdem -1d6.</li>\n</ul>\n<h3>Confusion</h3>\n<p>1d6:</p>\n<ul>\n<li>1–3 → causa 1d6 em si e perde ação.</li>\n<li>4–6 → age normalmente.</li>\n</ul>\n<h3>Freeze</h3>\n<ul>\n<li>não age;</li>\n<li>não usa Evasiva;</li>\n<li>5–6 em 1d6 → descongela.</li>\n</ul>\n<hr />\n<h2>🔥 Deep Burn</h2>\n<p>Forma grave de Burn.</p>\n<ul>\n<li>perde <strong>1d6/turno</strong>;</li>\n<li>dano Physical é reduzido pela metade;</li>\n<li>exige efeitos fortes de cura para ser removido.</li>\n</ul>\n<p>Algumas Abilities e Moves podem aplicar Deep Burn diretamente.</p>\n<hr />\n"},{"id":"rule-12","sourceNumber":12,"displayOrder":20,"group":"Combate","title":"Screens","summary":"Reflect, Light Screen e Aurora Veil e quanto cada um reduz de dano.","searchText":"Reflect, Light Screen e Aurora Veil e quanto cada um reduz de dano. Os reworks posteriores também padronizaram as Screens. Reflect reduz dano Physical final em: Nível do usuário ÷ 2 Light Screen mesma fórmula para Special. Aurora Veil reduz ambos; exige Hail/Snow. Normalmente duram: 3 turnos 5 com Light Clay Críticos ignoram Screens.","content":"<p>Os reworks posteriores também padronizaram as Screens.</p>\n<p><strong>Reflect</strong></p>\n<ul>\n<li>reduz dano Physical final em:\n<strong>Nível do usuário ÷ 2</strong></li>\n</ul>\n<p><strong>Light Screen</strong></p>\n<ul>\n<li>mesma fórmula para Special.</li>\n</ul>\n<p><strong>Aurora Veil</strong></p>\n<ul>\n<li>reduz ambos;</li>\n<li>exige Hail/Snow.</li>\n</ul>\n<p>Normalmente duram:</p>\n<ul>\n<li><strong>3 turnos</strong></li>\n<li><strong>5 com Light Clay</strong></li>\n</ul>\n<p>Críticos ignoram Screens.</p>\n<hr />\n"},{"id":"rule-13","sourceNumber":13,"displayOrder":21,"group":"Combate","title":"Climas e Terrenos","summary":"Rain, Sunny Day, Sandstorm, Hail/Snow e Terrenos em combate.","searchText":"Rain, Sunny Day, Sandstorm, Hail/Snow e Terrenos em combate. Existem sistemas próprios para campo. Rain Water +1d6. Fire -1d6. Sunny Day Fire +1d6. Water -1d6. Solar Beam sem carregamento. Sandstorm dano aos tipos não protegidos; Rock recebe benefício defensivo. Hail/Snow interage com Ice, Aurora Veil, Ice Body etc. Também existem: 🌿 Grassy Terrain ⚡ Electric Terrain 🧠 Psychic Terrain 🌫️ Misty Terrain Além disso, várias Abilities modernas criam ou modificam automaticamente clima/terreno.","content":"<p>Existem sistemas próprios para campo.</p>\n<h3>Rain</h3>\n<ul>\n<li>Water +1d6.</li>\n<li>Fire -1d6.</li>\n</ul>\n<h3>Sunny Day</h3>\n<ul>\n<li>Fire +1d6.</li>\n<li>Water -1d6.</li>\n<li>Solar Beam sem carregamento.</li>\n</ul>\n<h3>Sandstorm</h3>\n<ul>\n<li>dano aos tipos não protegidos;</li>\n<li>Rock recebe benefício defensivo.</li>\n</ul>\n<h3>Hail/Snow</h3>\n<ul>\n<li>interage com Ice, Aurora Veil, Ice Body etc.</li>\n</ul>\n<p>Também existem:</p>\n<p>🌿 Grassy Terrain\n⚡ Electric Terrain\n🧠 Psychic Terrain\n🌫️ Misty Terrain</p>\n<p>Além disso, várias Abilities modernas criam ou modificam automaticamente clima/terreno.</p>\n<hr />\n"},{"id":"rule-14","sourceNumber":14,"displayOrder":22,"group":"Combate","title":"Hazards","summary":"Spikes, Toxic Spikes, Stealth Rock e Sticky Web.","searchText":"Spikes, Toxic Spikes, Stealth Rock e Sticky Web. O sistema mantém: Spikes Até 3 camadas: 1d6 2d6 3d6 Toxic Spikes 1 camada → Poison. 2 → Toxic. Stealth Rock 2d6 modificados pela interação com Rock. Sticky Web Speed -25% ao entrar. Flying/Levitate normalmente ignoram efeitos ligados ao chão.","content":"<p>O sistema mantém:</p>\n<h3>Spikes</h3>\n<p>Até 3 camadas:</p>\n<ul>\n<li>1d6</li>\n<li>2d6</li>\n<li>3d6</li>\n</ul>\n<h3>Toxic Spikes</h3>\n<ul>\n<li>1 camada → Poison.</li>\n<li>2 → Toxic.</li>\n</ul>\n<h3>Stealth Rock</h3>\n<p><strong>2d6</strong> modificados pela interação com Rock.</p>\n<h3>Sticky Web</h3>\n<p><strong>Speed -25%</strong> ao entrar.</p>\n<p>Flying/Levitate normalmente ignoram efeitos ligados ao chão.</p>\n<hr />\n"},{"id":"rule-15","sourceNumber":15,"displayOrder":23,"group":"Combate","title":"Cura","summary":"Moves de cura, valores recuperados e limites de uso em combate.","searchText":"Moves de cura, valores recuperados e limites de uso em combate. Exemplos: Recover / Soft-Boiled / Slack Off → 50% HP. Heal Pulse → 50% HP de aliado. Rest → HP completo + Sleep. Curas fortes têm quantidade limitada de usos em combate. Padrão recomendado: cura 25% → 4 usos; 50% → 3; 100% → 2.","content":"<p>Exemplos:</p>\n<p><strong>Recover / Soft-Boiled / Slack Off</strong>\n→ 50% HP.</p>\n<p><strong>Heal Pulse</strong>\n→ 50% HP de aliado.</p>\n<p><strong>Rest</strong>\n→ HP completo + Sleep.</p>\n<p>Curas fortes têm quantidade limitada de usos em combate.</p>\n<p>Padrão recomendado:</p>\n<ul>\n<li>cura 25% → 4 usos;</li>\n<li>50% → 3;</li>\n<li>100% → 2.</li>\n</ul>\n<hr />\n"},{"id":"rule-16","sourceNumber":16,"displayOrder":24,"group":"Captura","title":"Captura","summary":"Teste de arremesso, NAC e modificadores usados na captura.","searchText":"Teste de arremesso, NAC e modificadores usados na captura. Captura possui duas etapas . 1. Arremesso Teste de: 1d100 contra Corpo ou perícia de Arremesso. Distância, tamanho e condição do alvo podem alterar a rolagem. 2. NAC Depois: NAC = 30 + Vida + Pokébola + Diferença de Nível + Raridade + Status Depois: 1d100 ≤ NAC = captura. Limites normais: 5–95 Master Ball ignora a rolagem. Exemplos de modificadores: ❤️ 0–25% HP → +40 😴 Sleep/Freeze → +30 ⚡ Paralysis/Poison/Burn → +15 🔴 Great Ball → +15 ⚫ Ultra Ball → +30 🌙 Dusk Ball → +30 em condição apropriada ✨ Lendário → -50 Pokémon derrotados têm uma regra especial de captura mais favorável.","content":"<p>Captura possui <strong>duas etapas</strong>.</p>\n<h3>1. Arremesso</h3>\n<p>Teste de:</p>\n<p><strong>1d100 contra Corpo ou perícia de Arremesso.</strong></p>\n<p>Distância, tamanho e condição do alvo podem alterar a rolagem.</p>\n<hr />\n<h3>2. NAC</h3>\n<p>Depois:</p>\n<p><strong>NAC = 30 + Vida + Pokébola + Diferença de Nível + Raridade + Status</strong></p>\n<p>Depois:</p>\n<p><strong>1d100 ≤ NAC = captura.</strong></p>\n<p>Limites normais:</p>\n<p><strong>5–95</strong></p>\n<p>Master Ball ignora a rolagem.</p>\n<p>Exemplos de modificadores:</p>\n<p>❤️ 0–25% HP → +40\n😴 Sleep/Freeze → +30\n⚡ Paralysis/Poison/Burn → +15\n🔴 Great Ball → +15\n⚫ Ultra Ball → +30\n🌙 Dusk Ball → +30 em condição apropriada\n✨ Lendário → -50</p>\n<p>Pokémon derrotados têm uma regra especial de captura mais favorável.</p>\n<hr />\n"},{"id":"rule-24","sourceNumber":24,"displayOrder":25,"group":"Reworks & Conteúdo","title":"Reworks","summary":"Pokémon oficiais, reworks, Fakemon, formas, tipagens e versões vigentes usadas nas fichas.","searchText":"Pokémon oficiais, reworks, Fakemon, formas, tipagens e versões vigentes usadas nas fichas. As fichas podem utilizar versões oficiais ou reworkadas dos Pokémon. Existem: Pokémon reworkados; BST alterados; tipagens novas; Megas/formas; Fakemon; Abilities exclusivas; Moves alterados; regras próprias de evolução; funções econômicas/exploratórias. Por isso uma ficha sempre parte do rework vigente , e não necessariamente do Pokémon dos jogos.","content":"<p>As fichas podem utilizar versões oficiais ou reworkadas dos Pokémon.</p>\n<p>Existem:</p>\n<ul>\n<li>Pokémon reworkados;</li>\n<li>BST alterados;</li>\n<li>tipagens novas;</li>\n<li>Megas/formas;</li>\n<li>Fakemon;</li>\n<li>Abilities exclusivas;</li>\n<li>Moves alterados;</li>\n<li>regras próprias de evolução;</li>\n<li>funções econômicas/exploratórias.</li>\n</ul>\n<p>Por isso uma ficha sempre parte do <strong>rework vigente</strong>, e não necessariamente do Pokémon dos jogos.</p>\n<hr />\n"},{"id":"rule-25","sourceNumber":25,"displayOrder":26,"group":"Reworks & Conteúdo","title":"Abilities","summary":"Como usar o Compêndio de Abilities e qual texto vale quando existem versões diferentes.","searchText":"Como usar o Compêndio de Abilities e qual texto vale quando existem versões diferentes. O Compêndio Completo atual reúne 379 Abilities , incluindo: oficiais reworkadas; Abilities das gerações III–IX; Abilities exclusivas de Pokémon reworkados; Abilities de Fakemon; Abilities autorais compartilhadas; Abilities exclusivas; economia e downtime. O compêndio mais antigo de reworks continua útil como registro, mas o Compêndio Completo mais recente deve prevalecer onde os textos forem diferentes . Exemplos autorais/reworkados já consolidados incluem: 🌿 Dracovergence — Sceptile Super efetivo → +1 estágio de Attack e Speed, até +3; próximo golpe ignora penalidade de Accuracy. 🔥 Blazing Heart — Blaziken Contato aumenta Attack; golpes Fire/Fighting aumentam Speed. 🐊 Jaw Dominus — Feraligatr Golpes de mordida escalam Attack e recebem bônus. 🌳 Earthguard — Torterra Reduz fraquezas e aumenta a defesa correspondente. 🦊 Cursed Radiance — Ninetales Interage com Burn, Sleep e Confusion. 🦂 Predatory Instinct — Scizor Atacar continuamente o mesmo alvo aumenta progressivamente o dano. 🐢 Hydraulic Core — Blastoise Golpes Water carregam pressão hidráulica para o próximo turno. E muitas outras.","content":"<p>O <strong>Compêndio Completo atual reúne 379 Abilities</strong>, incluindo:</p>\n<ul>\n<li>oficiais reworkadas;</li>\n<li>Abilities das gerações III–IX;</li>\n<li>Abilities exclusivas de Pokémon reworkados;</li>\n<li>Abilities de Fakemon;</li>\n<li>Abilities autorais compartilhadas;</li>\n<li>Abilities exclusivas;</li>\n<li>economia e downtime.</li>\n</ul>\n<p>O compêndio mais antigo de reworks continua útil como registro, mas o <strong>Compêndio Completo mais recente deve prevalecer onde os textos forem diferentes</strong>.</p>\n<p>Exemplos autorais/reworkados já consolidados incluem:</p>\n<p>🌿 <strong>Dracovergence — Sceptile</strong>\nSuper efetivo → +1 estágio de Attack e Speed, até +3; próximo golpe ignora penalidade de Accuracy.</p>\n<p>🔥 <strong>Blazing Heart — Blaziken</strong>\nContato aumenta Attack; golpes Fire/Fighting aumentam Speed.</p>\n<p>🐊 <strong>Jaw Dominus — Feraligatr</strong>\nGolpes de mordida escalam Attack e recebem bônus.</p>\n<p>🌳 <strong>Earthguard — Torterra</strong>\nReduz fraquezas e aumenta a defesa correspondente.</p>\n<p>🦊 <strong>Cursed Radiance — Ninetales</strong>\nInterage com Burn, Sleep e Confusion.</p>\n<p>🦂 <strong>Predatory Instinct — Scizor</strong>\nAtacar continuamente o mesmo alvo aumenta progressivamente o dano.</p>\n<p>🐢 <strong>Hydraulic Core — Blastoise</strong>\nGolpes Water carregam pressão hidráulica para o próximo turno.</p>\n<p>E muitas outras.</p>\n<hr />\n"},{"id":"rule-26","sourceNumber":26,"displayOrder":27,"group":"Reworks & Conteúdo","title":"Abilities fora de combate","summary":"Abilities usadas fora de combate em exploração, produção, economia, descanso e outras situações.","searchText":"Abilities usadas fora de combate em exploração, produção, economia, descanso e outras situações. Abilities não são exclusivamente de batalha. Existem sistemas de: exploração; crafting; agricultura; produção; coleta; economia; Felicidade; acampamento. Exemplo: Harvest Overseer Permite colocar Pokémon em: Ranch; Orchard; Apiary; Mina; outros postos de produção. Ele gera drops automaticamente e pode melhorar qualidade ou quantidade dependendo da espécie, nível e Felicidade. Windfall , por outro lado, aumenta créditos recebidos em batalhas.","content":"<p>Abilities não são exclusivamente de batalha.</p>\n<p>Existem sistemas de:</p>\n<ul>\n<li>exploração;</li>\n<li>crafting;</li>\n<li>agricultura;</li>\n<li>produção;</li>\n<li>coleta;</li>\n<li>economia;</li>\n<li>Felicidade;</li>\n<li>acampamento.</li>\n</ul>\n<p>Exemplo:</p>\n<p><strong>Harvest Overseer</strong></p>\n<p>Permite colocar Pokémon em:</p>\n<ul>\n<li>Ranch;</li>\n<li>Orchard;</li>\n<li>Apiary;</li>\n<li>Mina;</li>\n<li>outros postos de produção.</li>\n</ul>\n<p>Ele gera drops automaticamente e pode melhorar qualidade ou quantidade dependendo da espécie, nível e Felicidade.</p>\n<p><strong>Windfall</strong>, por outro lado, aumenta créditos recebidos em batalhas.</p>\n<hr />\n"},{"id":"rule-27","sourceNumber":27,"displayOrder":28,"group":"Reworks & Conteúdo","title":"Moves reworkados","summary":"Moves com regras próprias, incluindo Iron Defense e Swords Dance.","searchText":"Moves com regras próprias, incluindo Iron Defense e Swords Dance. Moves também podem ter regras próprias. Além das conversões normais, alguns Moves têm efeitos próprios, como: Iron Defense → reduz em 50% o próximo dano recebido . Swords Dance → faz com que o próximo Move Physical ofensivo cause o dobro do dano . Então nem todo Move de setup precisa funcionar usando os estágios tradicionais.","content":"<p>Moves também podem ter regras próprias.</p>\n<p>Além das conversões normais, alguns Moves têm efeitos próprios, como:</p>\n<p><strong>Iron Defense</strong>\n→ reduz em <strong>50% o próximo dano recebido</strong>.</p>\n<p><strong>Swords Dance</strong>\n→ faz com que <strong>o próximo Move Physical ofensivo cause o dobro do dano</strong>.</p>\n<p>Então nem todo Move de setup precisa funcionar usando os estágios tradicionais.</p>\n<hr />\n"}];
+const HHRPG_RULE_GROUPS=[
+  "Criação & Progressão",
+  "Combate",
+  "Captura",
+  "Reworks & Conteúdo"
+];
+
+if(!encyclopediaState.selectedRule){
+  encyclopediaState.selectedRule=HHRPG_RULES[0]?.id||"";
+}
+
+function encyclopediaRuleById(id){
+  return HHRPG_RULES.find(rule=>rule.id===id)||null;
+}
+
+function encyclopediaRuleSearchText(rule){
+  return encyclopediaNormalize([
+    rule.title,
+    rule.group,
+    rule.summary,
+    rule.searchText,
+    `regra ${rule.sourceNumber}`,
+    `capítulo ${rule.displayOrder}`
+  ].join(" "));
+}
+
+const HH_OLD_ENCY_FILTERED=encyclopediaFilteredEntries;
+const HH_OLD_ENCY_FILTER=renderEncyclopediaFilter;
+const HH_OLD_ENCY_ALPHABET=renderEncyclopediaAlphabet;
+const HH_OLD_ENCY_LIST=renderEncyclopediaList;
+const HH_OLD_ENCY_DETAIL=renderEncyclopediaDetail;
+const HH_OLD_ENCY_STATS=renderEncyclopediaStats;
+const HH_OLD_ENCY_INIT=initializeEncyclopedia;
+
+encyclopediaFilteredEntries=function(){
+  if(encyclopediaState.mode!=="rules"){
+    return HH_OLD_ENCY_FILTERED();
+  }
+
+  const query=encyclopediaNormalize(encyclopediaState.query);
+  return HHRPG_RULES.filter(rule=>{
+    if(
+      encyclopediaState.filter!=="all"
+      &&rule.group!==encyclopediaState.filter
+    ){
+      return false;
+    }
+
+    if(!query)return true;
+    return encyclopediaRuleSearchText(rule).includes(query);
+  });
+};
+
+renderEncyclopediaFilter=function(){
+  if(encyclopediaState.mode!=="rules"){
+    HH_OLD_ENCY_FILTER();
+    return;
+  }
+
+  const select=document.getElementById("encyclopediaFilter");
+  if(!select)return;
+
+  if(
+    encyclopediaState.filter!=="all"
+    &&!HHRPG_RULE_GROUPS.includes(encyclopediaState.filter)
+  ){
+    encyclopediaState.filter="all";
+  }
+
+  select.innerHTML=
+    '<option value="all">Todos os grupos</option>'
+    +HHRPG_RULE_GROUPS.map(group=>
+      `<option value="${escAttr(group)}">${esc(group)}</option>`
+    ).join("");
+
+  select.value=encyclopediaState.filter;
+};
+
+renderEncyclopediaAlphabet=function(){
+  const box=document.getElementById("encyclopediaAlphabet");
+  if(!box)return;
+
+  if(encyclopediaState.mode==="rules"){
+    box.classList.add("rules-mode");
+    box.innerHTML=HHRPG_RULE_GROUPS.map((group,index)=>
+      `<button
+        class="encyclopedia-rule-group-shortcut ${encyclopediaState.filter===group?"active":""}"
+        type="button"
+        data-rule-group="${escAttr(group)}"
+      ><span>${String(index+1).padStart(2,"0")}</span>${esc(group)}</button>`
+    ).join("");
+    return;
+  }
+
+  box.classList.remove("rules-mode");
+  HH_OLD_ENCY_ALPHABET();
+};
+
+function encyclopediaRulesList(){
+  const list=document.getElementById("encyclopediaList");
+  const count=document.getElementById("encyclopediaResultCount");
+  const title=document.getElementById("encyclopediaIndexTitle");
+  if(!list||!count||!title)return;
+
+  const rules=encyclopediaFilteredEntries();
+  title.textContent="ÍNDICE DE REGRAS";
+  count.textContent=`${rules.length} ${rules.length===1?"CAPÍTULO":"CAPÍTULOS"}`;
+
+  if(!rules.length){
+    list.innerHTML='<div class="encyclopedia-empty"><b>NENHUMA REGRA ENCONTRADA</b><br>Altere a busca ou o grupo selecionado.</div>';
+    return;
+  }
+
+  let lastGroup="";
+  const parts=[];
+
+  rules.forEach(rule=>{
+    if(rule.group!==lastGroup){
+      lastGroup=rule.group;
+      parts.push(`<div class="encyclopedia-rule-group-label">${esc(rule.group)}</div>`);
+    }
+
+    parts.push(`
+      <button
+        class="encyclopedia-entry encyclopedia-rule-entry ${encyclopediaState.selectedRule===rule.id?"active":""}"
+        type="button"
+        data-ency-key="${escAttr(rule.id)}"
+      >
+        <span class="encyclopedia-entry-code">R${String(rule.displayOrder).padStart(2,"0")}</span>
+        <span>
+          <span class="encyclopedia-entry-title">${esc(rule.title)}</span>
+          <span class="encyclopedia-entry-meta">${esc(rule.group)} • Regra ${rule.sourceNumber}</span>
+        </span>
+        <span class="encyclopedia-entry-arrow">›</span>
+      </button>
+    `);
+  });
+
+  list.innerHTML=parts.join("");
+}
+
+renderEncyclopediaList=function(){
+  if(encyclopediaState.mode==="rules"){
+    encyclopediaRulesList();
+    return;
+  }
+  HH_OLD_ENCY_LIST();
+};
+
+function encyclopediaRuleDetail(rule){
+  if(!rule){
+    return '<div class="encyclopedia-empty">Selecione um capítulo de Regras no índice.</div>';
+  }
+
+  return `<div class="encyclopedia-open-book encyclopedia-rules-book">
+    <section class="encyclopedia-paper encyclopedia-rule-cover">
+      <span class="encyclopedia-volume-label">REGRAS • MANUAL DO SISTEMA</span>
+      <span class="encyclopedia-rule-order">CAPÍTULO ${String(rule.displayOrder).padStart(2,"0")}</span>
+      <h2>${esc(rule.title)}</h2>
+      <div class="encyclopedia-emblem rules">RG</div>
+
+      <div class="encyclopedia-chips">
+        <span class="encyclopedia-chip">${esc(rule.group)}</span>
+        <span class="encyclopedia-chip">REGRA ${rule.sourceNumber}</span>
+      </div>
+
+      <div class="encyclopedia-note encyclopedia-rule-summary">
+        <b>RESUMO</b>
+        ${esc(rule.summary)}
+      </div>
+
+      <div class="encyclopedia-rule-navigation">
+        ${rule.displayOrder>1?`<button type="button" data-rule-nav="${rule.displayOrder-1}">‹ ANTERIOR</button>`:"<span></span>"}
+        ${rule.displayOrder<HHRPG_RULES.length?`<button type="button" data-rule-nav="${rule.displayOrder+1}">PRÓXIMA ›</button>`:"<span></span>"}
+      </div>
+
+      <div class="encyclopedia-page-number">MANUAL</div>
+    </section>
+
+    <section class="encyclopedia-paper encyclopedia-rule-paper">
+      <div class="encyclopedia-rule-prose">${rule.content}</div>
+      <div class="encyclopedia-page-number">REGRA COMPLETA</div>
+    </section>
+  </div>`;
+}
+
+renderEncyclopediaDetail=function(){
+  if(encyclopediaState.mode==="rules"){
+    const reader=document.getElementById("encyclopediaReader");
+    if(reader){
+      reader.innerHTML=encyclopediaRuleDetail(
+        encyclopediaRuleById(encyclopediaState.selectedRule)
+      );
+    }
+    return;
+  }
+
+  HH_OLD_ENCY_DETAIL();
+};
+
+renderEncyclopediaStats=function(){
+  HH_OLD_ENCY_STATS();
+
+  const rulesButton=document.getElementById("encyclopediaRulesBtn");
+  if(rulesButton){
+    rulesButton.classList.toggle("active",encyclopediaState.mode==="rules");
+    rulesButton.setAttribute(
+      "aria-pressed",
+      String(encyclopediaState.mode==="rules")
+    );
+  }
+
+  if(encyclopediaState.mode==="rules"){
+    const source=document.getElementById("encyclopediaSourceStatus");
+    if(source)source.textContent="MANUAL";
+  }
+};
+
+function setEncyclopediaRulesMode(){
+  document.querySelector(".encyclopedia-console")?.classList.remove("rules-reading");
+  encyclopediaState.mode="rules";
+  encyclopediaState.query="";
+  encyclopediaState.filter="all";
+  encyclopediaState.letter="all";
+
+  if(!encyclopediaRuleById(encyclopediaState.selectedRule)){
+    encyclopediaState.selectedRule=HHRPG_RULES[0]?.id||"";
+  }
+
+  renderEncyclopedia();
+}
+
+renderEncyclopedia=function(){
+  if(!document.getElementById("encyclopediaList"))return;
+
+  document.querySelectorAll("[data-ency-mode]").forEach(button=>{
+    const active=button.dataset.encyMode===encyclopediaState.mode;
+    button.classList.toggle("active",active);
+    button.setAttribute("aria-selected",String(active));
+  });
+
+  const rulesButton=document.getElementById("encyclopediaRulesBtn");
+  rulesButton?.classList.toggle("active",encyclopediaState.mode==="rules");
+
+  const search=document.getElementById("encyclopediaSearch");
+  if(search){
+    const placeholder=encyclopediaState.mode==="rules"
+      ?"Regra, fórmula, status, captura, progressão..."
+      :"Nome, efeito, geração ou Pokémon...";
+    search.placeholder=placeholder;
+
+    if(search.value!==encyclopediaState.query){
+      search.value=encyclopediaState.query;
+    }
+  }
+
+  const consoleBox=document.querySelector(".encyclopedia-console");
+  consoleBox?.classList.toggle("rules-mode",encyclopediaState.mode==="rules");
+  if(encyclopediaState.mode!=="rules")consoleBox?.classList.remove("rules-reading");
+
+  renderEncyclopediaFilter();
+  renderEncyclopediaAlphabet();
+  renderEncyclopediaStats();
+  renderEncyclopediaList();
+  renderEncyclopediaDetail();
+};
+
+initializeEncyclopedia=function(){
+  if(encyclopediaState.initialized)return;
+  encyclopediaState.initialized=true;
+
+  document.querySelectorAll("[data-ency-mode]").forEach(button=>{
+    button.addEventListener("click",()=>{
+      encyclopediaState.mode=button.dataset.encyMode;
+      encyclopediaState.filter="all";
+      encyclopediaState.letter="all";
+      encyclopediaState.query="";
+
+      if(encyclopediaState.mode==="abilities"&&!encyclopediaState.selectedAbility){
+        encyclopediaState.selectedAbility=COMPENDIUM_ABILITIES[0]?.name||"";
+      }
+
+      if(encyclopediaState.mode==="moves"&&!encyclopediaState.selectedMove){
+        encyclopediaState.selectedMove=encyclopediaMoveEntries()[0]?.encyKey||"";
+      }
+
+      renderEncyclopedia();
+
+      if(encyclopediaState.mode==="moves"){
+        ensureOfficialMoveIndex();
+      }
+    });
+  });
+
+  document.getElementById("encyclopediaRulesBtn")?.addEventListener(
+    "click",
+    setEncyclopediaRulesMode
+  );
+
+  document.getElementById("encyclopediaSearch")?.addEventListener("input",event=>{
+    encyclopediaState.query=event.target.value;
+    renderEncyclopediaList();
+    renderEncyclopediaDetail();
+  });
+
+  document.getElementById("encyclopediaFilter")?.addEventListener("change",event=>{
+    encyclopediaState.filter=event.target.value;
+    renderEncyclopediaAlphabet();
+    renderEncyclopediaList();
+    renderEncyclopediaDetail();
+  });
+
+  document.getElementById("encyclopediaClearBtn")?.addEventListener("click",()=>{
+    encyclopediaState.query="";
+    encyclopediaState.filter="all";
+    encyclopediaState.letter="all";
+    renderEncyclopedia();
+  });
+
+  document.getElementById("encyclopediaAlphabet")?.addEventListener("click",event=>{
+    const ruleGroup=event.target.closest("[data-rule-group]");
+    if(ruleGroup){
+      const group=ruleGroup.dataset.ruleGroup;
+      encyclopediaState.filter=
+        encyclopediaState.filter===group?"all":group;
+      renderEncyclopediaFilter();
+      renderEncyclopediaAlphabet();
+      renderEncyclopediaList();
+      renderEncyclopediaDetail();
+      return;
+    }
+
+    const button=event.target.closest("[data-ency-letter]");
+    if(!button)return;
+    encyclopediaState.letter=button.dataset.encyLetter;
+    renderEncyclopediaAlphabet();
+    renderEncyclopediaList();
+    renderEncyclopediaDetail();
+  });
+
+  document.getElementById("encyclopediaList")?.addEventListener("click",event=>{
+    const button=event.target.closest("[data-ency-key]");
+    if(!button)return;
+
+    if(encyclopediaState.mode==="abilities"){
+      encyclopediaState.selectedAbility=button.dataset.encyKey;
+    }else if(encyclopediaState.mode==="moves"){
+      encyclopediaState.selectedMove=button.dataset.encyKey;
+    }else if(encyclopediaState.mode==="rules"){
+      encyclopediaState.selectedRule=button.dataset.encyKey;
+      if(isMobileLayout()){
+        document.querySelector(".encyclopedia-console")?.classList.add("rules-reading");
+      }
+    }
+
+    renderEncyclopediaList();
+    renderEncyclopediaDetail();
+
+    if(encyclopediaState.mode==="moves"){
+      loadEncyclopediaMoveDetails(button.dataset.encyKey);
+    }else if(encyclopediaState.mode==="rules"&&isMobileLayout()){
+      document.getElementById("encyclopediaContent")?.scrollIntoView({behavior:"smooth",block:"start"});
+    }
+  });
+
+  document.getElementById("encyclopediaReader")?.addEventListener("click",event=>{
+    const ruleNav=event.target.closest("[data-rule-nav]");
+    if(ruleNav&&encyclopediaState.mode==="rules"){
+      const order=Number(ruleNav.dataset.ruleNav);
+      const target=HHRPG_RULES.find(rule=>rule.displayOrder===order);
+      if(target){
+        encyclopediaState.selectedRule=target.id;
+        renderEncyclopediaList();
+        renderEncyclopediaDetail();
+        document.getElementById("encyclopediaReader")?.scrollTo({top:0,behavior:"smooth"});
+      }
+      return;
+    }
+
+    const button=event.target.closest("[data-ency-action]");
+    if(!button)return;
+
+    if(
+      button.dataset.encyAction==="equip-ability"
+      ||button.dataset.encyAction==="remember-ability"
+    ){
+      const ability=COMPENDIUM_ABILITIES.find(
+        item=>item.name===encyclopediaState.selectedAbility
+      );
+      rememberAbilityFromEncyclopedia(
+        ability,
+        button.dataset.encyAction==="equip-ability"
+      );
+    }else if(button.dataset.encyAction==="remember-move"){
+      button.disabled=true;
+      rememberMoveFromEncyclopedia(
+        encyclopediaState.selectedMove
+      ).finally(()=>{button.disabled=false});
+    }
+  });
+
+  renderEncyclopedia();
+};
+
+
+
 const MOBILE_BREAKPOINT=900;
 
 function isMobileLayout(){
@@ -30163,9 +31102,18 @@ document.getElementById("moveName").addEventListener("change",e=>{
 document.getElementById("trainingMoveName").addEventListener("change",e=>{
   if(!document.getElementById("trainingMoveApiLookup").value) document.getElementById("trainingMoveApiLookup").value=e.target.value;
 });
+
+/* V5.0 — Atalhos do Manual de Regras na interface Mobile */
+document.getElementById("mobileAppRules")?.addEventListener("click",()=>{
+  initializeEncyclopedia();
+  setEncyclopediaRulesMode();
+});
+document.getElementById("mobileRulesBackBtn")?.addEventListener("click",()=>{
+  document.querySelector(".encyclopedia-console")?.classList.remove("rules-reading");
+  document.getElementById("encyclopediaContent")?.scrollIntoView({behavior:"smooth",block:"start"});
+});
+
 document.getElementById("memorySearch").addEventListener("input",renderMoves);
-document.getElementById("collapseMemoryBtn").onclick=toggleMoveMemoryCollapsed;
-document.getElementById("expandMemoryBtn").onclick=toggleMoveMemoryExpanded;
 document.getElementById("memoryPanelBackdrop").onclick=()=>{moveMemoryUi.expanded=false;applyMoveMemoryUi();};
 document.addEventListener("keydown",e=>{
   if(e.key==="Escape" && moveMemoryUi.expanded){
