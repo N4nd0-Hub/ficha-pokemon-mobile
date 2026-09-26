@@ -30858,6 +30858,23 @@ function portableBindImageUpload(buttonId,inputId,textId,targetKey){
 portableBindImageUpload("manualPortableImageBtn","manualPortableImageInput","manualPortableImageNote","manualImageUrl");
 portableBindImageUpload("megaPortableImageBtn","megaPortableImageInput","megaPortableImageNote","customMegaImage");
 
+/* Nome do treinador e data local no arquivo exportado; sem alterar o conteúdo do JSON. */
+function portableTrainerExportFileName(exportData){
+  const typedName=String(exportData?.trainer?.name ?? "").trim();
+  const safeName=typedName
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 48)
+    .replace(/-+$/g, "") || "treinador";
+  const now=new Date();
+  const pad=value=>String(value).padStart(2,"0");
+  const date=`${now.getFullYear()}-${pad(now.getMonth()+1)}-${pad(now.getDate())}`;
+  return `pokemon-v5-${safeName}-${date}.json`;
+}
+
 async function exportAll(){
   const button=document.getElementById("exportBtn");
   if(button?.disabled)return;
@@ -30868,7 +30885,7 @@ async function exportAll(){
     const url=URL.createObjectURL(blob);
     const anchor=document.createElement("a");
     anchor.href=url;
-    anchor.download="pokemon-v5-fichas-com-artes.json";
+    anchor.download=portableTrainerExportFileName(copy);
     document.body.appendChild(anchor);
     anchor.click();
     anchor.remove();
