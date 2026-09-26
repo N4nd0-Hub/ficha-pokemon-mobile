@@ -16492,6 +16492,18 @@ html[data-font-theme="arcade"] .combat-item-description{font-size:11px!important
     font-size:4px!important;
   }
 }
+
+
+/* Exportação portátil: imagens personalizadas incluídas no mesmo JSON. */
+.portable-image-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:7px}
+.portable-image-row .btn{white-space:normal;min-height:33px;font-size:11px!important}
+.portable-image-note{display:block;min-width:0;max-width:100%;font-size:10px!important;line-height:1.4!important;color:var(--muted)}
+@media(max-width:760px){
+  .portable-image-row{align-items:flex-start}
+  .portable-image-row .btn{font-size:11px!important;min-height:35px}
+  .portable-image-note{font-size:10px!important}
+}
+
 </style>
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -16528,8 +16540,8 @@ html[data-font-theme="arcade"] .combat-item-description{font-size:11px!important
       </span>
       <span class="top-selector-chevron" aria-hidden="true">⌄</span>
     </button>
-    <button class="btn" id="exportBtn">Exportar tudo</button>
-    <button class="btn" id="importBtn">Importar</button>
+    <button class="btn" id="exportBtn" title="Exporta todas as fichas e suas artes personalizadas em um único JSON">Exportar JSON</button>
+    <button class="btn" id="importBtn" title="Importa fichas e artes incluídas no JSON">Importar JSON</button>
     <button class="btn primary" id="newPokemonBtn">＋ Novo Pokémon</button>
     <input type="file" id="importInput" accept=".json" hidden />
   </div>
@@ -18273,6 +18285,11 @@ html[data-font-theme="arcade"] .combat-item-description{font-size:11px!important
           <div class="field">
             <label>URL da Imagem</label>
             <input class="input" id="manualImageUrl" placeholder="https://..." />
+            <div class="portable-image-row">
+              <button class="btn small" type="button" id="manualPortableImageBtn">📁 Imagem local</button>
+              <input type="file" id="manualPortableImageInput" accept="image/png,image/jpeg,image/webp,image/gif,image/avif" hidden />
+              <small class="portable-image-note" id="manualPortableImageNote">A imagem local acompanha o JSON, mesmo offline.</small>
+            </div>
           </div>
           <div class="field">
             <label>Tipo 1</label>
@@ -18585,6 +18602,11 @@ html[data-font-theme="arcade"] .combat-item-description{font-size:11px!important
             <div class="field wide">
               <label>URL da Imagem</label>
               <input class="input" id="customMegaImage" placeholder="https://..." />
+              <div class="portable-image-row">
+                <button class="btn small" type="button" id="megaPortableImageBtn">📁 Arte da Mega</button>
+                <input type="file" id="megaPortableImageInput" accept="image/png,image/jpeg,image/webp,image/gif,image/avif" hidden />
+                <small class="portable-image-note" id="megaPortableImageNote">A arte da Mega será incluída no JSON.</small>
+              </div>
             </div>
           </div>
 
@@ -23246,7 +23268,11 @@ function resetZMove(){
 
 function fillCustomMegaFromCurrent(){
   setVal("customMegaName",current.gimmicks?.mega?.active?current.name:`Mega ${current.name}`);
-  setVal("customMegaImage",current.imageUrl||"");
+  portablePendingImages.mega=/^data:image\//i.test(current.imageUrl||"")?current.imageUrl:"";
+  setVal("customMegaImage",portablePendingImages.mega?"[arte atual incluída no JSON]":(current.imageUrl||""));
+  const megaInput=document.getElementById("megaPortableImageInput");if(megaInput)megaInput.value="";
+  const megaHint=document.getElementById("megaPortableImageNote");
+  if(megaHint)megaHint.textContent=portablePendingImages.mega?"✓ Arte atual já incluída no JSON.":"Envie uma arte local para incluí-la no JSON.";
 
   const t1=document.getElementById("customMegaType1");
   const t2=document.getElementById("customMegaType2");
@@ -23286,7 +23312,7 @@ function createCustomMegaEvolution(){
   const form={
     id:uid(),
     name,
-    imageUrl:document.getElementById("customMegaImage").value.trim(),
+    imageUrl:portablePendingImages.mega||document.getElementById("customMegaImage").value.trim(),
     type1,
     type2:type2||"",
     baseStats,
@@ -30545,6 +30571,9 @@ function updateManualBstPreview(){
   document.getElementById("manualBstPreview").textContent=`BST Total: ${total}`;
 }
 function resetManualPokemonForm(){
+  portablePendingImages.manual="";
+  const f=document.getElementById("manualPortableImageInput");if(f)f.value="";
+  const hint=document.getElementById("manualPortableImageNote");if(hint)hint.textContent="A imagem local acompanha o JSON, mesmo offline.";
   setVal("manualName","");
   setVal("manualLevel",1);
   setVal("manualDex","");
@@ -30646,7 +30675,7 @@ function createPokemonManually(){
     level,
     type1:document.getElementById("manualType1").value.trim(),
     type2:document.getElementById("manualType2").value.trim(),
-    imageUrl:document.getElementById("manualImageUrl").value.trim(),
+    imageUrl:portablePendingImages.manual||document.getElementById("manualImageUrl").value.trim(),
     currentHp:stats.hp,
     maxHp:stats.hp,
     happiness:0,
@@ -30700,24 +30729,190 @@ function createPokemonManually(){
   document.getElementById("app").classList.add("drawer-open");
   showToast(`${p.name} criado e salvo.`);
 }
-function exportAll(){
-  const blob=new Blob([JSON.stringify(state,null,2)],{type:"application/json"});
-  const a=document.createElement("a");a.href=URL.createObjectURL(blob);
-  a.download="pokemon-rpg-fichas.json";a.click();URL.revokeObjectURL(a.href);
+
+
+/* ==============================================================
+   JSON PORTÁTIL — PRESERVA ARTES DOS POKÉMON, TREINADOR E MEGAS.
+   Um único .json carrega as imagens locais como data:image/... .
+   Para URLs externas, tenta incorporar a arte ao exportar (CORS).
+   ============================================================== */
+const portablePendingImages={manual:"",mega:""};
+
+function portableReadImageFile(file){
+  return new Promise((resolve,reject)=>{
+    if(!file || !String(file.type||"").startsWith("image/")){
+      reject(new Error("Escolha um arquivo de imagem PNG, JPG, WEBP ou GIF."));
+      return;
+    }
+    const reader=new FileReader();
+    reader.onload=()=>resolve(String(reader.result||""));
+    reader.onerror=()=>reject(new Error("Não foi possível abrir a imagem local."));
+    reader.readAsDataURL(file);
+  });
+}
+
+function portableImageFields(root){
+  const entries=[];
+  const seen=new WeakSet();
+  const isImageKey=/^(?:imageUrl|imageURI|spriteUrl|portraitUrl|artworkUrl|photo|dataUrl)$/i;
+  const walk=(node,path)=>{
+    if(!node || typeof node!=="object" || seen.has(node))return;
+    seen.add(node);
+    for(const [key,value] of Object.entries(node)){
+      const childPath=path?`${path}.${key}`:key;
+      if(typeof value==="string" && isImageKey.test(key) && value.trim()){
+        // dataUrl também pode conter outros dados; seleciona só imagem.
+        if(key.toLowerCase()!=="dataurl" || /^(?:data:image\/|https?:\/\/|blob:)/i.test(value)){
+          entries.push({owner:node,key,url:value.trim(),path:childPath});
+        }
+      }else if(value && typeof value==="object"){
+        walk(value,childPath);
+      }
+    }
+  };
+  walk(root,"");
+  return entries;
+}
+
+async function portableFetchImage(url){
+  if(!/^https?:\/\//i.test(url))throw new Error("Apenas URLs http/https podem ser incorporadas.");
+  const controller=new AbortController();
+  const timeout=setTimeout(()=>controller.abort(),6500);
+  try{
+    const response=await fetch(url,{mode:"cors",signal:controller.signal,credentials:"omit"});
+    if(!response.ok)throw new Error(`HTTP ${response.status}`);
+    const type=(response.headers.get("content-type")||"").toLowerCase();
+    const size=Number(response.headers.get("content-length")||0);
+    if(size>12*1024*1024)throw new Error("Arte externa maior que 12 MB.");
+    if(type && !type.startsWith("image/"))throw new Error("Endereço não retornou uma imagem.");
+    const blob=await response.blob();
+    if(blob.size>12*1024*1024 || !blob.type.startsWith("image/")){
+      throw new Error("Arquivo remoto inválido ou maior que 12 MB.");
+    }
+    return await portableReadImageFile(new File([blob],"artwork",{type:blob.type}));
+  }finally{
+    clearTimeout(timeout);
+  }
+}
+
+async function portableBuildExport(){
+  // Exporta CÓPIA. Nunca altera a URL nem as artes da ficha que está aberta.
+  const copy=JSON.parse(JSON.stringify(state));
+  const entries=portableImageFields(copy);
+  const remote=new Map();
+  const failures=[];
+  for(const entry of entries){
+    if(/^https?:\/\//i.test(entry.url)){
+      const group=remote.get(entry.url)||[];
+      group.push(entry);
+      remote.set(entry.url,group);
+    }else if(!/^data:image\//i.test(entry.url)){
+      failures.push(entry.path);
+    }
+  }
+  const jobs=Array.from(remote.entries());
+  let position=0;
+  async function worker(){
+    while(position<jobs.length){
+      const [url,group]=jobs[position++];
+      try{
+        const dataUrl=await portableFetchImage(url);
+        group.forEach(entry=>entry.owner[entry.key]=dataUrl);
+      }catch(error){
+        console.warn("Imagem externa não incorporada:",url,error);
+        failures.push(...group.map(entry=>entry.path));
+      }
+    }
+  }
+  await Promise.all(Array.from({length:Math.min(3,jobs.length)},()=>worker()));
+  const embedded=portableImageFields(copy).filter(entry=>/^data:image\//i.test(entry.owner[entry.key]));
+  return {copy,embedded:embedded.length,unresolved:failures};
+}
+
+function portableBindImageUpload(buttonId,inputId,textId,targetKey){
+  const button=document.getElementById(buttonId);
+  const input=document.getElementById(inputId);
+  const text=document.getElementById(textId);
+  const target=document.getElementById(targetKey);
+  if(!button||!input||!target)throw new Error(`Campo de arte não encontrado: ${targetKey}`);
+  button.addEventListener("click",()=>input.click());
+  input.addEventListener("change",async event=>{
+    const file=event.target.files?.[0];
+    if(!file)return;
+    try{
+      portablePendingImages[textId==="manualPortableImageNote"?"manual":"mega"]=await portableReadImageFile(file);
+      target.value="[imagem local incluída no JSON]";
+      if(text)text.textContent=`✓ ${file.name} — arte incluída no JSON`;
+      showToast("✓ Imagem local pronta para entrar no JSON.");
+    }catch(error){
+      showToast(error.message||"Não foi possível abrir esta imagem.");
+      input.value="";
+    }
+  });
+  target.addEventListener("input",()=>{
+    const scope=textId==="manualPortableImageNote"?"manual":"mega";
+    portablePendingImages[scope]="";
+    if(text)text.textContent="URL externa: a exportação tentará incluir a imagem. Para garantir, envie o arquivo local.";
+  });
+}
+portableBindImageUpload("manualPortableImageBtn","manualPortableImageInput","manualPortableImageNote","manualImageUrl");
+portableBindImageUpload("megaPortableImageBtn","megaPortableImageInput","megaPortableImageNote","customMegaImage");
+
+async function exportAll(){
+  const button=document.getElementById("exportBtn");
+  if(button?.disabled)return;
+  if(button){button.disabled=true;button.textContent="Preparando JSON...";}
+  try{
+    const {copy,embedded,unresolved}=await portableBuildExport();
+    const blob=new Blob([JSON.stringify(copy,null,2)],{type:"application/json;charset=utf-8"});
+    const url=URL.createObjectURL(blob);
+    const anchor=document.createElement("a");
+    anchor.href=url;
+    anchor.download="pokemon-v5-fichas-com-artes.json";
+    document.body.appendChild(anchor);
+    anchor.click();
+    anchor.remove();
+    // Revogar só depois que o navegador iniciar o download (especialmente Android).
+    setTimeout(()=>URL.revokeObjectURL(url),120000);
+    if(unresolved.length){
+      const details=unresolved.slice(0,8).join("\n• ");
+      alert(`JSON exportado com ${embedded} imagem(ns) embutida(s).\n\nATENÇÃO: ${unresolved.length} imagem(ns) externa(s) não puderam ser incorporadas (bloqueio do site/CORS ou URL inválida). Elas ainda estão como links e podem não abrir offline.\n\n• ${details}\n\nPara garantir, use "Imagem local" nessas artes e exporte novamente.`);
+    }else{
+      showToast(`✓ JSON exportado com ${embedded} imagem(ns) incluída(s).`);
+    }
+  }catch(error){
+    console.error("Erro ao exportar JSON com artes:",error);
+    alert("Não foi possível exportar o JSON. Tente novamente e verifique as imagens adicionadas.");
+  }finally{
+    if(button){button.disabled=false;button.textContent="Exportar JSON";}
+  }
 }
 function importAll(file){
-  const r=new FileReader();
-  r.onload=()=>{
+  const reader=new FileReader();
+  reader.onload=()=>{
     try{
-      const parsed=JSON.parse(r.result);
-      if(!Array.isArray(parsed.pokemon)||!parsed.pokemon.length) throw new Error();
+      const parsed=JSON.parse(String(reader.result||""));
+      if(!parsed || !Array.isArray(parsed.pokemon) || !parsed.pokemon.length){
+        throw new Error("O JSON não contém fichas Pokémon.");
+      }
+      const included=portableImageFields(parsed).filter(e=>/^data:image\//i.test(e.url)).length;
       state=parsed;
-      if(!Array.isArray(state.speciesBank)) state.speciesBank=[];
-      current=getCurrent();applyTheme(state.theme||"hazel");renderAll();saveState();
-    }catch(e){alert("Arquivo JSON inválido para esta ficha.")}
+      if(!Array.isArray(state.speciesBank))state.speciesBank=[];
+      (state.pokemon||[]).forEach(p=>{if(typeof repairPokemonMoves==="function")repairPokemonMoves(p);});
+      current=getCurrent();
+      applyTheme(state.theme||"hazel");
+      renderAll();
+      saveState();
+      showToast(`✓ JSON importado! ${included} imagem(ns) incluída(s) restaurada(s).`);
+    }catch(error){
+      console.error("Erro ao importar ficha:",error);
+      alert(error.message||"Arquivo JSON inválido para esta ficha.");
+    }
   };
-  r.readAsText(file);
+  reader.onerror=()=>alert("Não foi possível ler o arquivo JSON.");
+  reader.readAsText(file);
 }
+
 function esc(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[m]))}
 function escAttr(s){return esc(s)}
 
