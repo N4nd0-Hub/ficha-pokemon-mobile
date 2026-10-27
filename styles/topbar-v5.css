@@ -1,0 +1,58 @@
+/* V5.0 — barra superior compacta e botão de personalização.
+   Seleção e criação de Pokémon permanecem na Box da Pokébola. */
+.top-actions .top-personalize-btn{
+ display:flex!important;align-items:center!important;justify-content:flex-start!important;
+ gap:10px!important;height:44px!important;min-height:44px!important;
+ padding:5px 12px 5px 6px!important;
+ border:1px solid color-mix(in srgb,var(--accent) 45%,var(--line))!important;
+ border-radius:10px!important;
+ background:linear-gradient(120deg,color-mix(in srgb,var(--accent) 17%,var(--panel)),var(--panel) 76%)!important;
+ color:var(--text)!important;cursor:pointer;text-align:left;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 2px 8px rgba(0,0,0,.16);
+ transition:border-color .18s,box-shadow .18s!important
+}
+.top-actions .top-personalize-btn:hover,
+.top-actions .top-personalize-btn:focus-visible{
+ border-color:var(--accent)!important;
+ box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 20%,transparent)!important;
+ outline:none
+}
+.top-personalize-icon{display:grid;flex:0 0 32px;place-items:center;width:32px;height:32px;
+ border:1px solid color-mix(in srgb,var(--accent) 60%,var(--line));border-radius:8px;
+ background:color-mix(in srgb,var(--accent) 21%,var(--bg));color:var(--accent2)}
+.top-personalize-icon svg{display:block;width:18px;height:18px}
+.top-personalize-copy{display:flex;flex:1 1 auto;min-width:0;flex-direction:column;gap:3px}
+.top-personalize-copy b{color:var(--text);font-family:var(--font-display,inherit);
+ font-size:11px!important;font-weight:700;line-height:1.12;letter-spacing:.035em;white-space:nowrap}
+.top-personalize-copy small{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+ color:var(--muted);font-size:9px!important;line-height:1.1}
+.top-personalize-arrow{flex:0 0 auto;color:var(--accent2);font-size:14px;line-height:1}
+.top-action-divider{flex:0 0 1px;align-self:center;width:1px;height:27px;background:var(--line);opacity:.8}
+@media(min-width:901px){
+ .topbar{grid-template-columns:48px minmax(185px,255px) minmax(0,1fr)!important;overflow-x:visible!important}
+ .topbar>.brand{min-width:0!important}
+ .topbar>.top-actions{display:flex!important;align-items:center!important;justify-content:flex-end!important;
+  flex-wrap:nowrap!important;gap:9px!important;min-width:0!important;width:100%!important;overflow:visible!important}
+ .topbar>.top-actions>.top-personalize-btn{flex:0 1 205px!important;width:205px!important;min-width:175px!important;max-width:245px!important}
+ .topbar>.top-actions>.btn{flex:0 0 auto!important;width:auto!important;min-height:42px!important;
+  height:42px!important;padding:7px 13px!important;border-radius:8px!important;white-space:nowrap!important}
+}
+@media(min-width:901px) and (max-width:1080px){
+ .topbar{grid-template-columns:48px minmax(165px,215px) minmax(0,1fr)!important;gap:7px!important;padding-inline:10px!important}
+ .topbar>.top-actions{gap:6px!important}
+ .topbar>.top-actions>.top-personalize-btn{min-width:150px!important}
+ .topbar>.top-actions>.btn{padding-inline:7px!important;font-size:10px!important}
+}
+@media(max-width:900px){
+ .topbar>.top-actions{display:none!important}
+ .topbar>.top-actions.mobile-open{display:flex!important;flex-direction:column!important;
+  align-items:stretch!important;gap:9px!important;overflow-y:auto!important}
+ .topbar>.top-actions>.top-personalize-btn{width:100%!important;min-width:0!important;height:50px!important}
+ .topbar>.top-actions>.btn{width:100%!important}
+ .top-action-divider{flex:0 0 1px;width:100%;height:1px;margin:2px 0}
+}
+html[data-font-theme="arcade"] .top-personalize-copy b{font-weight:400!important;font-size:9px!important}
+html[data-font-theme="arcade"] .top-personalize-copy small{font-size:8px!important}
+html[data-sheet-mode="pokedex"] .top-actions .top-personalize-btn{
+ border-color:#111e26!important;background:linear-gradient(120deg,#183544,#10212a)!important;color:#eaffff!important
+}

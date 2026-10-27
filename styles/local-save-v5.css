@@ -1,0 +1,19 @@
+#hhLocalSaveButton{position:fixed;right:14px;bottom:13px;z-index:9995;display:flex;align-items:center;gap:8px;max-width:calc(100vw - 28px);min-height:39px;padding:9px 14px;border:1px solid var(--line,#506170);border-radius:30px;background:var(--panel,#222c36);color:var(--text,#f2f6fa);box-shadow:0 3px 18px #0005;font:600 12px system-ui;cursor:pointer}
+#hhLocalSaveButton i{width:8px;height:8px;border-radius:50%;background:#83bda7;flex-shrink:0}
+#hhLocalSaveButton[data-status=pending] i{background:#e8bb6d}#hhLocalSaveButton[data-status=error] i{background:#f38b84}
+#hhLocalSaveAlert{position:fixed;right:14px;bottom:62px;z-index:10015;width:min(390px,calc(100vw - 28px));padding:16px;background:var(--panel,#222c36);border:1px solid #e69b72;border-radius:12px;box-shadow:0 9px 45px #0008;color:var(--text,#fff);font:14px/1.5 system-ui}
+#hhLocalSaveAlert[hidden],#hhLocalSaveLoading[hidden]{display:none!important}
+#hhLocalSaveAlert p{margin:8px 0 12px}#hhLocalSaveAlert button{margin:3px 5px 0 0}
+#hhLocalSaveLoading{position:fixed;inset:0;display:grid;place-items:center;background:#101b2bf0;z-index:10020;color:#e7f5f0;font:600 17px system-ui;text-align:center;padding:24px}
+#hhLocalSaveDialog{padding:0;width:min(760px,calc(100vw - 24px));max-height:90dvh;border:1px solid var(--line,#506170);border-radius:16px;background:var(--panel,#222c36);color:var(--text,#f2f6fa);box-shadow:0 15px 90px #0009;font:14px/1.5 system-ui}
+#hhLocalSaveDialog::backdrop{background:#070e18d9}#hhLocalSaveDialog *{box-sizing:border-box}
+#hhLocalSaveDialog header{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:18px 22px;background:var(--panel2,#2d3946);border-bottom:1px solid var(--line,#506170)}
+#hhLocalSaveDialog h2{margin:3px 0 0;font:700 24px system-ui}#hhLocalSaveDialog header small{font-size:10px;letter-spacing:.14em;opacity:.7}
+#hhLocalSaveDialog .hh-save-close{font-size:24px;padding:2px 12px}#hhLocalSaveDialog .hh-save-body{padding:15px 22px 22px}
+#hhLocalSaveDialog button,#hhLocalSaveAlert button{padding:9px 12px;border:1px solid var(--line,#657985);border-radius:7px;background:var(--panel2,#2d3946);color:inherit;font:600 12px system-ui;cursor:pointer}
+#hhLocalSaveDialog button:focus-visible,#hhLocalSaveButton:focus-visible{outline:2px solid var(--accent2,#8ad6bd);outline-offset:3px}
+.hh-save-actions{display:flex;flex-wrap:wrap;gap:8px}.hh-save-actions button:first-child{background:#326856!important;color:#fff!important;border-color:#76ab95!important}
+.hh-save-note{color:var(--muted,#b1c2c7);font-size:12px}#hhSaveProblems:not(:empty){border:1px solid #cf9868;border-radius:8px;padding:12px;margin-top:14px}#hhSaveProblems button{margin:3px 6px 0 0}
+.hh-save-version{display:flex;justify-content:space-between;gap:14px;padding:13px 0;border-bottom:1px solid var(--line,#506170)}.hh-save-version>div:first-child{min-width:0}.hh-save-version strong,.hh-save-version small{display:block}.hh-save-version small{color:var(--muted,#b1c2c7);font-size:11px;margin-top:4px}.hh-save-version p{margin:5px 0;font-size:12px;overflow-wrap:anywhere}
+.hh-save-version-actions{display:flex;align-items:center;gap:6px;flex-shrink:0}.hh-save-busy .hh-save-actions button,.hh-save-busy .hh-save-version-actions button{pointer-events:none;opacity:.65}
+@media(max-width:540px){#hhLocalSaveDialog header{padding:14px}.hh-save-version{display:block}.hh-save-version-actions{margin-top:9px}#hhLocalSaveDialog .hh-save-body{padding:12px 14px 18px}#hhLocalSaveButton{right:9px;bottom:9px;font-size:11px;padding:8px 11px}.hh-save-actions button{flex:1;min-height:40px}}

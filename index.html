@@ -16509,6 +16509,15 @@ html[data-font-theme="arcade"] .combat-item-description{font-size:11px!important
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#171a1f">
+  <link rel="stylesheet" href="styles/topbar-v5.css?v=20261027-mobile" />
+  <link rel="stylesheet" href="styles/misc-v5.css?v=20261027-mobile" />
+  <link rel="stylesheet" href="styles/arcade-font-v5.css?v=20261027-mobile" />
+  <link rel="stylesheet" href="styles/pokedex-player.css?v=20261027-mobile" />
+  <link rel="stylesheet" href="styles/local-save-v5.css?v=20261027-mobile" />
+  <link rel="stylesheet" href="styles/mobile-updates-v5.css?v=20261027-mobile" />
+  <script id="hhLocalSaveScript" src="scripts/local-save-v5.js?v=20261027-mobile"></script>
+  <script src="scripts/local-save-ui-v5.js?v=20261027-mobile"></script>
+  <script defer src="scripts/misc-options-v5.js?v=20261027-mobile"></script>
 </head>
 <body>
 <header class="topbar">
@@ -16533,12 +16542,23 @@ html[data-font-theme="arcade"] .combat-item-description{font-size:11px!important
       </span>
       <span class="top-selector-chevron" aria-hidden="true">⌄</span>
     </button>
-    <button class="select-like top-selector" id="themeBtn">
-      <span class="top-selector-copy">
-        <strong>Personalização</strong>
-        <span id="themeLabel">Hazel • Padrão</span>
+    <button class="top-personalize-btn" id="themeBtn" type="button"
+      aria-controls="pageMobileSettings"
+      title="Personalizar aparência, fontes e cores">
+      <span class="top-personalize-icon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+          fill="none" stroke="currentColor" stroke-width="1.8"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3a9 9 0 1 0 9 9c0-1.7-1.3-3-3-3h-1a2 2 0 0 1-2-2V6a3 3 0 0 0-3-3Z"/>
+          <circle cx="6.5" cy="12" r="1" fill="currentColor" stroke="none"/>
+          <circle cx="9" cy="7.5" r="1" fill="currentColor" stroke="none"/>
+          <circle cx="15" cy="15.5" r="1" fill="currentColor" stroke="none"/>
+        </svg>
       </span>
-      <span class="top-selector-chevron" aria-hidden="true">⌄</span>
+      <span class="top-personalize-copy">
+        <b>Personalizar</b><small id="themeLabel">Hazel • Padrão</small>
+      </span>
+      <span class="top-personalize-arrow" aria-hidden="true">⌄</span>
     </button>
     <button class="btn" id="exportBtn" title="Exporta todas as fichas e suas artes personalizadas em um único JSON">Exportar JSON</button>
     <button class="btn" id="importBtn" title="Importa fichas e artes incluídas no JSON">Importar JSON</button>
@@ -16681,8 +16701,7 @@ html[data-font-theme="arcade"] .combat-item-description{font-size:11px!important
           <div class="page-intro-mark">◓</div>
           <div class="page-intro-copy">
             <span class="page-intro-kicker">VISÃO GERAL</span>
-            <h3>Perfil, progressão e estatísticas</h3>
-            <p>Configure a ficha, acompanhe os atributos e organize os recursos permanentes do Pokémon.</p>
+            <h3>Perfil do Pokémon</h3>
           </div>
           <div class="page-intro-stats">
             <div class="page-intro-stat"><span>NÍVEL</span><b id="generalOverviewLevel">Lv. 1</b></div>
@@ -17713,194 +17732,153 @@ html[data-font-theme="arcade"] .combat-item-description{font-size:11px!important
         </div>
       </div>
 
-      <div class="page" id="page3">
-
-        <section class="page-intro page-intro-misc">
-          <div class="page-intro-mark">▤</div>
-          <div class="page-intro-copy">
-            <span class="page-intro-kicker">ARQUIVO DO POKÉMON</span>
-            <h3>Treinamentos, Anotações & Extras</h3>
-            
+      <div class="page misc-page-v5" id="page3">
+        <section class="misc-menu-hero" aria-labelledby="miscMenuTitle">
+          <div class="misc-menu-copy">
+            <span class="misc-menu-kicker">PÁGINA 04 • MENU DO POKÉMON</span>
+            <h3 id="miscMenuTitle">Treino & Inventário</h3>
+            <p>Gerencie progressão, treinos, itens, Abilities extras e anotações sem sair da ficha.</p>
           </div>
-          <div class="page-intro-stats">
-            <div class="page-intro-stat"><span>PPg</span><b id="miscOverviewPpg">0 / 15</b></div>
-            <div class="page-intro-stat"><span>TREINOS</span><b id="miscOverviewTraining">0</b></div>
-            <div class="page-intro-stat"><span>ITENS</span><b id="miscOverviewItems">0</b></div>
-            <div class="page-intro-stat"><span>ABILITIES</span><b id="miscOverviewAbilities">0</b></div>
+          <div class="misc-menu-status" aria-label="Resumo da página">
+            <div><span>PPg</span><b id="miscOverviewPpg">0 / 15</b></div>
+            <div><span>Treinos</span><b id="miscOverviewTraining">0</b></div>
+            <div><span>Itens</span><b id="miscOverviewItems">0</b></div>
+            <div><span>Abilities</span><b id="miscOverviewAbilities">0</b></div>
           </div>
         </section>
-        <div class="page2-grid misc-page-grid">
-          <div class="page2-left">
-            <section class="panel">
-              <div class="panel-head">
-                <h2>Moves em Treinamento</h2>
-                <span class="eyebrow">1 ativo por descanso</span>
-              </div>
-              <div class="panel-body">
-                <div class="section-helper" style="margin-bottom:10px">
-                  Moves naturais precisam de <b>5 sucessos</b>. Moves ilegais, de ovo ou TMs raros precisam de <b>10 sucessos</b>.
-                  Um crítico conta como <b>2 sucessos</b>.
-                </div>
-                <div class="move-auto-tools">
-                  <input class="input" id="trainingMoveApiLookup" list="officialMoveSuggestions" placeholder="Buscar move oficial ou exclusivo para preencher o treino" />
-                  <button class="btn" id="trainingMoveApiLookupBtn">🔎 Preencher Move</button>
-                </div>
-                <div class="move-auto-status" id="trainingMoveApiLookupStatus"></div>
-                <div class="training-form">
-                  <div class="field training-name">
-                    <label>Nome do Move</label>
-                    <input class="input" id="trainingMoveName" placeholder="Ex.: Flamethrower" />
-                  </div>
-                  <div class="field">
-                    <label>Tipo</label>
-                    <input class="input" id="trainingElementType" placeholder="Ex.: Fire" />
-                  </div>
-                  <div class="field">
-                    <label>Categoria</label>
-                    <select class="input" id="trainingCategory">
-                      <option value="Physical">Physical</option>
-                      <option value="Special">Special</option>
-                      <option value="Status">Status</option>
-                    </select>
-                  </div>
-                  <div class="field">
-                    <label>Power</label>
-                    <input class="input" id="trainingPower" type="number" min="0" value="0" />
-                  </div>
-                  <div class="field">
-                    <label>Accuracy</label>
-                    <input class="input" id="trainingAccuracy" type="number" min="0" max="90" value="90" />
-                  </div>
-                  <div class="field">
-                    <label>Tipo de Treino</label>
-                    <select class="input" id="trainingMoveType">
-                      <option value="natural">Natural • 5 sucessos</option>
-                      <option value="rare">Ilegal / Ovo / TM Raro • 10 sucessos</option>
-                    </select>
-                  </div>
-                  <button class="btn primary training-start" id="addTrainingMoveBtn">＋ Iniciar Treino</button>
-                </div>
-                <div class="move-extra-form">
-                  <div class="field">
-                    <label>Chance do Efeito (%)</label>
-                    <input class="input" id="trainingEffectChance" type="number" min="0" max="100" value="0" />
-                  </div>
-                  <div class="field">
-                    <label>Descrição / Efeito do Move</label>
-                    <textarea class="input" id="trainingDescription" placeholder="Ex.: 30% de chance de causar Paralysis. O usuário recua após atacar..."></textarea>
-                  </div>
-                </div>
-                <div class="training-list" id="trainingMovesList"></div>
-              </div>
-            </section>
 
-            <section class="panel">
-              <div class="panel-head">
-                <h2>PPg Atual</h2>
-                <span class="eyebrow">Pontos de Progresso</span>
+        <div class="misc-options-stack">
+          <section class="panel misc-option-panel misc-option-training" data-misc-key="training">
+            <div class="panel-head">
+              <div class="misc-option-heading">
+                <span class="misc-option-icon" aria-hidden="true">TR</span>
+                <div><h2>Laboratório de Treinamento</h2><span class="eyebrow">Moves • 1 treino ativo por descanso</span></div>
               </div>
-              <div class="panel-body">
-                <div class="ppg-value-row">
-                  <b id="ppgValueLabel">0</b>
-                  <span>/ 15 PPg</span>
-                </div>
-                <input class="ppg-range" id="currentPpg" type="range" min="0" max="15" step="1" value="0" />
-                <div class="ppg-bar"><div class="ppg-fill" id="ppgFill"></div></div>
-                <div class="ppg-controls">
-                  <button class="btn small" id="ppgMinusBtn">−1 PPg</button>
-                  <button class="btn small" id="ppgPlusBtn">＋1 PPg</button>
-                </div>
-                <div class="section-helper" style="text-align:center;margin-top:8px">
-                  PPg acumulados atualmente. A barra comporta até 15 pontos.
-                </div>
+              <button class="misc-option-toggle" type="button" aria-label="Minimizar ou expandir Laboratório de Treinamento"><span>−</span><small>RECOLHER</small></button>
+            </div>
+            <div class="panel-body">
+              <div class="misc-training-rules" aria-label="Regras rápidas de treinamento">
+                <div class="misc-rule-chip"><b>5 sucessos</b><span>Move aprendido naturalmente.</span></div>
+                <div class="misc-rule-chip"><b>10 sucessos</b><span>Ilegal, Egg Move ou TM raro.</span></div>
+                <div class="misc-rule-chip"><b>Crítico = +2</b><span>Um crítico vale dois sucessos.</span></div>
               </div>
-            </section>
+              <div class="move-auto-tools misc-search-row">
+                <input class="input" id="trainingMoveApiLookup" list="officialMoveSuggestions" placeholder="Buscar Move oficial ou exclusivo..." />
+                <button class="btn" id="trainingMoveApiLookupBtn">🔎 Preencher Move</button>
+              </div>
+              <div class="move-auto-status" id="trainingMoveApiLookupStatus"></div>
+              <div class="training-form misc-training-form">
+                <div class="field training-name"><label>Nome do Move</label><input class="input" id="trainingMoveName" placeholder="Ex.: Flamethrower" /></div>
+                <div class="field"><label>Tipo</label><input class="input" id="trainingElementType" placeholder="Ex.: Fire" /></div>
+                <div class="field"><label>Categoria</label><select class="input" id="trainingCategory"><option value="Physical">Physical</option><option value="Special">Special</option><option value="Status">Status</option></select></div>
+                <div class="field"><label>Power</label><input class="input" id="trainingPower" type="number" min="0" value="0" /></div>
+                <div class="field"><label>Accuracy</label><input class="input" id="trainingAccuracy" type="number" min="0" max="90" value="90" /></div>
+                <div class="field training-kind"><label>Tipo de Treino</label><select class="input" id="trainingMoveType"><option value="natural">Natural • 5 sucessos</option><option value="rare">Ilegal / Ovo / TM Raro • 10 sucessos</option></select></div>
+                <button class="btn primary training-start" id="addTrainingMoveBtn">＋ Iniciar Treino</button>
+              </div>
+              <div class="move-extra-form misc-training-extra">
+                <div class="field"><label>Chance do Efeito (%)</label><input class="input" id="trainingEffectChance" type="number" min="0" max="100" value="0" /></div>
+                <div class="field"><label>Descrição / Efeito do Move</label><textarea class="input" id="trainingDescription" placeholder="Ex.: 30% de chance de causar Paralysis..."></textarea></div>
+              </div>
+              <div class="training-list" id="trainingMovesList"></div>
+            </div>
+          </section>
 
-            <section class="panel">
-              <div class="panel-head">
-                <h2>Histórico de Progressão</h2>
-                <span class="eyebrow" id="progressHistoryCount">0 registros</span>
+          <section class="panel misc-option-panel misc-option-items" data-misc-key="items">
+            <div class="panel-head">
+              <div class="misc-option-heading">
+                <span class="misc-option-icon" aria-hidden="true">IT</span>
+                <div><h2>Equipamento & Itens</h2><span class="eyebrow">Item segurado • catálogo • memória</span></div>
               </div>
-              <div class="panel-body">
-                <div class="section-helper" style="margin-bottom:10px">
-                  Cada nível confirmado registra a distribuição aplicada, os ganhos finais após Nature e o bloco de 10 níveis.
+              <button class="misc-option-toggle" type="button" aria-label="Minimizar ou expandir Equipamento e Itens"><span>−</span><small>RECOLHER</small></button>
+            </div>
+            <div class="panel-body">
+              <div class="misc-item-topline">
+                <div class="misc-held-slot">
+                  <div class="misc-held-orb" aria-hidden="true">◆</div>
+                  <div><label for="heldItemSelect">Item Segurado Atual</label><select class="input" id="heldItemSelect"></select></div>
                 </div>
-                <div class="progress-history-list" id="progressHistoryList"></div>
-              </div>
-            </section>
-          </div>
-
-          <div class="page2-right">
-            <section class="panel">
-              <div class="panel-head">
-                <h2>Anotações do Pokémon</h2>
-                <span class="eyebrow">Livre</span>
-              </div>
-              <div class="panel-body">
-                <textarea class="input notes-area" id="pokemonNotes" placeholder="Personalidade, histórico, peculiaridades, evolução, treinos, informações da campanha..."></textarea>
-              </div>
-            </section>
-
-            <section class="panel">
-              <div class="panel-head">
-                <h2>Itens</h2>
-                <span class="eyebrow">Seletor & Itens Originais</span>
-              </div>
-              <div class="panel-body">
                 <div class="official-item-browser">
-                  <div class="official-item-browser-head">
-                    <div><b>Catálogo PokéAPI</b><small><span id="pokeApiItemCount">0</span> itens oficiais • efeitos adaptados ao H&amp;H</small></div>
-                    <span class="official-item-source">POKÉAPI</span>
-                  </div>
-                  <div class="official-item-search-row">
-                    <input class="input" id="officialItemLookup" list="pokeApiItemSuggestions" placeholder="Buscar item oficial, ex.: Leftovers..." />
-                    <button class="btn" id="officialItemLookupBtn" type="button">🔎 ADICIONAR</button>
-                  </div>
+                  <div class="official-item-browser-head"><div><b>Catálogo de Itens</b><small><span id="pokeApiItemCount">0</span> itens oficiais disponíveis</small></div><span class="official-item-source">POKÉAPI</span></div>
+                  <div class="official-item-search-row"><input class="input" id="officialItemLookup" list="pokeApiItemSuggestions" placeholder="Buscar item oficial, ex.: Leftovers..." /><button class="btn" id="officialItemLookupBtn" type="button">🔎 Adicionar</button></div>
                   <div class="move-auto-status official-item-status" id="officialItemLookupStatus">Selecione um item para adicioná-lo à Memória de Itens.</div>
                 </div>
-                <datalist id="pokeApiItemSuggestions"></datalist>
-
-                <div class="field" style="margin-top:12px">
-                  <label>Item Segurado Atual</label>
-                  <select class="input" id="heldItemSelect"></select>
-                </div>
-                <div class="section-helper" style="margin:8px 0 10px">
-                  Itens compatíveis reagem automaticamente a HP, condições, estágios e ao botão de encerrar rodada.
-                </div>
-
-                <div class="item-create-grid">
-                  <input class="input" id="customItemName" placeholder="Nome do item original" />
-                  <button class="btn primary" id="addCustomItemBtn">＋ Adicionar</button>
-                </div>
-                <textarea class="input" id="customItemDescription" placeholder="Descrição / efeito do item..." style="margin-top:8px;min-height:76px"></textarea>
-                <div class="item-memory-list" id="itemMemoryList" style="margin-top:12px"></div>
               </div>
-            </section>
+              <datalist id="pokeApiItemSuggestions"></datalist>
+              <details class="misc-create-drawer">
+                <summary>Criar item original</summary>
+                <div class="misc-create-body">
+                  <div class="item-create-grid"><input class="input" id="customItemName" placeholder="Nome do item original" /><button class="btn primary" id="addCustomItemBtn">＋ Adicionar</button></div>
+                  <textarea class="input" id="customItemDescription" placeholder="Descrição / efeito do item..." style="margin-top:8px;min-height:76px"></textarea>
+                </div>
+              </details>
+              <div class="section-helper" style="margin:9px 0 0">Itens compatíveis reagem automaticamente a HP, condições, estágios e ao encerramento da rodada.</div>
+              <div class="item-memory-list" id="itemMemoryList"></div>
+            </div>
+          </section>
 
-            <section class="panel">
-              <div class="panel-head">
-                <h2>Memória de Abilities</h2>
-                <span class="eyebrow"><span id="abilityBankCount">379</span> ABILITIES</span>
+          <section class="panel misc-option-panel misc-option-abilities" data-misc-key="abilities">
+            <div class="panel-head">
+              <div class="misc-option-heading">
+                <span class="misc-option-icon" aria-hidden="true">AB</span>
+                <div><h2>Abilities Extras</h2><span class="eyebrow">Memória • <span id="abilityBankCount">379</span> no compêndio</span></div>
               </div>
-              <div class="panel-body">
-                <div class="move-auto-tools">
-                  <input class="input" id="abilitySystemLookup" list="systemAbilitySuggestions" placeholder="Buscar Ability, ex.: Adaptability" />
-                  <button class="btn" id="abilitySystemLookupBtn">🔎 Preencher Ability</button>
-                </div>
-                <div class="move-auto-status" id="abilitySystemLookupStatus"></div>
-                <datalist id="systemAbilitySuggestions"></datalist>
-                <div class="ability-create-grid">
-                  <input class="input" id="memoryAbilityName" placeholder="Nome da Ability" />
-                  <button class="btn primary" id="addMemoryAbilityBtn">＋ Adicionar</button>
-                </div>
-                <textarea class="input" id="memoryAbilityDescription" placeholder="Descrição / efeito..." style="margin-top:8px;min-height:76px"></textarea>
-                <div class="ability-memory-list" id="abilityMemoryList" style="margin-top:12px"></div>
+              <button class="misc-option-toggle" type="button" aria-label="Minimizar ou expandir Abilities Extras"><span>−</span><small>RECOLHER</small></button>
+            </div>
+            <div class="panel-body">
+              <div class="misc-ability-tools misc-search-row">
+                <input class="input" id="abilitySystemLookup" list="systemAbilitySuggestions" placeholder="Buscar Ability, ex.: Adaptability..." />
+                <button class="btn" id="abilitySystemLookupBtn">🔎 Preencher Ability</button>
               </div>
-            </section>
-          </div>
+              <div class="move-auto-status" id="abilitySystemLookupStatus"></div>
+              <datalist id="systemAbilitySuggestions"></datalist>
+              <div class="misc-ability-entry">
+                <div class="ability-create-grid"><input class="input" id="memoryAbilityName" placeholder="Nome da Ability" /><button class="btn primary" id="addMemoryAbilityBtn">＋ Adicionar</button></div>
+                <textarea class="input" id="memoryAbilityDescription" placeholder="Descrição / efeito..."></textarea>
+              </div>
+              <div class="section-helper" style="margin-top:8px">Use esta área para Abilities secundárias, Hidden Abilities, formas alternativas ou efeitos extras. A Ability principal continua na página Geral.</div>
+              <div class="ability-memory-list" id="abilityMemoryList"></div>
+            </div>
+          </section>
+
+          <section class="panel misc-option-panel misc-option-progress" data-misc-key="progress">
+            <div class="panel-head">
+              <div class="misc-option-heading">
+                <span class="misc-option-icon" aria-hidden="true">PG</span>
+                <div><h2>PPg & Progressão</h2><span class="eyebrow">Pontos atuais • histórico por nível</span></div>
+              </div>
+              <button class="misc-option-toggle" type="button" aria-label="Minimizar ou expandir PPg e Progressão"><span>−</span><small>RECOLHER</small></button>
+            </div>
+            <div class="panel-body">
+              <div class="misc-progress-layout">
+                <div class="misc-ppg-card">
+                  <div class="misc-ppg-title"><span class="misc-ppg-symbol" aria-hidden="true">PG</span><div><b>Pontos de Progresso</b><small>Reserva atual do Pokémon</small></div></div>
+                  <div class="ppg-value-row"><b id="ppgValueLabel">0</b><span>/ 15 PPg</span></div>
+                  <input class="ppg-range" id="currentPpg" type="range" min="0" max="15" step="1" value="0" />
+                  <div class="ppg-bar"><div class="ppg-fill" id="ppgFill"></div></div>
+                  <div class="misc-ppg-actions"><button class="btn small" id="ppgMinusBtn">−1 PPg</button><button class="btn small" id="ppgPlusBtn">＋1 PPg</button></div>
+                </div>
+                <div class="misc-history-card">
+                  <div class="misc-history-title"><b>Histórico de Progressão</b><span id="progressHistoryCount">0 registros</span></div>
+                  <div class="section-helper">Cada nível confirmado registra a distribuição aplicada e os ganhos finais após Nature.</div>
+                  <div class="progress-history-list" id="progressHistoryList"></div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="panel misc-option-panel misc-option-notes" data-misc-key="notes">
+            <div class="panel-head">
+              <div class="misc-option-heading">
+                <span class="misc-option-icon" aria-hidden="true">NT</span>
+                <div><h2>Anotações do Pokémon</h2><span class="eyebrow">Campanha • evolução • peculiaridades</span></div>
+              </div>
+              <button class="misc-option-toggle" type="button" aria-label="Minimizar ou expandir Anotações do Pokémon"><span>−</span><small>RECOLHER</small></button>
+            </div>
+            <div class="panel-body"><textarea class="input notes-area" id="pokemonNotes" placeholder="Personalidade, histórico, peculiaridades, evolução, treinos, informações da campanha..."></textarea></div>
+          </section>
         </div>
       </div>
-
 
       <div class="page" id="page4">
   <section class="encyclopedia-page">
@@ -18134,7 +18112,7 @@ html[data-font-theme="arcade"] .combat-item-description{font-size:11px!important
 
       <div class="footer">
         <span id="footerPageInfo">Ficha Interativa Pokémon RPG • Página 1/6 • V5.0</span>
-        <span>Autosave local ativado</span>
+        <span id="localSaveStatus" role="status">Recuperando save local…</span>
       </div>
     
       <div class="page mobile-native-page" id="pageMobileMenu">
@@ -18165,6 +18143,18 @@ html[data-font-theme="arcade"] .combat-item-description{font-size:11px!important
             <span class="mobile-menu-icon">●</span>
             <b>Pokémon & Box</b>
             <small>Equipe, reservas e Pokémon armazenados.</small>
+          </button>
+
+          <button class="mobile-menu-card accent" type="button" id="mobileAppPokedexExtras">
+            <span class="mobile-menu-icon">◓</span>
+            <b>Pokémon extras</b>
+            <small>Pokédex da campanha: espécies, Megas e formas publicadas.</small>
+          </button>
+
+          <button class="mobile-menu-card" type="button" id="mobileAppSaves">
+            <span class="mobile-menu-icon">▣</span>
+            <b>Seus saves</b>
+            <small>Salvar agora, recuperar versões e baixar fichas com imagens.</small>
           </button>
 
           <button class="mobile-menu-card" type="button" data-mobile-route="page3">
@@ -18990,171 +18980,100 @@ html[data-font-theme="arcade"] .combat-item-description{font-size:11px!important
 
 <script>
 const STORAGE_KEY = "pokemon_rpg_sheet_v13";
-
 const STORAGE_BACKUP_KEY="pokemon_rpg_sheet_v13_recovery";
 const STORAGE_TIMESTAMP_KEY="pokemon_rpg_sheet_v13_timestamp";
-const STORAGE_IDB_NAME="pokemon_rpg_sheet_recovery";
-const STORAGE_IDB_STORE="snapshots";
-const STORAGE_IDB_RECORD="latest";
-
-function validSavedState(value){
-  return !!(value && typeof value==="object" && Array.isArray(value.pokemon) && value.pokemon.length);
-}
-
-function stripHeavyBackupData(value){
-  const visit=node=>{
-    if(typeof node==="string"){
-      return /^data:image\//i.test(node) ? "" : node;
-    }
-    if(Array.isArray(node))return node.map(visit);
-    if(node && typeof node==="object"){
-      const out={};
-      Object.entries(node).forEach(([key,item])=>out[key]=visit(item));
-      return out;
-    }
-    return node;
-  };
-  return visit(value);
-}
-
-function cleanupObsoleteMoveCaches(){
-  try{localStorage.removeItem("hh_move_names_ptbr_2026_06_05");}catch(error){}
-}
-
-function openRecoveryDatabase(){
-  return new Promise((resolve,reject)=>{
-    if(!("indexedDB" in window)){
-      reject(new Error("IndexedDB indisponível."));
-      return;
-    }
-    const request=indexedDB.open(STORAGE_IDB_NAME,1);
-    request.onupgradeneeded=()=>{
-      const db=request.result;
-      if(!db.objectStoreNames.contains(STORAGE_IDB_STORE)){
-        db.createObjectStore(STORAGE_IDB_STORE);
-      }
-    };
-    request.onsuccess=()=>resolve(request.result);
-    request.onerror=()=>reject(request.error||new Error("Falha ao abrir backup local."));
-  });
-}
-
-async function saveRecoverySnapshot(snapshot,savedAt){
-  try{
-    const db=await openRecoveryDatabase();
-    await new Promise((resolve,reject)=>{
-      const tx=db.transaction(STORAGE_IDB_STORE,"readwrite");
-      tx.objectStore(STORAGE_IDB_STORE).put(
-        {savedAt:Number(savedAt||Date.now()),state:clone(snapshot)},
-        STORAGE_IDB_RECORD
-      );
-      tx.oncomplete=resolve;
-      tx.onerror=()=>reject(tx.error);
-      tx.onabort=()=>reject(tx.error);
-    });
-    db.close();
-    return true;
-  }catch(error){
-    console.warn("Backup de recuperação indisponível:",error);
-    return false;
+let localSaveLoading=true,localSaveApplying=false,localSaveTimer=null,localSavePanel=null;
+const localSaveStore=window.HH_LOCAL_SAVE?.create({
+  env:window,
+  namespace:document.getElementById('hhLocalSaveScript')?.dataset.namespace||'pokemon_hh_v5_local',
+  legacy:{primary:STORAGE_KEY,backup:STORAGE_BACKUP_KEY,timestamp:STORAGE_TIMESTAMP_KEY,database:'pokemon_rpg_sheet_recovery'},
+  onExternal:value=>{applyRestoredLocalState(value);showToast('✓ Fichas atualizadas com o save de outra aba.');}
+});
+function validSavedState(value){return !!(value&&typeof value==='object'&&Array.isArray(value.pokemon)&&value.pokemon.length&&value.pokemon.every(p=>p&&typeof p==='object'&&!Array.isArray(p)));}
+function normalizeLocalSavedState(value){
+  const result=clone(value),seen=new Set();
+  if(!Array.isArray(result.speciesBank))result.speciesBank=[];
+  for(const p of result.pokemon){
+    if(p.id==null||seen.has(p.id))p.id=uid();seen.add(p.id);
+    const base={hp:1,atk:1,def:1,spa:1,spd:1,spe:1};
+    p.stats={...base,...(p.baseStats&&typeof p.baseStats==='object'?p.baseStats:{}),...(p.stats&&typeof p.stats==='object'?p.stats:{})};
+    p.baseStats={...p.stats,...(p.baseStats&&typeof p.baseStats==='object'?p.baseStats:{})};
+    if(p.name==null)p.name='Sem nome';if(p.level==null)p.level=1;
+    if(p.maxHp==null)p.maxHp=p.stats.hp;if(p.currentHp==null)p.currentHp=p.maxHp;
+    repairPokemonMoves(p);
   }
+  if(!result.pokemon.some(p=>p.id===result.currentId))result.currentId=result.pokemon[0].id;
+  return result;
 }
-
-async function readRecoverySnapshot(){
-  try{
-    const db=await openRecoveryDatabase();
-    const record=await new Promise((resolve,reject)=>{
-      const tx=db.transaction(STORAGE_IDB_STORE,"readonly");
-      const request=tx.objectStore(STORAGE_IDB_STORE).get(STORAGE_IDB_RECORD);
-      request.onsuccess=()=>resolve(request.result||null);
-      request.onerror=()=>reject(request.error);
-    });
-    db.close();
-    return record;
-  }catch(error){
-    return null;
-  }
-}
-
 function loadState(){
-  cleanupObsoleteMoveCaches();
-
+  if(localSaveStore)return normalizeLocalSavedState(localSaveStore.loadSync(defaultData));
   for(const key of [STORAGE_KEY,STORAGE_BACKUP_KEY]){
-    try{
-      const raw=localStorage.getItem(key);
-      if(!raw)continue;
-      const parsed=JSON.parse(raw);
-      if(validSavedState(parsed))return parsed;
-    }catch(error){
-      console.warn(`Save inválido em ${key}:`,error);
-    }
+    try{const value=JSON.parse(localStorage.getItem(key)||'null');if(validSavedState(value))return normalizeLocalSavedState(value);}catch{}
   }
-
   return clone(defaultData);
 }
-
-function saveState(){
-  cleanupObsoleteMoveCaches();
-
-  const savedAt=Date.now();
-  let serialized;
-
-  try{
-    serialized=JSON.stringify(state);
-  }catch(error){
-    console.error("Falha ao serializar a ficha:",error);
-    showToast("⚠ Não foi possível preparar o save.");
-    return false;
-  }
-
-  try{
-    localStorage.setItem(STORAGE_KEY,serialized);
-    localStorage.setItem(STORAGE_TIMESTAMP_KEY,String(savedAt));
-
-    try{
-      localStorage.setItem(
-        STORAGE_BACKUP_KEY,
-        JSON.stringify(stripHeavyBackupData(state))
-      );
-    }catch(error){
-      console.warn("Backup leve não pôde ser atualizado:",error);
-    }
-
-    return true;
-  }catch(error){
-    console.error("Falha no localStorage:",error);
-    saveRecoverySnapshot(state,savedAt);
-
-    showToast(
-      error?.name==="QuotaExceededError"
-        ?"⚠ O save atingiu o limite do navegador. Um backup de recuperação foi criado."
-        :"⚠ O navegador recusou o save. Um backup de recuperação foi criado."
-    );
-    return false;
-  }
+function cancelPendingLocalSave(){clearTimeout(localSaveTimer);localSaveTimer=null;}
+function saveState(settings={}){
+  cancelPendingLocalSave();
+  if(localSaveLoading||localSaveApplying)return false;
+  if(localSaveStore)return localSaveStore.schedule(state,settings);
+  try{localStorage.setItem(STORAGE_KEY,JSON.stringify(state));localStorage.setItem(STORAGE_TIMESTAMP_KEY,String(Date.now()));return true;}
+  catch(error){showToast('Não foi possível salvar. Baixe um JSON para guardar suas fichas.');return false;}
 }
-
-async function restoreRecoveryStateIfNeeded(){
-  const record=await readRecoverySnapshot();
-  if(!record || !validSavedState(record.state))return false;
-
-  let localTimestamp=0;
-  try{localTimestamp=Number(localStorage.getItem(STORAGE_TIMESTAMP_KEY)||0);}catch(error){}
-
-  if(Number(record.savedAt||0)<=localTimestamp)return false;
-
-  state=record.state;
-  (state.pokemon||[]).forEach(repairPokemonMoves);
-  current=getCurrent();
-  renderAll();
-
+async function flushLocalSave(settings={}){
+  cancelPendingLocalSave();
+  if(localSaveLoading||localSaveApplying)return false;
+  if(localSaveStore)return localSaveStore.saveNow(state,settings);
+  return saveState(settings);
+}
+function queueLocalSave(){
+  if(localSaveLoading||localSaveApplying)return;
+  localSaveStore?.markDirty();cancelPendingLocalSave();
+  localSaveTimer=setTimeout(()=>saveState(),180);
+}
+function applyRestoredLocalState(value){
+  cancelPendingLocalSave();localSaveApplying=true;
   try{
-    localStorage.setItem(STORAGE_KEY,JSON.stringify(state));
-    localStorage.setItem(STORAGE_TIMESTAMP_KEY,String(record.savedAt||Date.now()));
-  }catch(error){}
-
-  showToast("✓ Um save de recuperação mais recente foi restaurado.");
-  return true;
+    state=normalizeLocalSavedState(value);current=getCurrent();
+    normalizePokedexAppearance();normalizeSheetAppearance();normalizeAppearanceModalTab();
+    ensureTrainerData();initializeUnifiedBagInventory();
+    migrateSavedPokemonReworks();localizeAllPokemonAbilities();
+    applyFontTheme(state.fontTheme||'standard');applyTheme(state.theme||'hazel');
+    applyPokedexColor(false);applySheetPokedexMode(false);setAppearanceModalTab(state.appearanceModalTab,{save:false});
+    renderAll();
+  }finally{localSaveApplying=false;}
+}
+async function restoreRecoveryStateIfNeeded(){
+  localSavePanel=window.HH_LOCAL_SAVE_UI?.mount({
+    store:localSaveStore,getState:()=>state,applyState:applyRestoredLocalState,cancelPending:cancelPendingLocalSave,
+    flush:flushLocalSave,export:exportAll,notify:showToast,
+    retry:async()=>{
+      localSaveLoading=true;cancelPendingLocalSave();localSavePanel?.setLoading(true);
+      try{const result=await localSaveStore.retry(defaultData);applyRestoredLocalState(result.state);}
+      finally{localSaveLoading=false;localSavePanel?.setLoading(false);}
+      if(!localSaveStore.status().halted&&!localSaveStore.status().conflict)await flushLocalSave();
+    }
+  });
+  try{
+    if(localSaveStore){
+      const result=await localSaveStore.boot(defaultData);applyRestoredLocalState(result.state);
+      if(result.recovered)showToast('✓ Suas fichas e imagens foram recuperadas de uma cópia local.');
+    }
+  }catch(error){console.error('Recuperação do save:',error);showToast('O save precisa de atenção. Abra a central de save antes de continuar.');}
+  finally{localSaveLoading=false;localSavePanel?.setLoading(false);}
+  window.addEventListener('pagehide',()=>{
+    if(!localSaveStore||localSaveLoading||!localSaveStore.status().dirty)return;
+    cancelPendingLocalSave();localSaveStore.emergency(state);saveState();localSaveStore.flush();
+  });
+  document.addEventListener('visibilitychange',()=>{
+    if(document.visibilityState==='hidden'&&!localSaveLoading&&localSaveStore?.status().dirty){cancelPendingLocalSave();localSaveStore.emergency(state);saveState();localSaveStore.flush();}
+  });
+  window.addEventListener('beforeunload',event=>{
+    if(localSaveLoading||!localSaveStore?.status().dirty)return;
+    cancelPendingLocalSave();const journal=localSaveStore.emergency(state);saveState();localSaveStore.flush();
+    if(!journal){event.preventDefault();event.returnValue='';}
+  });
+  if(localSaveStore&&!localSaveStore.status().halted&&!localSaveStore.status().conflict)await flushLocalSave();
 }
 
 
@@ -20986,7 +20905,7 @@ function showToast(text){
 function debounce(fn,delay=350){
   let t; return (...args)=>{clearTimeout(t);t=setTimeout(()=>fn(...args),delay)}
 }
-const debouncedSave=debounce(saveState,450);
+const debouncedSave=queueLocalSave;
 
 function renderThemeOptions(){
   const grid=document.getElementById("themeGrid");
@@ -21988,7 +21907,7 @@ function localizeAllPokemonAbilities(){
   (state.pokemon||[]).forEach(p=>{
     if(localizePokemonOfficialAbilities(p))changed=true;
   });
-  if(changed)localStorage.setItem(STORAGE_KEY,JSON.stringify(state));
+  if(changed)saveState();
 }
 
 INTEGRATED_CUSTOM_ABILITIES.forEach(ability=>{
@@ -22996,7 +22915,7 @@ function migrateSavedPokemonReworks(){
     if(applySystemPokemonReworkToRecord(p))changed=true;
   });
   if(changed){
-    localStorage.setItem(STORAGE_KEY,JSON.stringify(state));
+    saveState();
   }
 }
 
@@ -27892,6 +27811,13 @@ function initializeMobileNativeApp(){
     syncMobileAppPokemonCard();
   };
 
+  document.getElementById("mobileAppPokedexExtras")?.addEventListener("click",()=>{
+    const bridge=window.HH_GM_CATALOG_BRIDGE;
+    if(bridge)bridge.open();
+    else showToast("A Pokédex ainda está carregando. Tente novamente em instantes.");
+  });
+  document.getElementById("mobileAppSaves")?.addEventListener("click",()=>localSavePanel?.open());
+
   document.getElementById("mobileAppOpenBox")?.addEventListener("click",openBox);
   document.getElementById("mobileCurrentPokemonCard")?.addEventListener("click",openBox);
   document.getElementById("mobileCurrentPokemonCard")?.addEventListener("keydown",event=>{
@@ -27948,12 +27874,6 @@ const PAGE_PANEL_DECORATION={
   "Fraquezas & Resistências":{className:"section-matchups",icon:"TY"},
   "Memória de Moves":{className:"section-move-memory",icon:"MV"},
   "Adicionar Move à Memória":{className:"section-add-move",icon:"+"},
-  "Moves em Treinamento":{className:"section-training",icon:"TR"},
-  "PPg Atual":{className:"section-ppg",icon:"PG"},
-  "Histórico de Progressão":{className:"section-history",icon:"HX"},
-  "Anotações do Pokémon":{className:"section-notes",icon:"NT"},
-  "Itens":{className:"section-items",icon:"IT"},
-  "Memória de Abilities":{className:"section-ability-memory",icon:"AB"},
   "Identidade do Treinador":{className:"section-trainer-id",icon:"ID"},
   "Atributos":{className:"section-trainer-attributes",icon:"AT"},
   "Perícias":{className:"section-trainer-skills",icon:"SK"},
@@ -27963,7 +27883,7 @@ const PAGE_PANEL_DECORATION={
 };
 
 function decoratePagePanels(){
-  document.querySelectorAll("#page1 .panel,#pageTrainer .panel,#page3 .panel").forEach(panel=>{
+  document.querySelectorAll("#page1 .panel,#pageTrainer .panel").forEach(panel=>{
     if(panel.dataset.pageDecorated==="true")return;
 
     const heading=panel.querySelector(".panel-head h2");
@@ -30880,6 +30800,7 @@ async function exportAll(){
   if(button?.disabled)return;
   if(button){button.disabled=true;button.textContent="Preparando JSON...";}
   try{
+    await flushLocalSave();
     const {copy,embedded,unresolved}=await portableBuildExport();
     const blob=new Blob([JSON.stringify(copy,null,2)],{type:"application/json;charset=utf-8"});
     const url=URL.createObjectURL(blob);
@@ -30906,25 +30827,20 @@ async function exportAll(){
 }
 function importAll(file){
   const reader=new FileReader();
-  reader.onload=()=>{
+  reader.onload=async()=>{
     try{
       const parsed=JSON.parse(String(reader.result||""));
-      if(!parsed || !Array.isArray(parsed.pokemon) || !parsed.pokemon.length){
-        throw new Error("O JSON não contém fichas Pokémon.");
-      }
-      const included=portableImageFields(parsed).filter(e=>/^data:image\//i.test(e.url)).length;
-      state=parsed;
-      if(!Array.isArray(state.speciesBank))state.speciesBank=[];
-      (state.pokemon||[]).forEach(p=>{if(typeof repairPokemonMoves==="function")repairPokemonMoves(p);});
-      current=getCurrent();
-      applyTheme(state.theme||"hazel");
-      renderAll();
-      saveState();
-      showToast(`✓ JSON importado! ${included} imagem(ns) incluída(s) restaurada(s).`);
+      if(!validSavedState(parsed))throw new Error("O JSON não contém fichas Pokémon válidas.");
+      const prepared=normalizeLocalSavedState(parsed);
+      const included=portableImageFields(prepared).filter(e=>/^data:image\//i.test(e.url)).length;
+      if(!await flushLocalSave({reason:'Antes de importar JSON'}))throw new Error("Guarde ou recupere o save atual antes de importar. Suas fichas não foram substituídas.");
+      applyRestoredLocalState(prepared);
+      const saved=await flushLocalSave({reason:'Importação de JSON'});
+      showToast(saved?`✓ JSON importado e salvo! ${included} imagem(ns) restaurada(s).`:'JSON importado na tela. O save está pendente; confira a central de save.');
     }catch(error){
       console.error("Erro ao importar ficha:",error);
       alert(error.message||"Arquivo JSON inválido para esta ficha.");
-    }
+    }finally{document.getElementById('importInput').value='';}
   };
   reader.onerror=()=>alert("Não foi possível ler o arquivo JSON.");
   reader.readAsText(file);
@@ -31461,11 +31377,23 @@ document.getElementById("exportBtn").onclick=exportAll;
 document.getElementById("importBtn").onclick=()=>document.getElementById("importInput").click();
 document.getElementById("importInput").onchange=e=>e.target.files[0]&&importAll(e.target.files[0]);
 
-document.getElementById("applyImageBtn").onclick=()=>{current.imageUrl=document.getElementById("imageUrl").value.trim();renderPortrait();renderDrawer();debouncedSave()};
+document.getElementById("applyImageBtn").onclick=()=>{
+  const value=document.getElementById("imageUrl").value.trim();
+  if(value!=="[imagem local salva na ficha]")current.imageUrl=value;
+  renderPortrait();renderDrawer();debouncedSave();
+};
 document.getElementById("uploadImageBtn").onclick=()=>document.getElementById("imageInput").click();
 document.getElementById("imageInput").onchange=e=>{
-  const f=e.target.files[0];if(!f)return;
-  const r=new FileReader();r.onload=()=>{current.imageUrl=r.result;setVal("imageUrl","[imagem local salva na ficha]");renderPortrait();renderDrawer();debouncedSave()};r.readAsDataURL(f)
+  const file=e.target.files[0],target=current;if(!file)return;
+  const reader=new FileReader();
+  reader.onload=()=>{
+    if(!state.pokemon.includes(target))return;
+    target.imageUrl=String(reader.result||'');
+    if(current===target){setVal("imageUrl","[imagem local salva na ficha]");renderPortrait();}
+    renderDrawer();saveState();localSaveStore?.flush();
+  };
+  reader.onerror=()=>showToast('Não foi possível ler esta imagem. A arte anterior foi preservada.');
+  reader.readAsDataURL(file);
 };
 
 document.getElementById("themeBtn").onclick=()=>{
@@ -31816,6 +31744,6 @@ if(!document.getElementById("progressWarning").textContent.trim()){
 </script>
 
   <!-- Catálogo público: Pokédex GM V5.0 -->
-  <script src="https://n4nd0-hub.github.io/Pok-dex-GM/pokedex-gm-bridge.js" defer></script>
+  <script src="scripts/pokedex-gm-bridge.js?v=20261027-mobile" defer></script>
 </body>
 </html>

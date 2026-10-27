@@ -1,0 +1,113 @@
+/* Arcade 8-bit V5.0 — leitura reforçada
+   Mantém a identidade pixelada, mas devolve o corpo mais encorpado e um pouco maior. */
+
+html[data-font-theme="arcade"] body{
+  font-weight:700;
+  font-size:15px;
+}
+
+/* Silkscreen possui peso 700 real; use-o para textos de interface. */
+html[data-font-theme="arcade"] button,
+html[data-font-theme="arcade"] input,
+html[data-font-theme="arcade"] textarea,
+html[data-font-theme="arcade"] select,
+html[data-font-theme="arcade"] .btn,
+html[data-font-theme="arcade"] .input,
+html[data-font-theme="arcade"] .textarea,
+html[data-font-theme="arcade"] .select-like,
+html[data-font-theme="arcade"] .tab,
+html[data-font-theme="arcade"] .tag,
+html[data-font-theme="arcade"] .eyebrow,
+html[data-font-theme="arcade"] label,
+html[data-font-theme="arcade"] small{
+  font-weight:700;
+}
+
+/* Press Start 2P só possui peso regular. Um stroke mínimo preserva o pixel
+   sem deixar o texto borrado e recupera o aspecto mais "cheio". */
+html[data-font-theme="arcade"] .brand,
+html[data-font-theme="arcade"] .sheet-title input,
+html[data-font-theme="arcade"] .panel-head h2,
+html[data-font-theme="arcade"] .modal-head b,
+html[data-font-theme="arcade"] .modal-head h2,
+html[data-font-theme="arcade"] .gimmick-section-title,
+html[data-font-theme="arcade"] .page-intro h3,
+html[data-font-theme="arcade"] .misc-menu-copy h3,
+html[data-font-theme="arcade"] .encyclopedia-hero h3{
+  -webkit-text-stroke:.28px currentColor;
+  text-shadow:.35px 0 currentColor;
+  letter-spacing:.018em;
+}
+
+html[data-font-theme="arcade"] .sheet-title input{
+  font-size:20px!important;
+  line-height:1.5!important;
+}
+
+html[data-font-theme="arcade"] .brand,
+html[data-font-theme="arcade"] .panel-head h2,
+html[data-font-theme="arcade"] .modal-head b,
+html[data-font-theme="arcade"] .modal-head h2,
+html[data-font-theme="arcade"] .gimmick-section-title{
+  font-size:13px!important;
+  line-height:1.62!important;
+}
+
+html[data-font-theme="arcade"] .btn,
+html[data-font-theme="arcade"] .select-like,
+html[data-font-theme="arcade"] .input,
+html[data-font-theme="arcade"] select{
+  font-size:13px!important;
+}
+
+html[data-font-theme="arcade"] textarea{
+  font-size:13px!important;
+  line-height:1.62!important;
+}
+
+html[data-font-theme="arcade"] .eyebrow,
+html[data-font-theme="arcade"] label{
+  font-size:max(10px, .76em);
+  line-height:1.55;
+}
+
+html[data-font-theme="arcade"] small{
+  line-height:1.55;
+}
+
+/* Amostra do seletor precisa representar o tamanho real do tema. */
+html[data-font-theme="arcade"] .font-theme-option[data-font-theme="arcade"] .font-theme-sample,
+.font-theme-option[data-font-theme="arcade"] .font-theme-sample{
+  font-size:13px!important;
+  line-height:1.5!important;
+  -webkit-text-stroke:.2px currentColor;
+}
+
+/* Barra superior: antes estes dois textos tinham sido comprimidos para 9/8 px. */
+html[data-font-theme="arcade"] .top-personalize-copy b{
+  font-size:11px!important;
+  font-weight:700!important;
+  line-height:1.25!important;
+  -webkit-text-stroke:.2px currentColor;
+}
+html[data-font-theme="arcade"] .top-personalize-copy small{
+  font-size:10px!important;
+  font-weight:700!important;
+  line-height:1.25!important;
+}
+
+/* Mantém o ganho de legibilidade sem estourar telas pequenas. */
+@media(max-width:600px){
+  html[data-font-theme="arcade"] body{font-size:14px}
+  html[data-font-theme="arcade"] .sheet-title input{font-size:18px!important}
+  html[data-font-theme="arcade"] .brand,
+  html[data-font-theme="arcade"] .panel-head h2,
+  html[data-font-theme="arcade"] .modal-head b,
+  html[data-font-theme="arcade"] .modal-head h2,
+  html[data-font-theme="arcade"] .gimmick-section-title{font-size:12px!important}
+  html[data-font-theme="arcade"] .btn,
+  html[data-font-theme="arcade"] .select-like,
+  html[data-font-theme="arcade"] .input,
+  html[data-font-theme="arcade"] select,
+  html[data-font-theme="arcade"] textarea{font-size:12px!important}
+}
