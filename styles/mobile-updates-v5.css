@@ -1,5 +1,47 @@
 /* Melhorias da ficha PC adaptadas à navegação e ao toque da edição Mobile. */
 @media (max-width: 900px) {
+  /* ID e ST ocupam uma coluna real, sem cobrir título ou subtítulo. */
+  #page1 .section-panel:is(.section-identity, .section-stats) > .panel-head {
+    display: grid !important;
+    grid-template-columns: 32px minmax(0, 1fr) !important;
+    gap: 4px 10px !important;
+    align-items: center !important;
+    align-content: center !important;
+    min-height: 64px !important;
+    padding: 12px !important;
+  }
+  #page1 .section-panel:is(.section-identity, .section-stats) > .panel-head::before {
+    position: static !important;
+    inset: auto !important;
+    transform: none !important;
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    width: 32px !important;
+    height: 32px !important;
+    margin: 0 !important;
+    font-size: 8px !important;
+    line-height: 1 !important;
+    pointer-events: none;
+  }
+  #page1 .section-panel:is(.section-identity, .section-stats) > .panel-head > h2 {
+    grid-column: 2;
+    grid-row: 1;
+    min-width: 0;
+    margin: 0 !important;
+    font-size: clamp(11px, 3.2vw, 13px) !important;
+    line-height: 1.4 !important;
+    letter-spacing: .035em !important;
+    overflow-wrap: anywhere;
+  }
+  #page1 .section-panel:is(.section-identity, .section-stats) > .panel-head > .eyebrow {
+    grid-column: 2;
+    grid-row: 2;
+    min-width: 0;
+    margin: 0 !important;
+    font-size: 9px !important;
+    line-height: 1.4 !important;
+    letter-spacing: .06em !important;
+  }
   #hhLocalSaveButton {
     bottom: calc(var(--mobile-nav-height, 70px) + env(safe-area-inset-bottom, 0px) + 9px);
     right: 10px;
